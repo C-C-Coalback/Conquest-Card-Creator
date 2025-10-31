@@ -85,6 +85,17 @@ command_dictionary = {
             "Extra": (133, 171),
             "End": (112, 171)
         }
+    },
+    "Chaos": {
+        "First": (0, 1181),
+        "Extra": (106, 1180),
+        "End": (106, 1180),
+        "Spacing": 133,
+        "Resize": {
+            "First": (166, 171),
+            "Extra": (133, 171),
+            "End": (144, 171)
+        }
     }
 }
 
