@@ -98,7 +98,7 @@ command_dictionary = {
         }
     },
     "Dark Eldar": {
-        "First": (0, 1181),
+        "First": (0, 1180),
         "Extra": (136, 1180),
         "End": (136, 1180),
         "Spacing": 133,
@@ -109,18 +109,18 @@ command_dictionary = {
         }
     },
     "Orks": {
-        "First": (0, 1181),
-        "Extra": (106, 1180),
-        "End": (106, 1180),
+        "First": (0, 1210),
+        "Extra": (124, 1210),
+        "End": (124, 1210),
         "Spacing": 133,
         "Resize": {
-            "First": (166, 171),
+            "First": (124, 171),
             "Extra": (133, 171),
-            "End": (144, 171)
+            "End": (177, 171)
         }
     },
     "Tau": {
-        "First": (0, 1181),
+        "First": (0, 1180),
         "Extra": (106, 1180),
         "End": (106, 1180),
         "Spacing": 133,
@@ -131,7 +131,7 @@ command_dictionary = {
         }
     },
     "Tyranids": {
-        "First": (0, 1181),
+        "First": (0, 1180),
         "Extra": (106, 1180),
         "End": (106, 1180),
         "Spacing": 133,
@@ -142,7 +142,7 @@ command_dictionary = {
         }
     },
     "Necrons": {
-        "First": (0, 1181),
+        "First": (0, 1180),
         "Extra": (144, 1180),
         "End": (60, 1180),
         "Spacing": 168,
@@ -153,7 +153,7 @@ command_dictionary = {
         }
     },
     "Neutral": {
-        "First": (0, 1181),
+        "First": (0, 1180),
         "Extra": (106, 1180),
         "End": (106, 1180),
         "Spacing": 133,
