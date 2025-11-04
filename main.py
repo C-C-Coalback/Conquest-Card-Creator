@@ -338,7 +338,7 @@ def process_submitted_card():
         add_text_to_image(
             resulting_img, health, get_position_text(card_type, "Health"), font_size=168, color=(0, 0, 0)
         )
-    if card_type == "Army":
+    if card_type == "Army" and faction != "Neutral":
         command = command_area.get("1.0", "end-1c")
         try:
             add_command_icons(command, first_command_src, extra_command_src, command_end_src, resulting_img, faction)
@@ -355,7 +355,7 @@ def process_submitted_card():
         )
     if card_type in ["Army", "Support", "Event", "Attachment"]:
         loyalty = opt_loyalty.get()
-        if loyalty == "Loyal" or loyalty == "Signature":
+        if (loyalty == "Loyal" or loyalty == "Signature") and faction != "Neutral":
             loyalty_src = "card_srcs/" + faction + "/Loyalty/" + loyalty + ".png"
             loyalty_img = Image.open(loyalty_src, 'r').convert("RGBA")
             loyalty_img = loyalty_img.resize((127, 84))
