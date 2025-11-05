@@ -20,8 +20,8 @@ def get_pil_text_size(text, font_size, font_name):
     return size
 
 
-def get_position_text(card_type, text_type):
-    return card_types_dictionary_positions[card_type][text_type]
+def get_position_text(card_type, faction, text_type):
+    return card_types_dictionary_positions[card_type][faction][text_type]
 
 
 def get_resize_command(faction, command_type):
@@ -71,25 +71,30 @@ def add_name_to_card(card_type, name, resulting_img):
         d = ImageDraw.Draw(txt)
         d.text((0, 0), name, font=f, fill="black")
         w = txt.rotate(90, expand=1)
-        x_offset = int((0.5 * get_pil_text_size(name, 84, "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]) - 100)
+        x_offset = int((0.5 * get_pil_text_size(name, 84,
+                                                "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]) - 100)
         resulting_img.paste(w, (110, x_offset), w)
     elif card_type == "Attachment":
-        x_offset = int(690 - (0.5 * get_pil_text_size(name, 84, "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
+        x_offset = int(690 - (0.5 * get_pil_text_size(name, 84,
+                                                      "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
         add_text_to_image(
             resulting_img, name, (x_offset, 1220), font_src="fonts/billboard-college-cufonfonts/Billboard-College.ttf"
         )
     elif card_type == "Warlord":
-        x_offset = int(750 - (0.5 * get_pil_text_size(name, 84, "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
+        x_offset = int(750 - (0.5 * get_pil_text_size(name, 84,
+                                                      "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
         add_text_to_image(
             resulting_img, name, (x_offset, 94), font_src="fonts/billboard-college-cufonfonts/Billboard-College.ttf"
         )
     elif card_type == "Event":
-        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84, "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
+        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84,
+                                                      "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
         add_text_to_image(
             resulting_img, name, (x_offset, 78), font_src="fonts/billboard-college-cufonfonts/Billboard-College.ttf"
         )
     else:
-        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84, "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
+        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84,
+                                                      "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
         add_text_to_image(
             resulting_img, name, (x_offset, 108), font_src="fonts/billboard-college-cufonfonts/Billboard-College.ttf"
         )
@@ -164,7 +169,7 @@ def process_submitted_card():
         card_art_img = card_art_img.resize((1440, 2052))
     else:
         card_art_img = card_art_img.resize((1440, 1500))
-    resulting_img.paste(card_art_img, get_position_text(card_type, "Art"))
+    resulting_img.paste(card_art_img, get_position_text(card_type, faction, "Art"))
     text_resize_amount = (1440, 2052)
     required_line_length = 1240
     if card_type == "Army":
@@ -173,25 +178,26 @@ def process_submitted_card():
         required_line_length = 720
     text_img = Image.open(text_src, 'r').convert("RGBA")
     text_img = text_img.resize(text_resize_amount)
-    resulting_img.paste(text_img, get_position_text(card_type, "Text Box"), text_img)
+    resulting_img.paste(text_img, get_position_text(card_type, faction, "Text Box"), text_img)
     expansion_icon_img = Image.open(expansion_icon_src, 'r').convert("RGBA").resize((55, 55))
-    resulting_img.paste(expansion_icon_img, get_position_text(card_type, "Expansion Icon"), expansion_icon_img)
+    resulting_img.paste(expansion_icon_img, get_position_text(card_type, faction, "Expansion Icon"), expansion_icon_img)
     add_name_to_card(card_type, name, resulting_img)
     add_traits_to_card(card_type, traits, resulting_img)
-    add_text_to_image(resulting_img, text, get_position_text(card_type, "Text"), line_length=required_line_length)
+    add_text_to_image(resulting_img, text, get_position_text(card_type, faction, "Text"),
+                      line_length=required_line_length)
     if card_type in ["Army", "Support", "Event", "Attachment"]:
         cost = cost_area.get("1.0", "end-1c")
         add_text_to_image(
-            resulting_img, cost, get_position_text(card_type, "Cost"), font_size=168, color=(0, 0, 0)
+            resulting_img, cost, get_position_text(card_type, faction, "Cost"), font_size=168, color=(0, 0, 0)
         )
     if card_type in ["Army", "Warlord", "Synapse"]:
         attack = attack_area.get("1.0", "end-1c")
         health = health_area.get("1.0", "end-1c")
         add_text_to_image(
-            resulting_img, attack, get_position_text(card_type, "Attack"), font_size=168, color=(255, 255, 255)
+            resulting_img, attack, get_position_text(card_type, faction, "Attack"), font_size=168, color=(255, 255, 255)
         )
         add_text_to_image(
-            resulting_img, health, get_position_text(card_type, "Health"), font_size=168, color=(0, 0, 0)
+            resulting_img, health, get_position_text(card_type, faction, "Health"), font_size=168, color=(0, 0, 0)
         )
     if card_type == "Army" and faction != "Neutral":
         command = command_area.get("1.0", "end-1c")
@@ -203,10 +209,12 @@ def process_submitted_card():
         starting_cards = starting_cards_area.get("1.0", "end-1c")
         starting_resources = starting_resources_area.get("1.0", "end-1c")
         add_text_to_image(
-            resulting_img, starting_cards, get_position_text(card_type, "Cards"), font_size=168, color=(0, 0, 0)
+            resulting_img, starting_cards, get_position_text(card_type, faction, "Cards"),
+            font_size=168, color=(0, 0, 0)
         )
         add_text_to_image(
-            resulting_img, starting_resources, get_position_text(card_type, "Resources"), font_size=168, color=(243, 139, 18)
+            resulting_img, starting_resources, get_position_text(card_type, faction, "Resources"),
+            font_size=168, color=(243, 139, 18)
         )
     if card_type in ["Army", "Support", "Event", "Attachment"]:
         loyalty = opt_loyalty.get()
@@ -225,7 +233,7 @@ def process_submitted_card():
             shield_src = "card_srcs/" + faction + "/Shield/Shield_Icon.png"
             shield_icon_img = Image.open(shield_src, 'r').convert("RGBA")
             shield_icon_img = shield_icon_img.resize((221, 101))
-            starting_position_shield = get_position_text(card_type, "Shield")
+            starting_position_shield = get_position_text(card_type, faction, "Shield")
             for i in range(shield_value):
                 resulting_img.paste(shield_icon_img, starting_position_shield, shield_icon_img)
                 starting_position_shield = (starting_position_shield[0], starting_position_shield[1] + 100)
@@ -374,7 +382,8 @@ command_area = tk.Text(master, height=1, width=2)
 starting_amounts_label = tk.Label(master, text="Starting amounts (Cards/Resources):", font=("Arial", 12))
 starting_cards_area = tk.Text(master, height=1, width=2)
 starting_resources_area = tk.Text(master, height=1, width=2)
-submit_card = tk.Button(master, text="Submit Card", command=process_submitted_card, font=("Arial", 12), background="green")
+submit_card = tk.Button(master, text="Submit Card", command=process_submitted_card, font=("Arial", 12),
+                        background="green")
 
 
 card_image = ImageTk.PhotoImage(Image.open("card_srcs/Space Marines/Army/Text.png").resize((240, 342)))
