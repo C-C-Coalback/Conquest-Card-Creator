@@ -514,5 +514,18 @@ card_types_dictionary_positions = {
         "Cards": (600, 1825),
         "Resources": (780, 1825),
         "Expansion Icon": (1358, 1910)
+    },
+    "Planet": {
+        "Planet": {
+            "Art": (0, 0),
+            "Text Box": (0, 0),
+            "Card": (100, 100),
+            "Resource": (135, 1765),
+            "First Icon": (1155, 55),
+            "Icon Spacing": 278,
+            "First Join": (1213, 33),
+            "Join Spacing": 278,
+            "Expansion Icon": (10, 1724)
+        }
     }
 }
