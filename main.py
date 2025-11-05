@@ -169,8 +169,10 @@ def process_submitted_card():
     global panel
     name = name_area.get("1.0", "end-1c")
     card_type = card_type_label.cget("text")
-    faction = faction_label.cget("text")
     text = text_box_area.get("1.0", "end-1c")
+    if card_type == "Planet":
+        pass
+    faction = faction_label.cget("text")
     traits = traits_area.get("1.0", "end-1c")
     card_type = card_type.replace("Card Type: ", "")
     faction = faction.replace("Faction: ", "")
@@ -326,7 +328,8 @@ def process_submitted_type_and_faction():
                 starting_resources_area.place(x=base_x + 290, y=current_y)
                 current_y += increment_y
         if card_type in ["Attachment", "Event"]:
-            shield_dropdown.place(x=base_x, y=current_y)
+            shield_label.place(x=base_x, y=current_y)
+            shield_dropdown.place(x=base_x + 60, y=current_y)
             current_y += increment_y
         submit_card.place(x=base_x, y=current_y)
         current_y += increment_y
@@ -383,6 +386,7 @@ loyalty_dropdown = tk.OptionMenu(master, opt_loyalty, *loyalties)
 loyalty_label = tk.Label(master, text="Loyalty: ", font=("Arial", 12))
 opt_shields = tk.StringVar(value="0")
 shield_dropdown = tk.OptionMenu(master, opt_shields, *shields)
+shield_label = tk.Label(master, text="Shields: ", font=("Arial", 12))
 opt_bloodied = tk.StringVar(value="Hale")
 bloodied_dropdown = tk.OptionMenu(master, opt_bloodied, *["Hale", "Bloodied"])
 name_label = tk.Label(master, text="Name:", font=("Arial", 12))
