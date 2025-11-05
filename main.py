@@ -16,14 +16,16 @@ card_types_dictionary_positions = {
         "Cost": (110, 60),
         "Attack": (95, 1415),
         "Health": (95, 1685),
-        "Loyalty": (1313, 950)
+        "Loyalty": (1313, 950),
+        "Expansion Icon": (1350, 1908)
     },
     "Support": {
         "Text Box": (0, 0),
         "Art": (0, 0),
         "Text": (64, 1466),
         "Cost": (130, 60),
-        "Loyalty": (1313, 950)
+        "Loyalty": (1313, 950),
+        "Expansion Icon": (1358, 1910)
     },
     "Attachment": {
         "Text Box": (0, 0),
@@ -31,7 +33,8 @@ card_types_dictionary_positions = {
         "Text": (64, 1466),
         "Cost": (140, 94),
         "Loyalty": (1313, 825),
-        "Shield": (0, 350)
+        "Shield": (0, 350),
+        "Expansion Icon": (1358, 1915)
     },
     "Event": {
         "Text Box": (0, 0),
@@ -39,7 +42,8 @@ card_types_dictionary_positions = {
         "Text": (64, 1466),
         "Cost": (114, 56),
         "Loyalty": (1313, 950),
-        "Shield": (0, 350)
+        "Shield": (0, 350),
+        "Expansion Icon": (1358, 1905)
     },
     "Warlord": {
         "Text Box": (0, 0),
@@ -48,7 +52,8 @@ card_types_dictionary_positions = {
         "Attack": (105, 1515),
         "Health": (105, 1785),
         "Cards": (600, 1825),
-        "Resources": (780, 1825)
+        "Resources": (780, 1825),
+        "Expansion Icon": (1358, 1910)
     }
 }
 # (1440, 2052) card size
@@ -353,6 +358,7 @@ def process_submitted_card():
     if not os.path.exists(text_src):
         return False
     card_art_src = "current_card_info/src_img/img.png"
+    expansion_icon_src = "current_card_info/expansion_icon/expansion_icon.png"
     output_dir = "current_card_info/resulting_image.png"
     first_command_src = "card_srcs/" + faction + "/" + card_type + "/First_Command.png"
     command_end_src = "card_srcs/" + faction + "/" + card_type + "/Command_End.png"
@@ -373,6 +379,8 @@ def process_submitted_card():
     text_img = Image.open(text_src, 'r').convert("RGBA")
     text_img = text_img.resize(text_resize_amount)
     resulting_img.paste(text_img, get_position_text(card_type, "Text Box"), text_img)
+    expansion_icon_img = Image.open(expansion_icon_src, 'r').convert("RGBA").resize((55, 55))
+    resulting_img.paste(expansion_icon_img, get_position_text(card_type, "Expansion Icon"), expansion_icon_img)
     add_name_to_card(card_type, name, resulting_img)
     add_traits_to_card(card_type, traits, resulting_img)
     add_text_to_image(resulting_img, text, get_position_text(card_type, "Text"), line_length=required_line_length)
