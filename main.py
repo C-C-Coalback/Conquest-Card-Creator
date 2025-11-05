@@ -120,25 +120,25 @@ command_dictionary = {
         }
     },
     "Tau": {
-        "First": (0, 1180),
-        "Extra": (106, 1180),
-        "End": (106, 1180),
-        "Spacing": 133,
+        "First": (0, 1190),
+        "Extra": (116, 1190),
+        "End": (116, 1190),
+        "Spacing": 134,
         "Resize": {
-            "First": (166, 171),
-            "Extra": (133, 171),
-            "End": (144, 171)
+            "First": (181, 171),
+            "Extra": (134, 171),
+            "End": (104, 171)
         }
     },
     "Tyranids": {
         "First": (0, 1180),
-        "Extra": (106, 1180),
-        "End": (106, 1180),
-        "Spacing": 133,
+        "Extra": (155, 1180),
+        "End": (155, 1180),
+        "Spacing": 169,
         "Resize": {
-            "First": (166, 171),
-            "Extra": (133, 171),
-            "End": (144, 171)
+            "First": (156, 171),
+            "Extra": (169, 171),
+            "End": (85, 171)
         }
     },
     "Necrons": {
@@ -166,6 +166,54 @@ command_dictionary = {
 }
 
 
+loyalty_dictionary = {
+    "Army": {
+        "Space Marines": (1313, 950),
+        "Astra Militarum": (1313, 950),
+        "Orks": (1313, 950),
+        "Chaos": (1313, 950),
+        "Dark Eldar": (1313, 950),
+        "Eldar": (1313, 950),
+        "Tau": (1293, 950),
+        "Tyranids": (1313, 950),
+        "Necrons": (1313, 950),
+    },
+    "Event": {
+        "Space Marines": (1313, 950),
+        "Astra Militarum": (1313, 950),
+        "Orks": (1313, 950),
+        "Chaos": (1313, 950),
+        "Dark Eldar": (1313, 950),
+        "Eldar": (1313, 950),
+        "Tau": (1293, 950),
+        "Tyranids": (1313, 950),
+        "Necrons": (1313, 950),
+    },
+    "Support": {
+        "Space Marines": (1313, 950),
+        "Astra Militarum": (1313, 950),
+        "Orks": (1313, 950),
+        "Chaos": (1313, 950),
+        "Dark Eldar": (1313, 950),
+        "Eldar": (1313, 950),
+        "Tau": (1293, 950),
+        "Tyranids": (1313, 950),
+        "Necrons": (1313, 950),
+    },
+    "Attachment": {
+        "Space Marines": (1313, 825),
+        "Astra Militarum": (1313, 825),
+        "Orks": (1313, 825),
+        "Chaos": (1313, 825),
+        "Dark Eldar": (1313, 825),
+        "Eldar": (1313, 825),
+        "Tau": (1293, 825),
+        "Tyranids": (1313, 825),
+        "Necrons": (1313, 825),
+    }
+}
+
+
 def get_pil_text_size(text, font_size, font_name):
     font = ImageFont.truetype(font_name, font_size)
     size = font.getbbox(text)
@@ -182,6 +230,10 @@ def get_resize_command(faction, command_type):
 
 def get_position_command(faction, command_type):
     return command_dictionary[faction][command_type]
+
+
+def get_position_loyalty(faction, card_type):
+    return loyalty_dictionary[card_type][faction]
 
 
 def get_wrapped_text(text: str, font: ImageFont.ImageFont, line_length: int):
@@ -358,8 +410,11 @@ def process_submitted_card():
         if (loyalty == "Loyal" or loyalty == "Signature") and faction != "Neutral":
             loyalty_src = "card_srcs/" + faction + "/Loyalty/" + loyalty + ".png"
             loyalty_img = Image.open(loyalty_src, 'r').convert("RGBA")
-            loyalty_img = loyalty_img.resize((127, 84))
-            resulting_img.paste(loyalty_img, get_position_text(card_type, "Loyalty"), loyalty_img)
+            resize_loyalty = (127, 84)
+            if faction == "Tau":
+                resize_loyalty = (147, 184)
+            loyalty_img = loyalty_img.resize(resize_loyalty)
+            resulting_img.paste(loyalty_img, get_position_loyalty(faction, card_type), loyalty_img)
     if card_type in ["Event", "Attachment"]:
         shield_value = opt_shields.get()
         shield_value = int(shield_value)
