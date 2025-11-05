@@ -184,7 +184,7 @@ def process_submitted_card():
         add_text_to_image(
             resulting_img, cost, get_position_text(card_type, "Cost"), font_size=168, color=(0, 0, 0)
         )
-    if card_type in ["Army", "Warlord"]:
+    if card_type in ["Army", "Warlord", "Synapse"]:
         attack = attack_area.get("1.0", "end-1c")
         health = health_area.get("1.0", "end-1c")
         add_text_to_image(

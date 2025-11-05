@@ -9,6 +9,16 @@ card_types_dictionary_positions = {
         "Loyalty": (1313, 950),
         "Expansion Icon": (1350, 1908)
     },
+    "Synapse": {
+        "Text Box": (0, 0),
+        "Art": (0, 0),
+        "Text": (264, 1416),
+        "Cost": (110, 60),
+        "Attack": (95, 1415),
+        "Health": (95, 1685),
+        "Loyalty": (1313, 950),
+        "Expansion Icon": (1350, 1908)
+    },
     "Support": {
         "Text Box": (0, 0),
         "Art": (0, 0),
