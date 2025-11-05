@@ -461,7 +461,7 @@ def process_submitted_type_and_faction():
         current_y += increment_y
         faction_label.place(x=base_x, y=current_y)
         current_y += increment_y
-        if faction != "Planet":
+        if faction != "Planet" and card_type != "Warlord":
             loyalty_label.place(x=base_x, y=current_y)
             loyalty_dropdown.place(x=base_x + 80, y=current_y)
             current_y += increment_y
