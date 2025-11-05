@@ -446,38 +446,59 @@ def process_submitted_type_and_faction():
     else:
         welcome_label.pack_forget()
         welcome_label.config(text="Select card attributes")
-        welcome_label.pack()
-        name_label.pack()
-        name_area.pack()
+        current_y = 0
+        increment_y = 30
+        base_x = 200
+        welcome_label.place(x=450, y=current_y)
+        current_y += increment_y
+        name_label.place(x=base_x, y=current_y)
+        current_y += increment_y
+        name_area.place(x=base_x, y=current_y)
+        current_y += increment_y
         card_type_label.config(text=("Card Type: " + card_type))
         faction_label.config(text=("Faction: " + faction))
-        card_type_label.pack()
-        faction_label.pack()
+        card_type_label.place(x=base_x, y=current_y)
+        current_y += increment_y
+        faction_label.place(x=base_x, y=current_y)
+        current_y += increment_y
         if faction != "Planet":
-            loyalty_dropdown.pack()
+            loyalty_label.place(x=base_x, y=current_y)
+            loyalty_dropdown.place(x=base_x + 80, y=current_y)
+            current_y += increment_y
         if card_type not in ["Warlord", "Synapse", "Planet"]:
-            cost_label.pack()
-            cost_area.pack()
-        text_box_label.pack()
-        text_box_area.pack()
+            cost_label.place(x=base_x, y=current_y)
+            cost_area.place(x=base_x + 50, y=current_y)
+            current_y += increment_y
+        text_box_label.place(x=base_x, y=current_y)
+        current_y += increment_y
+        text_box_area.place(x=base_x, y=current_y)
+        current_y += increment_y + 150
         if card_type != "Planet":
-            traits_label.pack()
-            traits_area.pack()
+            traits_label.place(x=base_x, y=current_y)
+            current_y += increment_y
+            traits_area.place(x=base_x, y=current_y)
+            current_y += increment_y
         if card_type in ["Army", "Warlord", "Synapse"]:
-            attack_label.pack()
-            attack_area.pack()
-            health_label.pack()
-            health_area.pack()
+            attack_label.place(x=base_x, y=current_y)
+            attack_area.place(x=base_x + 60, y=current_y)
+            current_y += increment_y
+            health_label.place(x=base_x, y=current_y)
+            health_area.place(x=base_x + 60, y=current_y)
+            current_y += increment_y
             if card_type != "Warlord":
-                command_label.pack()
-                command_area.pack()
+                command_label.place(x=base_x, y=current_y)
+                command_area.place(x=base_x + 90, y=current_y)
+                current_y += increment_y
             else:
-                starting_amounts_label.pack()
-                starting_cards_area.pack()
-                starting_resources_area.pack()
+                starting_amounts_label.place(x=base_x, y=current_y)
+                starting_cards_area.place(x=base_x + 270, y=current_y)
+                starting_resources_area.place(x=base_x + 290, y=current_y)
+                current_y += increment_y
         if card_type in ["Attachment", "Event"]:
-            shield_dropdown.pack()
-        submit_card.pack()
+            shield_dropdown.place(x=base_x, y=current_y)
+            current_y += increment_y
+        submit_card.place(x=base_x, y=current_y)
+        current_y += increment_y
         card_types_dropdown.pack_forget()
         factions_dropdown.pack_forget()
         submit_type_faction_button.pack_forget()
@@ -528,6 +549,7 @@ card_type_label = tk.Label(master, text="Card Type: ", font=("Arial", 12))
 faction_label = tk.Label(master, text="Faction: ", font=("Arial", 12))
 opt_loyalty = tk.StringVar(value="Common")
 loyalty_dropdown = tk.OptionMenu(master, opt_loyalty, *loyalties)
+loyalty_label = tk.Label(master, text="Loyalty: ", font=("Arial", 12))
 opt_shields = tk.StringVar(value="0")
 shield_dropdown = tk.OptionMenu(master, opt_shields, *shields)
 opt_bloodied = tk.StringVar(value="Hale")
