@@ -63,7 +63,8 @@ def add_text_to_image(input_image, text, coords, font_src="fonts/Markazi_Text/Ma
     text = get_wrapped_text_nlfix(text, text_font, line_length)
     og_split_text = text.split(sep="\n")
     replacement_icons = ["[SPACE MARINES]", "[ASTRA MILITARUM]", "[ORKS]", "[CHAOS]", "[DARK ELDAR]",
-                         "[ELDAR]", "[TAU]", "[TYRANIDS]", "[NECRONS]"]
+                         "[ELDAR]", "[TAU]", "[TYRANIDS]", "[NECRONS]", "[RESOURCE]",
+                         "[TECHNOLOGY]", "[MATERIAL]", "[STRONGPOINT]"]
     for icon in replacement_icons:
         for i in range(len(og_split_text)):
             if icon in og_split_text[i]:

@@ -62,4 +62,32 @@ icons_dict = {
         "extra_vertical_line_offset": -5,
         "resize": (80, 68)
     },
+    "[RESOURCE]": {
+        "src": "icons/Resource_Icon.png",
+        "spacing": "      ",
+        "initial_extra_offset": (0, 13),
+        "extra_vertical_line_offset": -5,
+        "resize": (80, 68)
+    },
+    "[MATERIAL]": {
+        "src": "icons/Material_Icon.png",
+        "spacing": "      ",
+        "initial_extra_offset": (0, 13),
+        "extra_vertical_line_offset": -5,
+        "resize": (80, 68)
+    },
+    "[TECHNOLOGY]": {
+        "src": "icons/Technology_Icon.png",
+        "spacing": "      ",
+        "initial_extra_offset": (0, 13),
+        "extra_vertical_line_offset": -5,
+        "resize": (80, 68)
+    },
+    "[STRONGPOINT]": {
+        "src": "icons/Strongpoint_Icon.png",
+        "spacing": "      ",
+        "initial_extra_offset": (0, 13),
+        "extra_vertical_line_offset": -5,
+        "resize": (80, 68)
+    }
 }
