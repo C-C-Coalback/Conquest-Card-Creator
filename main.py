@@ -94,9 +94,6 @@ def add_text_to_image(input_image, text, coords, font_src="fonts/Markazi_Text/Ma
                 d_bold.text((0, 0), special_text_dict[item]["text"], font=f_bold, fill="black")
                 input_image.paste(txt_bold, (x_pos_icon, y_pos_icon), txt_bold)
         text = text.replace(item, special_text_dict[item]["spacing"])
-    """
-    \iUnstoppable - The first time this round this unit is assigned damage, prevent 1 of that damage and ready this unit.\i[ACTION:] ready this unit.
-    """
     split_text = text.split(sep="\n")
     italics_active = False
     current_coords = coords
@@ -324,10 +321,14 @@ def process_submitted_planet_card(name, card_type, text, cards_value, resources_
     text_src = "card_srcs/" + card_type + "/Text/Text.png"
     if not os.path.exists(text_src):
         return False
-    card_art_src = "current_card_info/src_img/img.png"
+    card_art_src = "current_card_info/src_img/"
     expansion_icon_src = "current_card_info/expansion_icon/expansion_icon.png"
     resulting_img = Image.new("RGBA", (1440, 2052))
-    card_art_img = Image.open(card_art_src, 'r').convert("RGBA")
+    dirs_art = os.listdir(card_art_src)
+    if not dirs_art:
+        return False
+    random.shuffle(dirs_art)
+    card_art_img = Image.open(card_art_src + dirs_art[0], 'r').convert("RGBA")
     card_art_img = card_art_img.resize((1440, 2052))
     resulting_img.paste(card_art_img, get_position_text(card_type, "Planet", "Art"))
     text_resize_amount = (1440, 2052)
@@ -396,8 +397,6 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
                            loyalty="Common", shield_value="0"):
-    global card_image
-    global panel
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
     if not os.path.exists(text_src):
         return False
