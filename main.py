@@ -79,7 +79,6 @@ def add_text_to_image(input_image, text, coords, font_src="fonts/Markazi_Text/Ma
                 text_icon_img = Image.open(icons_dict[icon]["src"], 'r').convert("RGBA")
                 text_icon_img = text_icon_img.resize(required_size)
                 input_image.paste(text_icon_img, (x_pos_icon, y_pos_icon), text_icon_img)
-                """A non-[TAU] Unit"""
         text = text.replace(icon, icons_dict[icon]["spacing"])
     drawn_image.text(coords, text, fill=color, font=text_font)
     return input_image
@@ -89,6 +88,28 @@ def add_text_to_planet_image(input_image, text, font_src="fonts/Markazi_Text/Mar
                              font_size=84, line_length=1080):
     text_font = ImageFont.truetype(font_src, font_size)
     text = get_wrapped_text_nlfix(text, text_font, line_length)
+    og_split_text = text.split(sep="\n")
+    replacement_icons = ["[SPACE MARINES]", "[ASTRA MILITARUM]", "[ORKS]", "[CHAOS]", "[DARK ELDAR]",
+                         "[ELDAR]", "[TAU]", "[TYRANIDS]", "[NECRONS]", "[RESOURCE]",
+                         "[TECHNOLOGY]", "[MATERIAL]", "[STRONGPOINT]"]
+    coords = (30, 400)
+    for icon in replacement_icons:
+        for i in range(len(og_split_text)):
+            if icon in og_split_text[i]:
+                current_x_pos_text = og_split_text[i].find(icon)
+                shortened_text = og_split_text[i][:current_x_pos_text]
+                x_offset = int(text_font.getlength(shortened_text))
+                initial_extra_offset = icons_dict[icon]["initial_extra_offset"]
+                extra_vertical_offset = icons_dict[icon]["extra_vertical_line_offset"]
+                x_pos_icon = coords[0] + 240 + initial_extra_offset[0] - (font_size + extra_vertical_offset) * i
+                y_pos_icon = coords[1] + x_offset + initial_extra_offset[1]
+                required_size = icons_dict[icon]["resize"]
+                text_icon_img = Image.open(icons_dict[icon]["src"], 'r').convert("RGBA")
+                text_icon_img = text_icon_img.resize(required_size)
+                text_icon_img = text_icon_img.rotate(270)
+                input_image.paste(text_icon_img, (x_pos_icon, y_pos_icon), text_icon_img)
+                "A Non-[TAU] Unit."
+        text = text.replace(icon, icons_dict[icon]["spacing"])
     f = ImageFont.truetype(font_src, font_size)
     txt = Image.new('RGBA', (line_length, 330))
     d = ImageDraw.Draw(txt)
