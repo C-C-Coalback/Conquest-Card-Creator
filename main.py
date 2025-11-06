@@ -57,7 +57,8 @@ def clicked():
 
 
 def add_text_to_image(input_image, text, coords, font_src="fonts/Markazi_Text/MarkaziText-VariableFont_wght.ttf",
-                      font_size=84, color=(0, 0, 0), line_length=1080):
+                      font_size=84, color=(0, 0, 0), line_length=1080,
+                      font_bold="fonts/Markazi_Text/static/MarkaziText-Bold.ttf"):
     drawn_image = ImageDraw.Draw(input_image)
     text_font = ImageFont.truetype(font_src, font_size)
     text = get_wrapped_text_nlfix(text, text_font, line_length)
@@ -80,12 +81,28 @@ def add_text_to_image(input_image, text, coords, font_src="fonts/Markazi_Text/Ma
                 text_icon_img = text_icon_img.resize(required_size)
                 input_image.paste(text_icon_img, (x_pos_icon, y_pos_icon), text_icon_img)
         text = text.replace(icon, icons_dict[icon]["spacing"])
+    replaceable_text = ["[ACTION:]", "[REACTION:]", "[INTERRUPT:]"]
+    for item in replaceable_text:
+        for i in range(len(og_split_text)):
+            if item in og_split_text[i]:
+                current_x_pos_text = og_split_text[i].find(item)
+                shortened_text = og_split_text[i][:current_x_pos_text]
+                x_offset = int(text_font.getlength(shortened_text))
+                x_pos_icon = coords[0] + x_offset + icons_dict[item]["initial_extra_offset"][0]
+                y_pos_icon = coords[1] + icons_dict[item]["initial_extra_offset"][1] + (font_size + 0) * i
+                f_bold = ImageFont.truetype(font_bold, font_size)
+                txt_bold = Image.new('RGBA', (line_length, 330))
+                d_bold = ImageDraw.Draw(txt_bold)
+                d_bold.text((0, 0), icons_dict[item]["text"], font=f_bold, fill="black")
+                input_image.paste(txt_bold, (x_pos_icon, y_pos_icon), txt_bold)
+        text = text.replace(item, icons_dict[item]["spacing"])
     drawn_image.text(coords, text, fill=color, font=text_font)
     return input_image
 
 
 def add_text_to_planet_image(input_image, text, font_src="fonts/Markazi_Text/MarkaziText-VariableFont_wght.ttf",
-                             font_size=84, line_length=1080):
+                             font_size=84, line_length=1080,
+                             font_bold="fonts/Markazi_Text/static/MarkaziText-Bold.ttf"):
     text_font = ImageFont.truetype(font_src, font_size)
     text = get_wrapped_text_nlfix(text, text_font, line_length)
     og_split_text = text.split(sep="\n")
@@ -110,6 +127,20 @@ def add_text_to_planet_image(input_image, text, font_src="fonts/Markazi_Text/Mar
                 input_image.paste(text_icon_img, (x_pos_icon, y_pos_icon), text_icon_img)
                 "A Non-[TAU] Unit."
         text = text.replace(icon, icons_dict[icon]["spacing"])
+    for i in range(len(og_split_text)):
+        if "[BATTLE:]" in og_split_text[i]:
+            current_x_pos_text = og_split_text[i].find("[BATTLE:]")
+            shortened_text = og_split_text[i][:current_x_pos_text]
+            x_offset = int(text_font.getlength(shortened_text))
+            x_offset = x_offset + icons_dict["[BATTLE:]"]["initial_extra_offset"][0]
+            y_offset = icons_dict["[BATTLE:]"]["initial_extra_offset"][1] - (font_size + 0) * i
+            f_bold = ImageFont.truetype(font_bold, font_size)
+            txt_bold = Image.new('RGBA', (line_length, 330))
+            d_bold = ImageDraw.Draw(txt_bold)
+            d_bold.text((0, 0), "Battle:", font=f_bold, fill="black")
+            w_bold = txt_bold.rotate(270, expand=1)
+            input_image.paste(w_bold, (y_offset, x_offset), w_bold)
+    text = text.replace("[BATTLE:]", icons_dict["[BATTLE:]"]["spacing"])
     f = ImageFont.truetype(font_src, font_size)
     txt = Image.new('RGBA', (line_length, 330))
     d = ImageDraw.Draw(txt)

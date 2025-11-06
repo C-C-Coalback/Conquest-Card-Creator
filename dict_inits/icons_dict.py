@@ -89,5 +89,25 @@ icons_dict = {
         "initial_extra_offset": (0, 13),
         "extra_vertical_line_offset": -5,
         "resize": (80, 68)
+    },
+    "[BATTLE:]": {
+        "spacing": "             ",
+        "initial_extra_offset": (400, 30),
+        "text": "Battle:"
+    },
+    "[ACTION:]": {
+        "spacing": "               ",
+        "initial_extra_offset": (0, 0),
+        "text": "Action:"
+    },
+    "[REACTION:]": {
+        "spacing": "                    ",
+        "initial_extra_offset": (0, 0),
+        "text": "Reaction: "
+    },
+    "[INTERRUPT:]": {
+        "spacing": "                    ",
+        "initial_extra_offset": (0, 0),
+        "text": "Interrupt:"
     }
 }
