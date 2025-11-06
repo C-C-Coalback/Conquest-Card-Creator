@@ -5,6 +5,7 @@ from dict_inits.command_dict import command_dictionary
 from dict_inits.loyalty_dict import loyalty_dictionary
 from dict_inits.icons_dict import icons_dict, special_text_dict
 import os
+import random
 
 
 card_types = ["Warlord", "Army", "Support", "Event", "Attachment", "Synapse", "Planet"]
@@ -400,13 +401,22 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
     if not os.path.exists(text_src):
         return False
-    card_art_src = "current_card_info/src_img/img.png"
-    expansion_icon_src = "current_card_info/expansion_icon/expansion_icon.png"
+    card_art_src = "current_card_info/src_img/"
+    expansion_icon_dirs = "current_card_info/expansion_icon/"
+    dirs_expansion = os.listdir(expansion_icon_dirs)
+    if not dirs_expansion:
+        return False
+    random.shuffle(dirs_expansion)
+    expansion_icon_src = "current_card_info/expansion_icon/" + dirs_expansion[0]
     first_command_src = "card_srcs/" + faction + "/" + card_type + "/First_Command.png"
     command_end_src = "card_srcs/" + faction + "/" + card_type + "/Command_End.png"
     extra_command_src = "card_srcs/" + faction + "/" + card_type + "/Extra_Command_Icon.png"
     resulting_img = Image.new("RGBA", (1440, 2052))
-    card_art_img = Image.open(card_art_src, 'r').convert("RGBA")
+    dirs_art = os.listdir(card_art_src)
+    if not dirs_art:
+        return False
+    random.shuffle(dirs_art)
+    card_art_img = Image.open(card_art_src + dirs_art[0], 'r').convert("RGBA")
     if card_type == "Warlord":
         card_art_img = card_art_img.resize((1440, 2052))
     else:
