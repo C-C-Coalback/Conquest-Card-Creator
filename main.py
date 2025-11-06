@@ -438,7 +438,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
         add_text_to_image(
             resulting_img, health, get_position_text(card_type, faction, "Health"), font_size=168, color=(0, 0, 0)
         )
-    if card_type in ["Army", "Synapse"] and faction != "Neutral":
+    if card_type in ["Army"] and faction != "Neutral":
         try:
             add_command_icons(command, first_command_src, extra_command_src, command_end_src, resulting_img, faction)
         except ValueError:
