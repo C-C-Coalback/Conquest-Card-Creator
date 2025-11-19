@@ -446,7 +446,8 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                       line_length=required_line_length)
     if card_type in ["Army", "Support", "Event", "Attachment"]:
         add_text_to_image(
-            resulting_img, cost, get_position_text(card_type, faction, "Cost"), font_size=168, color=(0, 0, 0)
+            resulting_img, cost, get_position_text(card_type, faction, "Cost"),
+            font_src="fonts/Jawbreak/BoxTube Labs - Jawbreak Sans.otf", font_size=120, color=(0, 0, 0)
         )
     if card_type in ["Army", "Warlord", "Synapse"]:
         add_text_to_image(
