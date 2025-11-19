@@ -75,8 +75,8 @@ card_types_dictionary_positions = {
             "Art": (0, 0),
             "Text": (264, 1416),
             "Cost": (110, 90),
-            "Attack": (95, 1445),
-            "Health": (95, 1715),
+            "Attack": (95, 1450),
+            "Health": (95, 1720),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1360, 1918)
         },
@@ -115,8 +115,8 @@ card_types_dictionary_positions = {
             "Art": (0, 0),
             "Text": (264, 1416),
             "Cost": (110, 90),
-            "Attack": (95, 1445),
-            "Health": (95, 1715),
+            "Attack": (95, 1455),
+            "Health": (95, 1725),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1360, 1918)
         },
