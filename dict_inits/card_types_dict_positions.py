@@ -38,7 +38,7 @@ card_types_dictionary_positions = {
             "Attack": (95, 1445),
             "Health": (95, 1715),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1350, 1908)
+            "Expansion Icon": (1350, 1903)
         },
         "Dark Eldar": {
             "Text Box": (0, 0),
@@ -48,7 +48,7 @@ card_types_dictionary_positions = {
             "Attack": (95, 1445),
             "Health": (95, 1715),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1350, 1908)
+            "Expansion Icon": (1355, 1913)
         },
         "Eldar": {
             "Text Box": (0, 0),
@@ -58,7 +58,7 @@ card_types_dictionary_positions = {
             "Attack": (95, 1445),
             "Health": (95, 1715),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1350, 1908)
+            "Expansion Icon": (1355, 1908)
         },
         "Tau": {
             "Text Box": (0, 0),
@@ -78,7 +78,7 @@ card_types_dictionary_positions = {
             "Attack": (95, 1445),
             "Health": (95, 1715),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1350, 1908)
+            "Expansion Icon": (1360, 1918)
         },
         "Necrons": {
             "Text Box": (0, 0),
@@ -88,7 +88,7 @@ card_types_dictionary_positions = {
             "Attack": (95, 1445),
             "Health": (95, 1715),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1350, 1908)
+            "Expansion Icon": (1355, 1908)
         },
         "Neutral": {
             "Text Box": (0, 0),
@@ -98,7 +98,7 @@ card_types_dictionary_positions = {
             "Attack": (95, 1445),
             "Health": (95, 1715),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1350, 1908)
+            "Expansion Icon": (1350, 1913)
         },
         "Text Box": (0, 0),
         "Art": (0, 0),
@@ -118,7 +118,7 @@ card_types_dictionary_positions = {
             "Attack": (95, 1445),
             "Health": (95, 1715),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1350, 1908)
+            "Expansion Icon": (1360, 1918)
         },
         "Text Box": (0, 0),
         "Art": (0, 0),
@@ -144,7 +144,7 @@ card_types_dictionary_positions = {
             "Text": (64, 1466),
             "Cost": (130, 60),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1358, 1910)
+            "Expansion Icon": (1358, 1920)
         },
         "Orks": {
             "Text Box": (0, 0),
@@ -152,7 +152,7 @@ card_types_dictionary_positions = {
             "Text": (64, 1466),
             "Cost": (130, 60),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1358, 1910)
+            "Expansion Icon": (1353, 1905)
         },
         "Chaos": {
             "Text Box": (0, 0),
@@ -184,7 +184,7 @@ card_types_dictionary_positions = {
             "Text": (64, 1466),
             "Cost": (130, 60),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1358, 1910)
+            "Expansion Icon": (1353, 1910)
         },
         "Tyranids": {
             "Text Box": (0, 0),
@@ -200,7 +200,7 @@ card_types_dictionary_positions = {
             "Text": (64, 1466),
             "Cost": (130, 60),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1358, 1910)
+            "Expansion Icon": (1363, 1910)
         },
         "Neutral": {
             "Text Box": (0, 0),
@@ -208,7 +208,7 @@ card_types_dictionary_positions = {
             "Text": (64, 1466),
             "Cost": (130, 60),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1358, 1910)
+            "Expansion Icon": (1353, 1910)
         },
         "Text Box": (0, 0),
         "Art": (0, 0),
@@ -234,7 +234,7 @@ card_types_dictionary_positions = {
             "Cost": (140, 94),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1915)
+            "Expansion Icon": (1358, 1905)
         },
         "Orks": {
             "Text Box": (0, 0),
@@ -243,7 +243,7 @@ card_types_dictionary_positions = {
             "Cost": (140, 94),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1915)
+            "Expansion Icon": (1358, 1910)
         },
         "Chaos": {
             "Text Box": (0, 0),
@@ -261,7 +261,7 @@ card_types_dictionary_positions = {
             "Cost": (140, 94),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1915)
+            "Expansion Icon": (1363, 1915)
         },
         "Eldar": {
             "Text Box": (0, 0),
@@ -279,7 +279,7 @@ card_types_dictionary_positions = {
             "Cost": (140, 94),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1915)
+            "Expansion Icon": (1358, 1910)
         },
         "Tyranids": {
             "Text Box": (0, 0),
@@ -297,7 +297,7 @@ card_types_dictionary_positions = {
             "Cost": (140, 94),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1915)
+            "Expansion Icon": (1358, 1913)
         },
         "Neutral": {
             "Text Box": (0, 0),
@@ -306,7 +306,7 @@ card_types_dictionary_positions = {
             "Cost": (140, 94),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1915)
+            "Expansion Icon": (1353, 1920)
         },
         "Text Box": (0, 0),
         "Art": (0, 0),
@@ -333,7 +333,7 @@ card_types_dictionary_positions = {
             "Cost": (114, 56),
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1905)
+            "Expansion Icon": (1363, 1915)
         },
         "Orks": {
             "Text Box": (0, 0),
@@ -342,7 +342,7 @@ card_types_dictionary_positions = {
             "Cost": (114, 56),
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1905)
+            "Expansion Icon": (1353, 1905)
         },
         "Chaos": {
             "Text Box": (0, 0),
@@ -360,7 +360,7 @@ card_types_dictionary_positions = {
             "Cost": (114, 56),
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1905)
+            "Expansion Icon": (1358, 1915)
         },
         "Eldar": {
             "Text Box": (0, 0),
@@ -387,7 +387,7 @@ card_types_dictionary_positions = {
             "Cost": (114, 56),
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1905)
+            "Expansion Icon": (1368, 1915)
         },
         "Necrons": {
             "Text Box": (0, 0),
@@ -405,7 +405,7 @@ card_types_dictionary_positions = {
             "Cost": (114, 56),
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
-            "Expansion Icon": (1358, 1905)
+            "Expansion Icon": (1358, 1910)
         },
         "Text Box": (0, 0),
         "Art": (0, 0),
