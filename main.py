@@ -236,24 +236,32 @@ def add_traits_to_card(card_type, traits, resulting_img):
     return resulting_img
 
 
-def add_command_icons(command, first_command_src, extra_command_src, command_end_src, resulting_img, faction):
+def add_command_icons(command, first_command_src, extra_command_src, command_end_src, resulting_img, faction,
+                      card_type="Army"):
     command = int(command)
     if command > 0:
-        current_x_pos_end_command, y_end_command = get_position_command(faction, "End")
-        first_command_img = Image.open(first_command_src, 'r').convert("RGBA")
-        first_command_img = first_command_img.resize(get_resize_command(faction, "First"))
-        resulting_img.paste(first_command_img, get_position_command(faction, "First"), first_command_img)
-        extra_command_img = Image.open(extra_command_src, 'r').convert("RGBA")
-        extra_command_img = extra_command_img.resize(get_resize_command(faction, "Extra"))
-        current_position_command, y_extra_command = get_position_command(faction, "Extra")
-        spacing = get_position_command(faction, "Spacing")
-        for i in range(command - 1):
-            resulting_img.paste(extra_command_img, (current_position_command, y_extra_command), extra_command_img)
-            current_position_command += spacing
-            current_x_pos_end_command += spacing
-        command_end_img = Image.open(command_end_src, 'r').convert("RGBA")
-        command_end_img = command_end_img.resize(get_resize_command(faction, "End"))
-        resulting_img.paste(command_end_img, (current_x_pos_end_command, y_end_command), command_end_img)
+        if faction != "Tyranids":
+            current_x_pos_end_command, y_end_command = get_position_command(faction, "End")
+            first_command_img = Image.open(first_command_src, 'r').convert("RGBA")
+            first_command_img = first_command_img.resize(get_resize_command(faction, "First"))
+            resulting_img.paste(first_command_img, get_position_command(faction, "First"), first_command_img)
+            extra_command_img = Image.open(extra_command_src, 'r').convert("RGBA")
+            extra_command_img = extra_command_img.resize(get_resize_command(faction, "Extra"))
+            current_position_command, y_extra_command = get_position_command(faction, "Extra")
+            spacing = get_position_command(faction, "Spacing")
+            for i in range(command - 1):
+                resulting_img.paste(extra_command_img, (current_position_command, y_extra_command), extra_command_img)
+                current_position_command += spacing
+                current_x_pos_end_command += spacing
+            command_end_img = Image.open(command_end_src, 'r').convert("RGBA")
+            command_end_img = command_end_img.resize(get_resize_command(faction, "End"))
+            resulting_img.paste(command_end_img, (current_x_pos_end_command, y_end_command), command_end_img)
+        elif 0 < command < 4:
+            str_command = str(command)
+            first_command_src = "card_srcs/" + faction + "/" + card_type + "/" + str(command) + "_Command.png"
+            first_command_img = Image.open(first_command_src, 'r').convert("RGBA")
+            first_command_img = first_command_img.resize(get_resize_command(faction, str_command))
+            resulting_img.paste(first_command_img, get_position_command(faction, "First"), first_command_img)
 
 
 def get_parameters_then_process():
