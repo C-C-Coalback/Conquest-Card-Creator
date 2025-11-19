@@ -442,10 +442,12 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
         )
     if card_type in ["Army", "Warlord", "Synapse"]:
         add_text_to_image(
-            resulting_img, attack, get_position_text(card_type, faction, "Attack"), font_size=168, color=(255, 255, 255)
+            resulting_img, attack, get_position_text(card_type, faction, "Attack"),
+            font_src="fonts/Jawbreak/BoxTube Labs - Jawbreak Sans.otf", font_size=120, color=(255, 255, 255)
         )
         add_text_to_image(
-            resulting_img, health, get_position_text(card_type, faction, "Health"), font_size=168, color=(0, 0, 0)
+            resulting_img, health, get_position_text(card_type, faction, "Health"),
+            font_src="fonts/Jawbreak/BoxTube Labs - Jawbreak Sans.otf", font_size=120, color=(0, 0, 0)
         )
     if card_type in ["Army"] and faction != "Neutral":
         try:
