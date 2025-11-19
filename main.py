@@ -236,8 +236,8 @@ def add_traits_to_card(card_type, traits, resulting_img):
     return resulting_img
 
 
-def add_command_icons(command, first_command_src, extra_command_src, command_end_src, resulting_img, faction,
-                      card_type="Army"):
+def add_command_icons(command, first_command_src, extra_command_src, command_end_src,
+                      resulting_img, faction, card_type):
     command = int(command)
     if command > 0:
         if faction != "Tyranids":
@@ -256,7 +256,7 @@ def add_command_icons(command, first_command_src, extra_command_src, command_end
             command_end_img = Image.open(command_end_src, 'r').convert("RGBA")
             command_end_img = command_end_img.resize(get_resize_command(faction, "End"))
             resulting_img.paste(command_end_img, (current_x_pos_end_command, y_end_command), command_end_img)
-        elif 0 < command < 4:
+        elif (0 < command < 4 and card_type == "Army") or (0 < command < 3 and card_type == "Synapse"):
             str_command = str(command)
             first_command_src = "card_srcs/" + faction + "/" + card_type + "/" + str(command) + "_Command.png"
             first_command_img = Image.open(first_command_src, 'r').convert("RGBA")
@@ -458,9 +458,10 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
             resulting_img, health, get_position_text(card_type, faction, "Health"),
             font_src="fonts/Jawbreak/BoxTube Labs - Jawbreak Sans.otf", font_size=120, color=(0, 0, 0)
         )
-    if card_type in ["Army"] and faction != "Neutral":
+    if card_type in ["Army", "Synapse"] and faction != "Neutral":
         try:
-            add_command_icons(command, first_command_src, extra_command_src, command_end_src, resulting_img, faction)
+            add_command_icons(command, first_command_src, extra_command_src,
+                              command_end_src, resulting_img, faction, card_type)
         except ValueError:
             pass
     if card_type == "Warlord":
