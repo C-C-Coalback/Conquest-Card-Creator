@@ -89,6 +89,13 @@ icons_dict = {
         "initial_extra_offset": (0, 13),
         "extra_vertical_line_offset": -5,
         "resize": (80, 68)
+    },
+    "[FAITH]": {
+        "src": "icons/Faith_Icon.png",
+        "spacing": "      ",
+        "initial_extra_offset": (0, 13),
+        "extra_vertical_line_offset": -5,
+        "resize": (75, 85)
     }
 }
 
@@ -135,10 +142,22 @@ special_text_dict = {
         "text": "Reaction: ",
         "type": "Bold"
     },
+    "[FORCED_REACTION:]": {
+        "spacing": "                                  ",
+        "initial_extra_offset": (0, 0),
+        "text": "Forced Reaction: ",
+        "type": "Bold"
+    },
     "[INTERRUPT:]": {
         "spacing": "                    ",
         "initial_extra_offset": (0, 0),
         "text": "Interrupt:",
+        "type": "Bold"
+    },
+    "[WARGEAR]": {
+        "spacing": "                  ",
+        "initial_extra_offset": (0, 0),
+        "text": "Wargear",
         "type": "Bold"
     },
     "[UNSTOPPABLE]": {
@@ -164,5 +183,11 @@ special_text_dict = {
         "initial_extra_offset": (0, 0),
         "text": "Hive Mind — ",
         "type": "Italics"
+    },
+    "[DARK_ANGELS]": {
+        "spacing": "                         ",
+        "initial_extra_offset": (0, 0),
+        "text": "Dark Angels",
+        "type": "Bold"
     }
 }

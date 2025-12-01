@@ -330,7 +330,7 @@ def get_parameters_then_process():
     if card_type in ["Army", "Synapse"] and faction != "Neutral":
         command = command_area.get("1.0", "end-1c")
     loyalty = "Common"
-    if card_type == "Warlord":
+    if card_type != "Warlord":
         loyalty = opt_loyalty.get()
     starting_cards = "7"
     starting_resources = "7"
