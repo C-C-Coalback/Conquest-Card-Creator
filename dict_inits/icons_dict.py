@@ -189,5 +189,11 @@ special_text_dict = {
         "initial_extra_offset": (0, 0),
         "text": "Dark Angels",
         "type": "Bold"
+    },
+    "[SOLDIER]": {
+        "spacing": "               ",
+        "initial_extra_offset": (0, 0),
+        "text": "Soldier",
+        "type": "Bold"
     }
 }
