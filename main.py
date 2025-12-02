@@ -474,17 +474,17 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     if card_type in ["Army", "Support", "Event", "Attachment"]:
         add_text_to_image(
             resulting_img, cost, get_position_text(card_type, faction, "Cost"),
-            font_src="fonts/Jawbreak/BoxTube Labs - Jawbreak Sans.otf", font_size=120, color=(0, 0, 0),
+            font_src="fonts/numbers/Conquestnumbers-Regular.ttf", font_size=105, color=(0, 0, 0),
             deepstrike=deepstrike
         )
     if card_type in ["Army", "Warlord", "Synapse"]:
         add_text_to_image(
             resulting_img, attack, get_position_text(card_type, faction, "Attack"),
-            font_src="fonts/Jawbreak/BoxTube Labs - Jawbreak Sans.otf", font_size=120, color=(255, 255, 255)
+            font_src="fonts/numbers/Conquestnumbers-Regular.ttf", font_size=105, color=(255, 255, 255)
         )
         add_text_to_image(
             resulting_img, health, get_position_text(card_type, faction, "Health"),
-            font_src="fonts/Jawbreak/BoxTube Labs - Jawbreak Sans.otf", font_size=120, color=(0, 0, 0)
+            font_src="fonts/numbers/Conquestnumbers-Regular.ttf", font_size=105, color=(0, 0, 0)
         )
     if card_type in ["Army", "Synapse"] and faction != "Neutral":
         try:
