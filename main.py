@@ -198,46 +198,42 @@ def add_text_to_planet_image(input_image, text, font_src="fonts/Markazi_Text/Mar
 
 def add_name_to_card(card_type, name, resulting_img):
     if card_type == "Support":
-        f = ImageFont.truetype("fonts/billboard-college-cufonfonts/Billboard-College.ttf", 84)
+        f = ImageFont.truetype("fonts/norwester/norwester.otf", 84)
         txt = Image.new('RGBA', (900, 100))
         d = ImageDraw.Draw(txt)
         d.text((0, 0), name, font=f, fill="black")
         w = txt.rotate(90, expand=1)
         x_offset = int((0.5 * get_pil_text_size(name, 84,
-                                                "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]) - 100)
+                                                "fonts/norwester/norwester.otf")[2]) - 100)
         resulting_img.paste(w, (110, x_offset), w)
     elif card_type == "Planet":
-        f = ImageFont.truetype("fonts/billboard-college-cufonfonts/Billboard-College.ttf", 84)
+        f = ImageFont.truetype("fonts/norwester/norwester.otf", 84)
         txt = Image.new('RGBA', (900, 100))
         d = ImageDraw.Draw(txt)
         d.text((0, 0), name, font=f, fill="black")
         w = txt.rotate(270, expand=1)
-        x_offset = int((-1 * get_pil_text_size(name, 84, "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
+        x_offset = int((-1 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
         x_offset = x_offset + 1900
         resulting_img.paste(w, (1210, x_offset), w)
     elif card_type == "Attachment":
-        x_offset = int(690 - (0.5 * get_pil_text_size(name, 84,
-                                                      "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
+        x_offset = int(690 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 1220), font_src="fonts/billboard-college-cufonfonts/Billboard-College.ttf"
+            resulting_img, name, (x_offset, 1220), font_src="fonts/norwester/norwester.otf"
         )
     elif card_type == "Warlord":
-        x_offset = int(750 - (0.5 * get_pil_text_size(name, 84,
-                                                      "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
+        x_offset = int(750 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 94), font_src="fonts/billboard-college-cufonfonts/Billboard-College.ttf"
+            resulting_img, name, (x_offset, 94), font_src="fonts/norwester/norwester.otf"
         )
     elif card_type == "Event":
-        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84,
-                                                      "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
+        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 78), font_src="fonts/billboard-college-cufonfonts/Billboard-College.ttf"
+            resulting_img, name, (x_offset, 78), font_src="fonts/norwester/norwester.otf"
         )
     else:
-        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84,
-                                                      "fonts/billboard-college-cufonfonts/Billboard-College.ttf")[2]))
+        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 108), font_src="fonts/billboard-college-cufonfonts/Billboard-College.ttf"
+            resulting_img, name, (x_offset, 108), font_src="fonts/norwester/norwester.otf"
         )
     return resulting_img
 
@@ -387,7 +383,7 @@ def process_submitted_planet_card(name, card_type, text, cards_value, resources_
                         expansion_icon_img)
     add_name_to_card(card_type, name, resulting_img)
     x_offset = int(690 - (0.5 * get_pil_text_size(
-        text, 84, "fonts/billboard-college-cufonfonts/Billboard-College.ttf"
+        text, 84, "fonts/norwester/norwester.otf"
     )[2]))
     add_text_to_planet_image(
         resulting_img, text
