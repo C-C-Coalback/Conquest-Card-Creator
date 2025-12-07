@@ -205,7 +205,7 @@ def add_name_to_card(card_type, name, resulting_img):
         w = txt.rotate(90, expand=1)
         x_offset = int((0.5 * get_pil_text_size(name, 84,
                                                 "fonts/norwester/norwester.otf")[2]) - 100)
-        resulting_img.paste(w, (110, x_offset), w)
+        resulting_img.paste(w, (100, x_offset), w)
     elif card_type == "Planet":
         f = ImageFont.truetype("fonts/norwester/norwester.otf", 84)
         txt = Image.new('RGBA', (900, 100))
@@ -218,22 +218,22 @@ def add_name_to_card(card_type, name, resulting_img):
     elif card_type == "Attachment":
         x_offset = int(690 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 1220), font_src="fonts/norwester/norwester.otf"
+            resulting_img, name, (x_offset, 1210), font_src="fonts/norwester/norwester.otf"
         )
     elif card_type == "Warlord":
         x_offset = int(750 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 94), font_src="fonts/norwester/norwester.otf"
+            resulting_img, name, (x_offset, 84), font_src="fonts/norwester/norwester.otf"
         )
     elif card_type == "Event":
         x_offset = int(810 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 78), font_src="fonts/norwester/norwester.otf"
+            resulting_img, name, (x_offset, 68), font_src="fonts/norwester/norwester.otf"
         )
     else:
         x_offset = int(810 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 108), font_src="fonts/norwester/norwester.otf"
+            resulting_img, name, (x_offset, 98), font_src="fonts/norwester/norwester.otf"
         )
     return resulting_img
 
@@ -248,7 +248,7 @@ def add_traits_to_card(card_type, traits, resulting_img):
         y_offset = 1370
     if card_type == "Warlord":
         x_offset = x_offset - 80
-        y_offset = 230
+        y_offset = 240
     if card_type == "Attachment":
         x_offset = x_offset - 140
         y_offset = 1370
@@ -336,10 +336,14 @@ def get_parameters_then_process():
     shield_value = "0"
     if card_type in ["Event", "Attachment"]:
         shield_value = opt_shields.get()
+    bloodied = False
+    if card_type == "Warlord":
+        if opt_bloodied.get() == "Bloodied":
+            bloodied = True
     if process_submitted_card(name, card_type, text, faction, traits, output_dir,
                               attack=attack, health=health, command=command, cost=cost,
                               starting_cards=starting_cards, starting_resources=starting_resources,
-                              loyalty=loyalty, shield_value=shield_value):
+                              loyalty=loyalty, shield_value=shield_value, bloodied=bloodied):
         card_image = Image.open(output_dir)
         card_image = card_image.resize((240, 342))
         card_image = ImageTk.PhotoImage(card_image)
@@ -356,7 +360,7 @@ def process_submitted_planet_card(name, card_type, text, cards_value, resources_
     if not os.path.exists(text_src):
         return False
     card_art_src = "current_card_info/src_img/"
-    expansion_icon_src = "current_card_info/expansion_icon/expansion_icon.png"
+    expansion_icon_src = "expansion_icon.png"
     resulting_img = Image.new("RGBA", (1440, 2052))
     dirs_art = os.listdir(card_art_src)
     if not dirs_art:
@@ -430,8 +434,10 @@ def process_submitted_planet_card(name, card_type, text, cards_value, resources_
 def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
-                           loyalty="Common", shield_value="0"):
+                           loyalty="Common", shield_value="0", bloodied=False):
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
+    if bloodied and card_type == "Warlord":
+        text_src = "card_srcs/" + faction + "/Warlord_Bloodied/Text.png"
     if not os.path.exists(text_src):
         return False
     card_art_src = "current_card_info/src_img/"
@@ -455,6 +461,10 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     else:
         card_art_img = card_art_img.resize((1440, 1500))
     resulting_img.paste(card_art_img, get_position_text(card_type, faction, "Art"))
+    if card_type == "Warlord" and bloodied:
+        bloodied_img = Image.open("card_srcs/blood/blood.png", 'r').convert("RGBA")
+        bloodied_img = bloodied_img.resize((1440, 2052))
+        resulting_img.paste(bloodied_img, get_position_text(card_type, faction, "Art"), bloodied_img)
     text_resize_amount = (1440, 2052)
     required_line_length = 1240
     if card_type != "Planet":
@@ -492,7 +502,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                               command_end_src, resulting_img, faction, card_type)
         except ValueError:
             pass
-    if card_type == "Warlord":
+    if card_type == "Warlord" and not bloodied:
         add_text_to_image(
             resulting_img, starting_cards, get_position_text(card_type, faction, "Cards"),
             font_size=168, color=(0, 0, 0)
@@ -599,6 +609,10 @@ def process_submitted_type_and_faction():
             shield_label.place(x=base_x, y=current_y)
             shield_dropdown.place(x=base_x + 60, y=current_y)
             current_y += increment_y
+        if card_type == "Warlord":
+            bloodied_label.place(x=base_x, y=current_y)
+            bloodied_dropdown.place(x=base_x + 75, y=current_y)
+            current_y += increment_y
         submit_card.place(x=base_x, y=current_y)
         current_y += increment_y
         card_types_dropdown.pack_forget()
@@ -657,6 +671,7 @@ shield_dropdown = tk.OptionMenu(master, opt_shields, *shields)
 shield_label = tk.Label(master, text="Shields: ", font=("Arial", 12))
 opt_bloodied = tk.StringVar(value="Hale")
 bloodied_dropdown = tk.OptionMenu(master, opt_bloodied, *["Hale", "Bloodied"])
+bloodied_label = tk.Label(master, text="Bloodied: ", font=("Arial", 12))
 name_label = tk.Label(master, text="Name:", font=("Arial", 12))
 name_area = tk.Text(master, height=1, width=52)
 cost_label = tk.Label(master, text="Cost:", font=("Arial", 12))

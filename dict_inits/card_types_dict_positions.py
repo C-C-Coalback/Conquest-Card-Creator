@@ -156,7 +156,7 @@ card_types_dictionary_positions = {
             "Text Box": (0, 0),
             "Art": (0, 0),
             "Text": (64, 1466),
-            "Cost": (120, 100),
+            "Cost": (110, 110),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1358, 1920),
             "Text Length": 1300
@@ -476,7 +476,7 @@ card_types_dictionary_positions = {
         "Astra Militarum": {
             "Text Box": (0, 0),
             "Art": (0, 0),
-            "Text": (164, 400),
+            "Text": (726, 400),
             "Attack": (105, 1565),
             "Health": (105, 1835),
             "Cards": (600, 1825),

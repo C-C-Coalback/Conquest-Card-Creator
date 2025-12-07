@@ -94,7 +94,7 @@ icons_dict = {
         "src": "icons/Faith_Icon.png",
         "spacing": "      ",
         "initial_extra_offset": (0, 13),
-        "extra_vertical_line_offset": -5,
+        "extra_vertical_line_offset": -9,
         "resize": (75, 85)
     }
 }
@@ -154,6 +154,12 @@ special_text_dict = {
         "text": "Interrupt:",
         "type": "Bold"
     },
+    "[FORCED_INTERRUPT:]": {
+        "spacing": "                                   ",
+        "initial_extra_offset": (0, 0),
+        "text": "Forced Interrupt: ",
+        "type": "Bold"
+    },
     "[WARGEAR]": {
         "spacing": "                  ",
         "initial_extra_offset": (0, 0),
@@ -194,6 +200,48 @@ special_text_dict = {
         "spacing": "               ",
         "initial_extra_offset": (0, 0),
         "text": "Soldier",
+        "type": "Bold"
+    },
+    "[VEHICLE]": {
+        "spacing": "                ",
+        "initial_extra_offset": (0, 0),
+        "text": "Vehicle",
+        "type": "Bold"
+    },
+    "[TECH_PRIEST]": {
+        "spacing": "                        ",
+        "initial_extra_offset": (0, 0),
+        "text": "Tech-Priest",
+        "type": "Bold"
+    },
+    "[HARDPOINT]": {
+        "spacing": "                     ",
+        "initial_extra_offset": (0, 0),
+        "text": "Hardpoint",
+        "type": "Bold"
+    },
+    "[TRANSPORT]": {
+        "spacing": "                    ",
+        "initial_extra_offset": (0, 0),
+        "text": "Transport",
+        "type": "Bold"
+    },
+    "[ARTILLERY]": {
+        "spacing": "                  ",
+        "initial_extra_offset": (0, 0),
+        "text": "Artillery",
+        "type": "Bold"
+    },
+    "[SQUIG]": {
+        "spacing": "           ",
+        "initial_extra_offset": (0, 0),
+        "text": "Squig",
+        "type": "Bold"
+    },
+    "[RUNT]": {
+        "spacing": "          ",
+        "initial_extra_offset": (0, 0),
+        "text": "Runt",
         "type": "Bold"
     }
 }
