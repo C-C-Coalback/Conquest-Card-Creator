@@ -251,7 +251,7 @@ def add_traits_to_card(card_type, traits, resulting_img):
         y_offset = 240
     if card_type == "Attachment":
         x_offset = x_offset - 140
-        y_offset = 1370
+        y_offset = 1390
     if card_type == "Event":
         x_offset = x_offset - 100
         y_offset = 1390

@@ -33,9 +33,9 @@ command_dictionary = {
         }
     },
     "Chaos": {
-        "First": (0, 1181),
-        "Extra": (106, 1180),
-        "End": (106, 1180),
+        "First": (0, 1161),
+        "Extra": (106, 1160),
+        "End": (106, 1160),
         "Spacing": 133,
         "Resize": {
             "First": (166, 171),

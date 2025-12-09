@@ -15,10 +15,10 @@ icons_dict = {
     },
     "[ORKS]": {
         "src": "icons/Orks_Icon.png",
-        "spacing": "        ",
-        "initial_extra_offset": (0, 10),
-        "extra_vertical_line_offset": -5,
-        "resize": (120, 78)
+        "spacing": "      ",
+        "initial_extra_offset": (0, 20),
+        "extra_vertical_line_offset": -7,
+        "resize": (86, 76)
     },
     "[CHAOS]": {
         "src": "icons/Chaos_Icon.png",
@@ -66,7 +66,7 @@ icons_dict = {
         "src": "icons/Resource_Icon.png",
         "spacing": "      ",
         "initial_extra_offset": (0, 13),
-        "extra_vertical_line_offset": -5,
+        "extra_vertical_line_offset": -7,
         "resize": (80, 68)
     },
     "[MATERIAL]": {
@@ -243,5 +243,77 @@ special_text_dict = {
         "initial_extra_offset": (0, 0),
         "text": "Runt",
         "type": "Bold"
-    }
+    },
+    "[RED]": {
+        "spacing": "        ",
+        "initial_extra_offset": (0, 0),
+        "text": "Red",
+        "type": "Bold"
+    },
+    "[TRAITS]": {
+        "spacing": "            ",
+        "initial_extra_offset": (0, 0),
+        "text": "Traits",
+        "type": "Bold"
+    },
+    "[CULTIST]": {
+        "spacing": "              ",
+        "initial_extra_offset": (0, 0),
+        "text": "Cultist",
+        "type": "Bold"
+    },
+    "[RITUALIST]": {
+        "spacing": "                  ",
+        "initial_extra_offset": (0, 0),
+        "text": "Ritualist",
+        "type": "Bold"
+    },
+    "[TZEENTCH]": {
+        "spacing": "                   ",
+        "initial_extra_offset": (0, 0),
+        "text": "Tzeentch",
+        "type": "Bold"
+    },
+    "[NURGLE]": {
+        "spacing": "              ",
+        "initial_extra_offset": (0, 0),
+        "text": "Nurgle",
+        "type": "Bold"
+    },
+    "[KHORNE]": {
+        "spacing": "               ",
+        "initial_extra_offset": (0, 0),
+        "text": "Khorne",
+        "type": "Bold"
+    },
+    "[SLAANESH]": {
+        "spacing": "                   ",
+        "initial_extra_offset": (0, 0),
+        "text": "Slaanesh",
+        "type": "Bold"
+    },
+    "[BLESSING]": {
+        "spacing": "                  ",
+        "initial_extra_offset": (0, 0),
+        "text": "Blessing",
+        "type": "Bold"
+    },
+    "[CURSE]": {
+        "spacing": "            ",
+        "initial_extra_offset": (0, 0),
+        "text": "Curse",
+        "type": "Bold"
+    },
+    "[DAEMON]": {
+        "spacing": "                  ",
+        "initial_extra_offset": (0, 0),
+        "text": "Daemon",
+        "type": "Bold"
+    },
+    "[PSYKER]": {
+        "spacing": "              ",
+        "initial_extra_offset": (0, 0),
+        "text": "Psyker",
+        "type": "Bold"
+    },
 }
