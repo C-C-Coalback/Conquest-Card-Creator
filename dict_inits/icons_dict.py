@@ -322,4 +322,10 @@ special_text_dict = {
         "text": "Elite",
         "type": "Bold"
     },
+    "[KABALITE]": {
+        "spacing": "                 ",
+        "initial_extra_offset": (0, 0),
+        "text": "Kabalite",
+        "type": "Bold"
+    },
 }

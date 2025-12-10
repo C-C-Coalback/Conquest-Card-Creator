@@ -47,11 +47,11 @@ command_dictionary = {
         "First": (0, 1180),
         "Extra": (136, 1180),
         "End": (136, 1180),
-        "Spacing": 133,
+        "Spacing": 150,
         "Resize": {
             "First": (136, 171),
-            "Extra": (133, 171),
-            "End": (200, 171)
+            "Extra": (150, 171),
+            "End": (246, 171)
         }
     },
     "Orks": {
