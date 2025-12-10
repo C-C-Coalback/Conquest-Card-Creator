@@ -286,7 +286,7 @@ card_types_dictionary_positions = {
             "Text Box": (0, 0),
             "Art": (0, 0),
             "Text": (64, 1466),
-            "Cost": (140, 144),
+            "Cost": (145, 154),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1363, 1915),

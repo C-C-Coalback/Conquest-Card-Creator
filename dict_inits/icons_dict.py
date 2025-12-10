@@ -316,4 +316,10 @@ special_text_dict = {
         "text": "Psyker",
         "type": "Bold"
     },
+    "[ELITE]": {
+        "spacing": "          ",
+        "initial_extra_offset": (0, 0),
+        "text": "Elite",
+        "type": "Bold"
+    },
 }
