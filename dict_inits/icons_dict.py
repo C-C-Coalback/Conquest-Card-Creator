@@ -328,4 +328,16 @@ special_text_dict = {
         "text": "Kabalite",
         "type": "Bold"
     },
+    "[TORTURE]": {
+        "spacing": "                ",
+        "initial_extra_offset": (0, 0),
+        "text": "Torture",
+        "type": "Bold"
+    },
+    "[HAEMONCULUS]": {
+        "spacing": "                             ",
+        "initial_extra_offset": (0, 0),
+        "text": "Haemonculus ",
+        "type": "Bold"
+    },
 }
