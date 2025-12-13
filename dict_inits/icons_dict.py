@@ -337,7 +337,19 @@ special_text_dict = {
     "[HAEMONCULUS]": {
         "spacing": "                             ",
         "initial_extra_offset": (0, 0),
-        "text": "Haemonculus ",
+        "text": "Haemonculus",
+        "type": "Bold"
+    },
+    "[BEASTMASTER]": {
+        "spacing": "                          ",
+        "initial_extra_offset": (0, 0),
+        "text": "Beastmaster",
+        "type": "Bold"
+    },
+    "[CREATURE]": {
+        "spacing": "                  ",
+        "initial_extra_offset": (0, 0),
+        "text": "Creature ",
         "type": "Bold"
     },
 }
