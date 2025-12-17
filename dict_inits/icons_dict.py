@@ -349,7 +349,13 @@ special_text_dict = {
     "[CREATURE]": {
         "spacing": "                  ",
         "initial_extra_offset": (0, 0),
-        "text": "Creature ",
+        "text": "Creature",
+        "type": "Bold"
+    },
+    "[WARRIOR]": {
+        "spacing": "                ",
+        "initial_extra_offset": (0, 0),
+        "text": "Warrior",
         "type": "Bold"
     },
 }

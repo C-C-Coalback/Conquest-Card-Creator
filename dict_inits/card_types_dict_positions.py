@@ -63,7 +63,7 @@ card_types_dictionary_positions = {
             "Attack": (95, 1465),
             "Health": (95, 1735),
             "Loyalty": (1313, 950),
-            "Expansion Icon": (1355, 1908),
+            "Expansion Icon": (1360, 1913),
             "Text Length": 1100
         },
         "Tau": {
