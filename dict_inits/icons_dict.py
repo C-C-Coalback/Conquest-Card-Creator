@@ -358,4 +358,10 @@ special_text_dict = {
         "text": "Warrior",
         "type": "Bold"
     },
+    "[SPIRIT]": {
+        "spacing": "            ",
+        "initial_extra_offset": (0, 0),
+        "text": "Spirit",
+        "type": "Bold"
+    },
 }
