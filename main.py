@@ -238,11 +238,13 @@ def add_name_to_card(card_type, name, resulting_img):
     return resulting_img
 
 
-def add_traits_to_card(card_type, traits, resulting_img):
+def add_traits_to_card(card_type, traits, resulting_img, faction=""):
     x_offset = int(840 - (0.5 * get_pil_text_size(traits, 84, "fonts/Markazi_Text/static/MarkaziText-Bold.ttf")[2]))
     y_offset = 1320
     if card_type == "Army":
         x_offset = x_offset - 50
+        if faction == "Tau":
+            y_offset = y_offset + 20
     if card_type == "Support":
         x_offset = x_offset - 100
         y_offset = 1370
@@ -475,7 +477,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     expansion_icon_img = Image.open(expansion_icon_src, 'r').convert("RGBA").resize((55, 55))
     resulting_img.paste(expansion_icon_img, get_position_text(card_type, faction, "Expansion Icon"), expansion_icon_img)
     add_name_to_card(card_type, name, resulting_img)
-    add_traits_to_card(card_type, traits, resulting_img)
+    add_traits_to_card(card_type, traits, resulting_img, faction=faction)
     add_text_to_image(resulting_img, text, get_position_text(card_type, faction, "Text"),
                       line_length=required_line_length)
     deepstrike = False

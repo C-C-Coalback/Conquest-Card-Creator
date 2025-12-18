@@ -8,10 +8,10 @@ icons_dict = {
     },
     "[ASTRA_MILITARUM]": {
         "src": "icons/Astra_Militarum_Icon.png",
-        "spacing": "       ",
-        "initial_extra_offset": (0, 20),
-        "extra_vertical_line_offset": -5,
-        "resize": (96, 62)
+        "spacing": "      ",
+        "initial_extra_offset": (4, 22),
+        "extra_vertical_line_offset": -7,
+        "resize": (66, 52)
     },
     "[ORKS]": {
         "src": "icons/Orks_Icon.png",
@@ -362,6 +362,18 @@ special_text_dict = {
         "spacing": "            ",
         "initial_extra_offset": (0, 0),
         "text": "Spirit",
+        "type": "Bold"
+    },
+    "[ETHEREAL]": {
+        "spacing": "                  ",
+        "initial_extra_offset": (0, 0),
+        "text": "Ethereal",
+        "type": "Bold"
+    },
+    "[SCOUT]": {
+        "spacing": "            ",
+        "initial_extra_offset": (0, 0),
+        "text": "Scout",
         "type": "Bold"
     },
 }
