@@ -143,7 +143,7 @@ special_text_dict = {
         "type": "Bold"
     },
     "[FORCED_REACTION:]": {
-        "spacing": "                                  ",
+        "spacing": "                                   ",
         "initial_extra_offset": (0, 0),
         "text": "Forced Reaction: ",
         "type": "Bold"
