@@ -376,4 +376,10 @@ special_text_dict = {
         "text": "Scout",
         "type": "Bold"
     },
+    "[DRONE]": {
+        "spacing": "             ",
+        "initial_extra_offset": (0, 0),
+        "text": "Drone",
+        "type": "Bold"
+    },
 }
