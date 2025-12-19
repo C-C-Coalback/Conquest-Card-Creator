@@ -42,6 +42,9 @@ def get_true_string_for_fonts(text):
     for icon in icons_dict:
         if icon in text:
             text = text.replace(icon, icons_dict[icon]["spacing"])
+    for special_text in special_text_dict:
+        if special_text in text:
+            text = text.replace(special_text, special_text_dict[special_text]["spacing"])
     return text
 
 
