@@ -14,6 +14,10 @@ factions = ["Space Marines", "Astra Militarum", "Orks", "Chaos", "Dark Eldar",
 loyalties = ["Common", "Loyal", "Signature"]
 shields = ["0", "1", "2", "3"]
 # (1440, 2052) card size
+name_font = "fonts/Names/Conquestnames-Regular.ttf"
+trait_font = "fonts/Traits/Conquesttraits-Regular.ttf"
+name_size = 90
+trait_size = 200
 
 
 def get_pil_text_size(text, font_size, font_name):
@@ -201,48 +205,48 @@ def add_text_to_planet_image(input_image, text, font_src="fonts/Markazi_Text/Mar
 
 def add_name_to_card(card_type, name, resulting_img):
     if card_type == "Support":
-        f = ImageFont.truetype("fonts/norwester/norwester.otf", 84)
+        f = ImageFont.truetype(name_font, name_size)
         txt = Image.new('RGBA', (900, 100))
         d = ImageDraw.Draw(txt)
         d.text((0, 0), name, font=f, fill="black")
         w = txt.rotate(90, expand=1)
-        x_offset = int((0.5 * get_pil_text_size(name, 84,
-                                                "fonts/norwester/norwester.otf")[2]) - 100)
+        x_offset = int((0.5 * get_pil_text_size(name, name_size,
+                                                name_font)[2]) - 100)
         resulting_img.paste(w, (100, x_offset), w)
     elif card_type == "Planet":
-        f = ImageFont.truetype("fonts/norwester/norwester.otf", 84)
+        f = ImageFont.truetype(name_font, name_size)
         txt = Image.new('RGBA', (900, 100))
         d = ImageDraw.Draw(txt)
         d.text((0, 0), name, font=f, fill="black")
         w = txt.rotate(270, expand=1)
-        x_offset = int((-1 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
+        x_offset = int((-1 * get_pil_text_size(name, name_size, name_font)[2]))
         x_offset = x_offset + 1900
         resulting_img.paste(w, (1210, x_offset), w)
     elif card_type == "Attachment":
-        x_offset = int(690 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
+        x_offset = int(690 - (0.5 * get_pil_text_size(name, name_size, name_font)[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 1210), font_src="fonts/norwester/norwester.otf"
+            resulting_img, name, (x_offset, 1210), font_src=name_font, font_size=name_size
         )
     elif card_type == "Warlord":
-        x_offset = int(750 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
+        x_offset = int(750 - (0.5 * get_pil_text_size(name, name_size, name_font)[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 84), font_src="fonts/norwester/norwester.otf"
+            resulting_img, name, (x_offset, 84), font_src=name_font, font_size=name_size
         )
     elif card_type == "Event":
-        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
+        x_offset = int(810 - (0.5 * get_pil_text_size(name, name_size, name_font)[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 68), font_src="fonts/norwester/norwester.otf"
+            resulting_img, name, (x_offset, 68), font_src=name_font, font_size=name_size
         )
     else:
-        x_offset = int(810 - (0.5 * get_pil_text_size(name, 84, "fonts/norwester/norwester.otf")[2]))
+        x_offset = int(810 - (0.5 * get_pil_text_size(name, name_size, name_font)[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 98), font_src="fonts/norwester/norwester.otf"
+            resulting_img, name, (x_offset, 98), font_src=name_font, font_size=name_size
         )
     return resulting_img
 
 
 def add_traits_to_card(card_type, traits, resulting_img, faction=""):
-    x_offset = int(840 - (0.5 * get_pil_text_size(traits, 84, "fonts/Markazi_Text/static/MarkaziText-Bold.ttf")[2]))
+    x_offset = int(840 - (0.5 * get_pil_text_size(traits, trait_size, trait_font)[2]))
     y_offset = 1320
     if card_type == "Army":
         x_offset = x_offset - 50
@@ -261,8 +265,8 @@ def add_traits_to_card(card_type, traits, resulting_img, faction=""):
         x_offset = x_offset - 100
         y_offset = 1390
     add_text_to_image(
-        resulting_img, traits, (x_offset, y_offset), font_src="fonts/andada/AndadaSC-BoldItalic.otf",
-        font_size=60
+        resulting_img, traits, (x_offset, y_offset), font_src=trait_font,
+        font_size=trait_size
     )
     return resulting_img
 

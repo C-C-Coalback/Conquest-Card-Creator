@@ -43,10 +43,10 @@ icons_dict = {
     },
     "[TAU]": {
         "src": "icons/Tau_Icon.png",
-        "spacing": "      ",
-        "initial_extra_offset": (3, 10),
-        "extra_vertical_line_offset": -5,
-        "resize": (80, 80)
+        "spacing": "     ",
+        "initial_extra_offset": (3, 17),
+        "extra_vertical_line_offset": -7,
+        "resize": (60, 60)
     },
     "[TYRANIDS]": {
         "src": "icons/Tyranids_Icon.png",
@@ -71,10 +71,10 @@ icons_dict = {
     },
     "[MATERIAL]": {
         "src": "icons/Material_Icon.png",
-        "spacing": "      ",
-        "initial_extra_offset": (0, 13),
-        "extra_vertical_line_offset": -5,
-        "resize": (80, 68)
+        "spacing": "     ",
+        "initial_extra_offset": (5, 20),
+        "extra_vertical_line_offset": -7,
+        "resize": (60, 74)
     },
     "[TECHNOLOGY]": {
         "src": "icons/Technology_Icon.png",
@@ -380,6 +380,24 @@ special_text_dict = {
         "spacing": "             ",
         "initial_extra_offset": (0, 0),
         "text": "Drone",
+        "type": "Bold"
+    },
+    "[PILOT]": {
+        "spacing": "          ",
+        "initial_extra_offset": (0, 0),
+        "text": "Pilot",
+        "type": "Bold"
+    },
+    "[KROOT]": {
+        "spacing": "            ",
+        "initial_extra_offset": (0, 0),
+        "text": "Kroot",
+        "type": "Bold"
+    },
+    "[SHAS'LA]": {
+        "spacing": "               ",
+        "initial_extra_offset": (0, 0),
+        "text": "Shas'la",
         "type": "Bold"
     },
 }
