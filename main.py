@@ -15,9 +15,12 @@ loyalties = ["Common", "Loyal", "Signature"]
 shields = ["0", "1", "2", "3"]
 # (1440, 2052) card size
 name_font = "fonts/Names/Conquestnames-Regular.ttf"
-trait_font = "fonts/Traits/Conquesttraits-Regular.ttf"
+trait_font = "fonts/andada/AndadaSC-BoldItalic.otf"
+text_font = "fonts/Ascender Serif/Ascender-Serif-W01-Regular.ttf"
+text_bold_font = "fonts/Ascender Serif/Ascender-Serif-W01-Bold.ttf"
+text_italics_font = "fonts/open_sans/OpenSans-Italic.ttf"
 name_size = 90
-trait_size = 200
+trait_size = 60
 
 
 def get_pil_text_size(text, font_size, font_name):
@@ -77,10 +80,10 @@ def clicked():
     pass
 
 
-def add_text_to_image(input_image, text, coords, font_src="fonts/Markazi_Text/MarkaziText-VariableFont_wght.ttf",
-                      font_size=84, color=(0, 0, 0), line_length=1080,
-                      font_bold="fonts/Markazi_Text/static/MarkaziText-Bold.ttf",
-                      font_italics="fonts/open_sans/OpenSans-Italic.ttf", deepstrike=False):
+def add_text_to_image(input_image, text, coords, font_src=text_font,
+                      font_size=70, color=(0, 0, 0), line_length=1080,
+                      font_bold=text_bold_font,
+                      font_italics=text_italics_font, deepstrike=False):
     text = text.replace("[DARK ELDAR]", "[DARK_ELDAR]")
     text = text.replace("[SPACE MARINES]", "[SPACE_MARINES]")
     text = text.replace("[ASTRA MILITARUM]", "[ASTRA_MILITARUM]")
@@ -151,9 +154,9 @@ def add_text_to_image(input_image, text, coords, font_src="fonts/Markazi_Text/Ma
     return input_image
 
 
-def add_text_to_planet_image(input_image, text, font_src="fonts/Markazi_Text/MarkaziText-VariableFont_wght.ttf",
+def add_text_to_planet_image(input_image, text, font_src=text_font,
                              font_size=84, line_length=1080,
-                             font_bold="fonts/Markazi_Text/static/MarkaziText-Bold.ttf"):
+                             font_bold=text_bold_font):
     text_font = ImageFont.truetype(font_src, font_size)
     text = get_wrapped_text_nlfix(text, text_font, line_length)
     og_split_text = text.split(sep="\n")
