@@ -27,8 +27,8 @@ card_types_dictionary_positions = {
             "Art": (0, 0),
             "Text": (264, 1416),
             "Cost": (120, 100),
-            "Attack": (95, 1465),
-            "Health": (95, 1735),
+            "Attack": (50, 1465),
+            "Health": (50, 1735),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1350, 1908),
             "Text Length": 1100

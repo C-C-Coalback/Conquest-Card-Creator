@@ -2,7 +2,7 @@ loyalty_dictionary = {
     "Army": {
         "Space Marines": (1313, 950),
         "Astra Militarum": (1313, 950),
-        "Orks": (1313, 950),
+        "Orks": (1277, 920),
         "Chaos": (1313, 950),
         "Dark Eldar": (1313, 950),
         "Eldar": (1313, 950),

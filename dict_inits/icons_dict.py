@@ -107,7 +107,7 @@ special_text_dict = {
         "type": "Bold"
     },
     "[ACTION:]": {
-        "spacing": "               ",
+        "spacing": "            ",
         "initial_extra_offset": (0, 0),
         "text": "Action:",
         "type": "Bold"
@@ -125,7 +125,7 @@ special_text_dict = {
         "type": "Bold"
     },
     "[COMBAT_ACTION:]": {
-        "spacing": "                                ",
+        "spacing": "                          ",
         "initial_extra_offset": (0, 0),
         "text": "Combat Action:",
         "type": "Bold"

@@ -19,8 +19,11 @@ trait_font = "fonts/andada/AndadaSC-BoldItalic.otf"
 text_font = "fonts/Ascender Serif/Ascender-Serif-W01-Regular.ttf"
 text_bold_font = "fonts/Ascender Serif/Ascender-Serif-W01-Bold.ttf"
 text_italics_font = "fonts/open_sans/OpenSans-Italic.ttf"
+numbers_font = "fonts/numbers/Conquestnumbers-Regular.ttf"
 name_size = 90
 trait_size = 60
+default_text_size = 62
+numbers_size = 105
 
 
 def get_pil_text_size(text, font_size, font_name):
@@ -34,7 +37,9 @@ def get_position_text(card_type, faction, text_type):
 
 
 def get_resize_command(faction, command_type):
-    return command_dictionary[faction]["Resize"][command_type]
+    if command_type in command_dictionary[faction]["Resize"]:
+        return command_dictionary[faction]["Resize"][command_type]
+    return None
 
 
 def get_position_command(faction, command_type):
@@ -81,7 +86,7 @@ def clicked():
 
 
 def add_text_to_image(input_image, text, coords, font_src=text_font,
-                      font_size=70, color=(0, 0, 0), line_length=1080,
+                      font_size=default_text_size, color=(0, 0, 0), line_length=1080,
                       font_bold=text_bold_font,
                       font_italics=text_italics_font, deepstrike=False):
     text = text.replace("[DARK ELDAR]", "[DARK_ELDAR]")
@@ -278,7 +283,14 @@ def add_command_icons(command, first_command_src, extra_command_src, command_end
                       resulting_img, faction, card_type):
     command = int(command)
     if command > 0:
-        if faction != "Tyranids":
+        str_command = str(command)
+        default_command_src = "card_srcs/" + faction + "/" + card_type + "/" + str(command) + "_Command.png"
+        if get_resize_command(faction, str_command) is not None and os.path.exists(default_command_src):
+            first_command_img = Image.open(default_command_src, 'r').convert("RGBA")
+            first_command_img = first_command_img.resize(get_resize_command(faction, str_command))
+            resulting_img.paste(first_command_img, get_position_command(faction, "First"), first_command_img)
+        elif faction != "Tyranids" or (0 < command < 4 and card_type == "Army") \
+                or (0 < command < 3 and card_type == "Synapse"):
             current_x_pos_end_command, y_end_command = get_position_command(faction, "End")
             first_command_img = Image.open(first_command_src, 'r').convert("RGBA")
             first_command_img = first_command_img.resize(get_resize_command(faction, "First"))
@@ -294,12 +306,6 @@ def add_command_icons(command, first_command_src, extra_command_src, command_end
             command_end_img = Image.open(command_end_src, 'r').convert("RGBA")
             command_end_img = command_end_img.resize(get_resize_command(faction, "End"))
             resulting_img.paste(command_end_img, (current_x_pos_end_command, y_end_command), command_end_img)
-        elif (0 < command < 4 and card_type == "Army") or (0 < command < 3 and card_type == "Synapse"):
-            str_command = str(command)
-            first_command_src = "card_srcs/" + faction + "/" + card_type + "/" + str(command) + "_Command.png"
-            first_command_img = Image.open(first_command_src, 'r').convert("RGBA")
-            first_command_img = first_command_img.resize(get_resize_command(faction, str_command))
-            resulting_img.paste(first_command_img, get_position_command(faction, "First"), first_command_img)
 
 
 def get_parameters_then_process():
@@ -494,19 +500,28 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     if "Deep Strike (" in text:
         deepstrike = True
     if card_type in ["Army", "Support", "Event", "Attachment"]:
+        x_offset = int(-(0.5 * get_pil_text_size(health, numbers_size, numbers_font)[2]))
+        x_pos, y_pos = get_position_text(card_type, faction, "Cost")
+        x_pos = x_pos - x_offset
         add_text_to_image(
-            resulting_img, cost, get_position_text(card_type, faction, "Cost"),
-            font_src="fonts/numbers/Conquestnumbers-Regular.ttf", font_size=105, color=(0, 0, 0),
+            resulting_img, cost, (x_pos, y_pos),
+            font_src=numbers_font, font_size=numbers_size, color=(0, 0, 0),
             deepstrike=deepstrike
         )
     if card_type in ["Army", "Warlord", "Synapse"]:
+        x_offset = int(-(0.5 * get_pil_text_size(attack, numbers_size, numbers_font)[2]))
+        x_pos, y_pos = get_position_text(card_type, faction, "Attack")
+        x_pos = x_pos - x_offset
         add_text_to_image(
-            resulting_img, attack, get_position_text(card_type, faction, "Attack"),
-            font_src="fonts/numbers/Conquestnumbers-Regular.ttf", font_size=105, color=(255, 255, 255)
+            resulting_img, attack, (x_pos, y_pos),
+            font_src=numbers_font, font_size=numbers_size, color=(255, 255, 255)
         )
+        x_offset = int(-(0.5 * get_pil_text_size(health, numbers_size, numbers_font)[2]))
+        x_pos, y_pos = get_position_text(card_type, faction, "Health")
+        x_pos = x_pos - x_offset
         add_text_to_image(
-            resulting_img, health, get_position_text(card_type, faction, "Health"),
-            font_src="fonts/numbers/Conquestnumbers-Regular.ttf", font_size=105, color=(0, 0, 0)
+            resulting_img, health, (x_pos, y_pos),
+            font_src=numbers_font, font_size=numbers_size, color=(0, 0, 0)
         )
     if card_type in ["Army", "Synapse"] and faction != "Neutral":
         try:
@@ -527,7 +542,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
         if (loyalty == "Loyal" or loyalty == "Signature") and faction != "Neutral":
             loyalty_src = "card_srcs/" + faction + "/Loyalty/" + loyalty + ".png"
             loyalty_img = Image.open(loyalty_src, 'r').convert("RGBA")
-            resize_loyalty = (127, 84)
+            resize_loyalty = (191, 126)
             if faction == "Tau":
                 resize_loyalty = (147, 184)
             loyalty_img = loyalty_img.resize(resize_loyalty)
