@@ -15,13 +15,13 @@ loyalties = ["Common", "Loyal", "Signature"]
 shields = ["0", "1", "2", "3"]
 # (1440, 2052) card size
 name_font = "fonts/Names/Conquestnames-Regular.ttf"
-trait_font = "fonts/andada/AndadaSC-BoldItalic.otf"
+trait_font = "fonts/Ascender Serif/AscenderSerifW01-BdIt-Regular.otf"
 text_font = "fonts/Ascender Serif/Ascender-Serif-W01-Regular.ttf"
 text_bold_font = "fonts/Ascender Serif/Ascender-Serif-W01-Bold.ttf"
 text_italics_font = "fonts/open_sans/OpenSans-Italic.ttf"
 numbers_font = "fonts/numbers/Conquestnumbers-Regular.ttf"
 name_size = 90
-trait_size = 60
+trait_size = 70
 default_text_size = 62
 numbers_size = 105
 
@@ -255,7 +255,7 @@ def add_name_to_card(card_type, name, resulting_img):
 
 def add_traits_to_card(card_type, traits, resulting_img, faction=""):
     x_offset = int(840 - (0.5 * get_pil_text_size(traits, trait_size, trait_font)[2]))
-    y_offset = 1320
+    y_offset = 1360
     if card_type == "Army":
         x_offset = x_offset - 50
         if faction == "Tau":
