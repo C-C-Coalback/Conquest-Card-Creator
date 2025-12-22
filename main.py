@@ -2,7 +2,7 @@ import tkinter as tk
 from PIL import Image, ImageTk, ImageDraw, ImageFont
 from dict_inits.card_types_dict_positions import card_types_dictionary_positions
 from dict_inits.command_dict import command_dictionary
-from dict_inits.loyalty_dict import loyalty_dictionary
+from dict_inits.loyalty_dict import loyalty_dictionary, resize_loyalty_dictionary
 from dict_inits.icons_dict import icons_dict, special_text_dict
 import os
 import random
@@ -542,9 +542,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
         if (loyalty == "Loyal" or loyalty == "Signature") and faction != "Neutral":
             loyalty_src = "card_srcs/" + faction + "/Loyalty/" + loyalty + ".png"
             loyalty_img = Image.open(loyalty_src, 'r').convert("RGBA")
-            resize_loyalty = (191, 126)
-            if faction == "Tau":
-                resize_loyalty = (147, 184)
+            resize_loyalty = resize_loyalty_dictionary[faction]
             loyalty_img = loyalty_img.resize(resize_loyalty)
             resulting_img.paste(loyalty_img, get_position_loyalty(faction, card_type), loyalty_img)
     if card_type in ["Event", "Attachment"]:
