@@ -1,0 +1,33 @@
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+Faction,Card Type,Name,Traits,Text,COST,CMD,ATK,HP,SHLD,Loyal,Unique,Current State,Notes,State of Image
+Space Marines,Army,Imperial Fists Legion,Soldier. Imperial Fists.,"Reaction: After this unit is declared as an attacker, remove 1 damage from a target support card.",1,1,1,2,-,Common,,,,"Found, Accepted"
+Space Marines,Event,Righteous Reprisal,Power.,"Reaction: After a Space Marines unit you control is damaged by an attack, exhaust that unit to deal damage equal to twice the unit's printed attack to the attacker.",1,-,-,-,2,Loyal,,,,"Found, Accepted"
+Space Marines,Support,Launch Pads,Upgrade.,Combat Action: Exhaust this support to deploy a Space Marines unit with a printed cost of exactly 3 from your hand at a planet.,2,-,-,-,-,Common,,,,"Found, Accepted"
+Space Marines,Support,Orbital Relay,Upgrade.,"Interrupt: When you deploy a support card, reduce its cost by 1.",2,-,-,-,-,Common,,,,"Found, Accepted"
+Space Marines,Army,Raven Guard Legion,Soldier. Raven Guard.,"Reaction: After this unit enters play, it gains +1 ATK and +1 HP until the end of the phase.",2,1,2,3,-,Common,,,,"Found, Accepted"
+Space Marines,Army,Dark Angels Purifier,Soldier. Dark Angels.,"Deep Strike (2).
+Interrupt: When this unit is destroyed, Deep Strike a Dark Angels unit you control in reserve at the same planet.",3,1,3,3,-,Common,,,,"Found, Accepted"
+Space Marines,Army,Parched Neophyte,Scout. Blood Angels.,"Bloodthirst - During a combat round in which 1 or more units have been destroyed at this planet, this unit gains Retaliate (3).",1,0,2,1,-,Loyal,,,Dumb name,"Found, Accepted"
+Space Marines,Army,Grey Hunters,Soldier. Space Wolves.,"Forced Reaction: After a token unit at this planet resolves an attack, destroy that unit.",4,2,4,3,-,Loyal,,,,"Found, Accepted"
+Space Marines,Army,Fenrisian Wolf Pack,Creature. Space Wolves.,"No Attachments.
+Reaction: After this unit deals damage by an attack, remove 1 damage from it.",2,0,3,3,-,Common,,,,"Found, Accepted"
+Space Marines,Army,Aurora Predator,Vehicle. Grey Knights. Elite.,"No Wargear Attachments.
+While this unit has faith it gets +3 ATK.",5,1,4,6,-,Common,,,,"Found, Accepted"
+Space Marines,Army,Imperial Fists Apothecary,Scholar. Imperial Fists.,"Reaction: After a Space Marines unit you control at this planet is destroyed, gain 1 resource. (Limit once per phase)",2,2,1,2,-,Loyal,,,,"Found, Accepted"
+Space Marines,Army,Bladeguard Veteran Squad,Soldier. Ultramarines.,"Reaction: After an attack by this unit against an army unit doesn't destroy the defender, ready a target Space Marines unit you control. (Limit once per phase)",3,1,3,3,-,Common,,,,"Found, Accepted"
+Space Marines,Army,Iron Hands Platoon,Soldier. Iron Hands.,"Reaction: After an enemy army unit with 2 or more printed command icons enters play at this planet, deal 1 damage to that unit.",2,1,2,3,-,Common,,,,"Found, Accepted"
+Space Marines,,,,,,,,,,,,,,
+Space Marines,Support,The Phalanx,Location. Imperial Fists.,"This support can be used as a shield card while it is in play. It has shield icons equal to 2 + the number of tokens on it.
+Reaction: After your opponent places a planet in their victory display, place 1 resource on this support.",1,-,-,-,-,Loyal,TRUE,,,"Found, Accepted"
+Space Marines,Attachment,Imposing Presence,Skill.,"Attach to a Soldier army unit. Limit 1 per unit.
+While attached unit is ready, each enemy army and token unit at this planet has -1 ATK.",1,-,-,-,1,Common,,,"Removed Space Wolves requirement, more interesting to see if how well it works out of faction.","Found, Accepted"
+Space Marines,Army,Ravenwing Dark Talons,Vehicle. Raven Guard.,"No Wargear Attachments. Flying.
+Reaction: After this unit resolves an attack against a warlord unit, this unit gets +1 ATK and +1 HP until the end of the game.",2,1,1,2,-,Loyal,,,,"Found, Accepted"
+Space Marines,,,,,,,,,,,,,,Missing
+Space Marines,,,,,,,,,,,,,,Missing
+Space Marines,,,,,,,,,,,,,,Missing
+Space Marines,,,,,,,,,,,,,,Missing
+Space Marines,,,,,,,,,,,,,,Missing
+Space Marines,,,,,,,,,,,,,,Missing
