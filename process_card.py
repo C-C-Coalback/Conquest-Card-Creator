@@ -311,7 +311,7 @@ def add_command_icons(command, first_command_src, extra_command_src, command_end
 def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
-                           loyalty="Common", shield_value="0", bloodied=False):
+                           loyalty="Common", shield_value="0", bloodied=False, automated=False, auto_card_art_src=""):
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
     if bloodied and card_type == "Warlord":
         text_src = "card_srcs/" + faction + "/Warlord_Bloodied/Text.png"
@@ -328,16 +328,25 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     command_end_src = "card_srcs/" + faction + "/" + card_type + "/Command_End.png"
     extra_command_src = "card_srcs/" + faction + "/" + card_type + "/Extra_Command_Icon.png"
     resulting_img = Image.new("RGBA", (1440, 2052))
-    dirs_art = os.listdir(card_art_src)
-    if not dirs_art:
-        return False
-    random.shuffle(dirs_art)
-    card_art_img = Image.open(card_art_src + dirs_art[0], 'r').convert("RGBA")
-    if card_type == "Warlord":
-        card_art_img = card_art_img.resize((1440, 2052))
+    if not automated:
+        dirs_art = os.listdir(card_art_src)
+        if not dirs_art:
+            return False
+        random.shuffle(dirs_art)
+        card_art_img = Image.open(card_art_src + dirs_art[0], 'r').convert("RGBA")
+        if card_type == "Warlord":
+            card_art_img = card_art_img.resize((1440, 2052))
+        else:
+            card_art_img = card_art_img.resize((1440, 1500))
+        resulting_img.paste(card_art_img, get_position_text(card_type, faction, "Art"))
     else:
-        card_art_img = card_art_img.resize((1440, 1500))
-    resulting_img.paste(card_art_img, get_position_text(card_type, faction, "Art"))
+        if os.path.exists(auto_card_art_src):
+            card_art_img = Image.open(auto_card_art_src, 'r').convert("RGBA")
+            if card_type == "Warlord":
+                card_art_img = card_art_img.resize((1440, 2052))
+            else:
+                card_art_img = card_art_img.resize((1440, 1500))
+            resulting_img.paste(card_art_img, get_position_text(card_type, faction, "Art"))
     if card_type == "Warlord" and bloodied:
         bloodied_img = Image.open("card_srcs/blood/blood.png", 'r').convert("RGBA")
         bloodied_img = bloodied_img.resize((1440, 2052))
@@ -359,7 +368,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     if "Deep Strike (" in text:
         deepstrike = True
     if card_type in ["Army", "Support", "Event", "Attachment"]:
-        x_offset = int(-(0.5 * get_pil_text_size(health, numbers_size, numbers_font)[2]))
+        x_offset = int((0.5 * get_pil_text_size(cost, numbers_size, numbers_font)[2]))
         x_pos, y_pos = get_position_text(card_type, faction, "Cost")
         x_pos = x_pos - x_offset
         add_text_to_image(
@@ -368,14 +377,14 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
             deepstrike=deepstrike
         )
     if card_type in ["Army", "Warlord", "Synapse"]:
-        x_offset = int(-(0.5 * get_pil_text_size(attack, numbers_size, numbers_font)[2]))
+        x_offset = int((0.5 * get_pil_text_size(attack, numbers_size, numbers_font)[2]))
         x_pos, y_pos = get_position_text(card_type, faction, "Attack")
         x_pos = x_pos - x_offset
         add_text_to_image(
             resulting_img, attack, (x_pos, y_pos),
             font_src=numbers_font, font_size=numbers_size, color=(255, 255, 255)
         )
-        x_offset = int(-(0.5 * get_pil_text_size(health, numbers_size, numbers_font)[2]))
+        x_offset = int((0.5 * get_pil_text_size(health, numbers_size, numbers_font)[2]))
         x_pos, y_pos = get_position_text(card_type, faction, "Health")
         x_pos = x_pos - x_offset
         add_text_to_image(
