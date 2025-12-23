@@ -120,6 +120,8 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         period_present = False
         semi_present = False
         para_present = False
+        non_present = False
+        quote_start = False
         if "," in no_new_lines:
             comma_present = True
         if "." in no_new_lines:
@@ -128,14 +130,30 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
             semi_present = True
         if ")" in no_new_lines:
             para_present = True
+        if "non-" in no_new_lines:
+            non_present = True
+        if len(no_new_lines) > 0:
+            if no_new_lines[0] == "\"":
+                quote_start = True
         no_new_lines = no_new_lines.replace(",", "")
         no_new_lines = no_new_lines.replace(".", "")
         no_new_lines = no_new_lines.replace(";", "")
         no_new_lines = no_new_lines.replace(")", "")
+        no_new_lines = no_new_lines.replace("non-", "")
+        if quote_start:
+            no_new_lines = no_new_lines.replace("\"", "", 1)
         current_font = font_text
         len_word = 0
         spacing = default_spacing
         special_icon = False
+        if non_present:
+            new_len_word = get_length_word("non-", current_font)
+            drawn_image.text(current_coords, "non-", fill=color, font=font_text)
+            current_coords = (current_coords[0] + new_len_word, current_coords[1])
+        if quote_start:
+            new_len_word = get_length_word("\"", current_font)
+            drawn_image.text(current_coords, "\"", fill=color, font=font_text)
+            current_coords = (current_coords[0] + new_len_word, current_coords[1])
         if no_new_lines in special_text_dict:
             if special_text_dict[no_new_lines]["type"] == "Bold":
                 current_font = word_bold_font
@@ -176,18 +194,22 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
             new_len_word = get_length_word(",", current_font)
             drawn_image.text(extra_coords, ",", fill=color, font=font_text)
             spacing = spacing + new_len_word
-        if period_present:
-            new_len_word = get_length_word(".", current_font)
-            drawn_image.text(extra_coords, ".", fill=color, font=font_text)
-            spacing = spacing + new_len_word
+            extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
         if semi_present:
             new_len_word = get_length_word(";", current_font)
             drawn_image.text(extra_coords, ";", fill=color, font=font_text)
             spacing = spacing + new_len_word
+            extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
         if para_present:
             new_len_word = get_length_word(")", current_font)
             drawn_image.text(extra_coords, ")", fill=color, font=font_text)
             spacing = spacing + new_len_word
+            extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
+        if period_present:
+            new_len_word = get_length_word(".", current_font)
+            drawn_image.text(extra_coords, ".", fill=color, font=font_text)
+            spacing = spacing + new_len_word
+            extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
         current_coords = (current_coords[0] + len_word + spacing, current_coords[1])
         del split_text[0]
     return input_image
@@ -325,7 +347,7 @@ def add_text_to_planet_image(input_image, text, font_src=text_font,
     return input_image
 
 
-def add_name_to_card(card_type, name, resulting_img):
+def add_name_to_card(card_type, name, resulting_img, faction="Astra Militarum"):
     if card_type == "Support":
         f = ImageFont.truetype(name_font, name_size)
         txt = Image.new('RGBA', (900, 100))
@@ -344,25 +366,12 @@ def add_name_to_card(card_type, name, resulting_img):
         x_offset = int((-1 * get_pil_text_size(name, name_size, name_font)[2]))
         x_offset = x_offset + 1900
         resulting_img.paste(w, (1210, x_offset), w)
-    elif card_type == "Attachment":
-        x_offset = int(690 - (0.5 * get_pil_text_size(name, name_size, name_font)[2]))
-        add_text_to_image(
-            resulting_img, name, (x_offset, 1210), font_src=name_font, font_size=name_size
-        )
-    elif card_type == "Warlord":
-        x_offset = int(750 - (0.5 * get_pil_text_size(name, name_size, name_font)[2]))
-        add_text_to_image(
-            resulting_img, name, (x_offset, 84), font_src=name_font, font_size=name_size
-        )
-    elif card_type == "Event":
-        x_offset = int(810 - (0.5 * get_pil_text_size(name, name_size, name_font)[2]))
-        add_text_to_image(
-            resulting_img, name, (x_offset, 68), font_src=name_font, font_size=name_size
-        )
     else:
-        x_offset = int(810 - (0.5 * get_pil_text_size(name, name_size, name_font)[2]))
+        x_offset, y_offset = card_types_dictionary_positions[card_type][faction]["Name"]
+        y_offset = int(y_offset)
+        x_offset = int(x_offset - (0.5 * get_pil_text_size(name, name_size, name_font)[2]))
         add_text_to_image(
-            resulting_img, name, (x_offset, 98), font_src=name_font, font_size=name_size
+            resulting_img, name, (x_offset, y_offset), font_src=name_font, font_size=name_size
         )
     return resulting_img
 
@@ -463,7 +472,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     name_header = name
     if unique:
         name_header = ". " + name
-    add_name_to_card(card_type, name_header, resulting_img)
+    add_name_to_card(card_type, name_header, resulting_img, faction=faction)
     add_traits_to_card(card_type, traits, resulting_img, faction=faction)
     draw_textbox_text(resulting_img, text, get_position_text(card_type, faction, "Text"),
                       line_length=required_line_length)

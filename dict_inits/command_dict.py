@@ -112,13 +112,13 @@ command_dictionary = {
     },
     "Necrons": {
         "First": (0, 1180),
-        "Extra": (144, 1180),
-        "End": (60, 1180),
-        "Spacing": 168,
+        "Extra": (122, 1180),
+        "End": (51, 1180),
+        "Spacing": 142,
         "Resize": {
-            "First": (144, 171),
-            "Extra": (168, 171),
-            "End": (221, 171)
+            "First": (122, 180),
+            "Extra": (142, 180),
+            "End": (187, 180)
         }
     },
     "Neutral": {

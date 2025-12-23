@@ -37,10 +37,10 @@ replacement_icons = [("Resources", "[RESOURCE]"), ("Resource", "[RESOURCE]"),
                      ("Necrotic", "Necrons"), ("Goes Fasta -", "Goes Fasta! — "),
                      ("Bloodthirst -", "Bloodthirst — "), ("Goes Fasta! -", "Goes Fasta! — "),
                      ("Unstoppable -", "Unstoppable — "),
-                     ("1x", ""),
-                     ("2x", ""),
-                     ("3x", ""),
-                     ("4x", "")]
+                     ("(1x)", ""),
+                     ("(2x)", ""),
+                     ("(3x)", ""),
+                     ("(4x)", "")]
 
 for faction in factions:
     replacement_icons.append((faction, ("[" + faction.upper() + "]").replace(" ", "_")))

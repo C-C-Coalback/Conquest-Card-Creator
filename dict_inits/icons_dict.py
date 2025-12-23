@@ -65,7 +65,7 @@ icons_dict = {
     "[RESOURCE]": {
         "src": "icons/Resource_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 5),
+        "initial_extra_offset": (0, 11),
         "extra_vertical_line_offset": 0,
         "resize": (60, 51)
     },
