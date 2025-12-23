@@ -3,97 +3,97 @@ icons_dict = {
         "src": "icons/Space_Marines_Icon.png",
         "spacing": "       ",
         "initial_extra_offset": (0, 10),
-        "extra_vertical_line_offset": -5,
+        "extra_vertical_line_offset": 0,
         "resize": (90, 59)
     },
     "[ASTRA_MILITARUM]": {
         "src": "icons/Astra_Militarum_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (4, 22),
-        "extra_vertical_line_offset": -5,
-        "resize": (50, 39)
+        "initial_extra_offset": (0, 10),
+        "extra_vertical_line_offset": 0,
+        "resize": (50, 50)
     },
     "[ORKS]": {
         "src": "icons/Orks_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 20),
-        "extra_vertical_line_offset": -5,
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
         "resize": (65, 57)
     },
     "[CHAOS]": {
         "src": "icons/Chaos_Icon.png",
         "spacing": "      ",
         "initial_extra_offset": (0, 0),
-        "extra_vertical_line_offset": -5,
+        "extra_vertical_line_offset": 0,
         "resize": (79, 79)
     },
     "[DARK_ELDAR]": {
         "src": "icons/Dark_Eldar_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (5, 10),
-        "extra_vertical_line_offset": -5,
-        "resize": (51, 69)
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
+        "resize": (41, 59)
     },
     "[ELDAR]": {
         "src": "icons/Eldar_Icon.png",
         "spacing": "       ",
-        "initial_extra_offset": (-5, 10),
-        "extra_vertical_line_offset": -5,
-        "resize": (90, 59)
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
+        "resize": (70, 60)
     },
     "[TAU]": {
         "src": "icons/Tau_Icon.png",
         "spacing": "    ",
-        "initial_extra_offset": (3, 17),
-        "extra_vertical_line_offset": -5,
-        "resize": (45, 45)
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
+        "resize": (57, 57)
     },
     "[TYRANIDS]": {
         "src": "icons/Tyranids_Icon.png",
         "spacing": "       ",
-        "initial_extra_offset": (0, 10),
-        "extra_vertical_line_offset": -5,
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
         "resize": (90, 59)
     },
     "[NECRONS]": {
         "src": "icons/Necrons_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 13),
-        "extra_vertical_line_offset": -5,
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
         "resize": (60, 51)
     },
     "[RESOURCE]": {
         "src": "icons/Resource_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 13),
-        "extra_vertical_line_offset": -5,
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
         "resize": (60, 51)
     },
     "[MATERIAL]": {
         "src": "icons/Material_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (5, 13),
-        "extra_vertical_line_offset": -5,
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
         "resize": (45, 56)
     },
     "[TECHNOLOGY]": {
         "src": "icons/Technology_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 13),
-        "extra_vertical_line_offset": -5,
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
         "resize": (60, 51)
     },
     "[STRONGPOINT]": {
         "src": "icons/Strongpoint_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 13),
-        "extra_vertical_line_offset": -5,
+        "initial_extra_offset": (0, 5),
+        "extra_vertical_line_offset": 0,
         "resize": (60, 51)
     },
     "[FAITH]": {
         "src": "icons/Faith_Icon.png",
         "spacing": "    ",
-        "initial_extra_offset": (0, 6),
+        "initial_extra_offset": (0, 5),
         "extra_vertical_line_offset": 0,
         "resize": (56, 64)
     }

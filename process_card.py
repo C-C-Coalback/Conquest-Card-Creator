@@ -100,9 +100,14 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
     text = text.replace("[HEADQUARTERS ACTION]", "[HEADQUARTERS_ACTION]")
     text = text.replace("[GOES FASTA]", "[GOES_FASTA]")
     text = text.replace("[HIVE MIND]", "[HIVE_MIND]")
+    text = text.replace("(x4)", "")
+    text = text.replace("(x3)", "")
+    text = text.replace("(x2)", "")
+    text = text.replace("(x1)", "")
     drawn_image = ImageDraw.Draw(input_image)
     text = text.replace("\n", " \n")
     split_text = text.split(sep=" ")
+    split_text = [s for s in split_text if s]
     current_coords = coords
     og_coords = coords
     font_text = ImageFont.truetype(font_src, font_size)
@@ -134,7 +139,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         if no_new_lines in icons_dict:
             required_size = icons_dict[no_new_lines]["resize"]
             len_word = required_size[0]
-        if length_of_current_line + len_word > line_length or "\n" in split_text[0]:
+        if length_of_current_line + len_word > line_length or ("\n" in split_text[0] and length_of_current_line > 30):
             current_coords = (og_coords[0], current_coords[1] + font_size)
             length_of_current_line = 0
         if no_new_lines in icons_dict:
@@ -330,24 +335,9 @@ def add_name_to_card(card_type, name, resulting_img):
 
 
 def add_traits_to_card(card_type, traits, resulting_img, faction=""):
-    x_offset = int(840 - (0.5 * get_pil_text_size(traits, trait_size, trait_font)[2]))
-    y_offset = 1360
-    if card_type == "Army":
-        x_offset = x_offset - 50
-        if faction == "Tau":
-            y_offset = y_offset + 20
-    if card_type == "Support":
-        x_offset = x_offset - 100
-        y_offset = 1370
-    if card_type == "Warlord":
-        x_offset = x_offset - 80
-        y_offset = 240
-    if card_type == "Attachment":
-        x_offset = x_offset - 140
-        y_offset = 1390
-    if card_type == "Event":
-        x_offset = x_offset - 100
-        y_offset = 1390
+    x_offset, y_offset = card_types_dictionary_positions[card_type][faction]["Traits"]
+    x_offset = int(x_offset - (0.5 * get_pil_text_size(traits, trait_size, trait_font)[2]))
+    y_offset = int(y_offset)
     add_text_to_image(
         resulting_img, traits, (x_offset, y_offset), font_src=trait_font,
         font_size=trait_size

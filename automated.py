@@ -26,12 +26,14 @@ default_text_size = 62
 numbers_size = 105
 
 
-replacement_icons = [("Resource", "[RESOURCE]"), ("Resources", "[RESOURCE]"), ("Resource", "[RESOURCE]"),
+replacement_icons = [("Resources", "[RESOURCE]"), ("Resource", "[RESOURCE]"),
+                     ("resources", "[RESOURCE]"), ("resource", "[RESOURCE]"),
                      ("Material", "[MATERIAL]"), ("Technology", "[TECHNOLOGY]"), ("Strongpoint", "[STRONGPOINT]"),
-                     ("Faith Tokens", "[FAITH]"), ("Faith Token", "[FAITH]"), ("Faith", "[FAITH]"),
-                     ("faith tokens", "[FAITH]"), ("faith token", "[FAITH]"), ("faith", "[FAITH]"),
+                     ("Faith Tokens", "[FAITH]"), ("Faith Token", "[FAITH]"),
+                     ("faith tokens", "[FAITH]"), ("faith token", "[FAITH]"),
                      ("faith Tokens", "[FAITH]"), ("faith Token", "[FAITH]"),
-                     ("Faith tokens", "[FAITH]"), ("Faith token", "[FAITH]")]
+                     ("Faith tokens", "[FAITH]"), ("Faith token", "[FAITH]"),
+                     ("Faith", "[FAITH]"), ("faith", "[FAITH]")]
 
 for faction in factions:
     replacement_icons.append((faction, ("[" + faction.upper() + "]").replace(" ", "_")))
