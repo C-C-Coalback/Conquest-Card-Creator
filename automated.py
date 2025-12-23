@@ -72,7 +72,14 @@ for filename in os.listdir(csv_dir):
                                 "[HEADQUARTERS_ACTION:]", "[REACTION:]", "[FORCED_REACTION:]", "[ACTION:]",
                                 "[INTERRUPT:]", "[FORCED_INTERRUPT:]"]:
                 extra_space = " "
-            new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+            if special_text == "[CULTIST]":
+                if "Cultist token" not in new_text:
+                    new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+            elif special_text == "[RED]":
+                if " Red " in new_text:
+                    new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+            else:
+                new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
         print(current_name)
 
         output_dir = os.getcwd()

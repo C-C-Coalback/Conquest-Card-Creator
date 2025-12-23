@@ -77,12 +77,82 @@ def get_wrapped_text(text: str, font: ImageFont.ImageFont, line_length: int):
     return '\n'.join(actual_lines)
 
 
+def get_length_word(word: str, font: ImageFont.ImageFont):
+    return font.getlength(word)
+
+
 def get_wrapped_text_nlfix(text: str, font: ImageFont.ImageFont, line_length: int):
     return "\n".join([get_wrapped_text(line, font, line_length) for line in text.splitlines()])
 
 
 def clicked():
     pass
+
+
+def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=default_text_size, color=(0, 0, 0),
+                      line_length=1080, font_bold=text_bold_font, font_italics=text_italics_font, default_spacing=15):
+    text = text.replace("[DARK ELDAR]", "[DARK_ELDAR]")
+    text = text.replace("[SPACE MARINES]", "[SPACE_MARINES]")
+    text = text.replace("[ASTRA MILITARUM]", "[ASTRA_MILITARUM]")
+    text = text.replace("[DEPLOY ACTION]", "[DEPLOY_ACTION]")
+    text = text.replace("[COMMAND ACTION]", "[COMMAND_ACTION]")
+    text = text.replace("[COMBAT ACTION]", "[COMBAT_ACTION]")
+    text = text.replace("[HEADQUARTERS ACTION]", "[HEADQUARTERS_ACTION]")
+    text = text.replace("[GOES FASTA]", "[GOES_FASTA]")
+    text = text.replace("[HIVE MIND]", "[HIVE_MIND]")
+    drawn_image = ImageDraw.Draw(input_image)
+    text = text.replace("\n", " \n")
+    split_text = text.split(sep=" ")
+    current_coords = coords
+    og_coords = coords
+    font_text = ImageFont.truetype(font_src, font_size)
+    word_bold_font = ImageFont.truetype(font_bold, font_size)
+    word_italics_font = ImageFont.truetype(font_italics, font_size * 0.8)
+    length_of_current_line = 0
+    while split_text:
+        no_new_lines = split_text[0].replace("\n", "")
+        current_font = font_text
+        len_word = 0
+        spacing = default_spacing
+        special_icon = False
+        if no_new_lines in special_text_dict:
+            if special_text_dict[no_new_lines]["type"] == "Bold":
+                current_font = word_bold_font
+                no_new_lines = special_text_dict[no_new_lines]["text"]
+                try:
+                    spacing = int(special_text_dict[no_new_lines]["spacing"])
+                except:
+                    pass
+            elif special_text_dict[no_new_lines]["type"] == "Italics":
+                current_font = word_italics_font
+                no_new_lines = special_text_dict[no_new_lines]["text"]
+                try:
+                    spacing = int(special_text_dict[no_new_lines]["spacing"])
+                except:
+                    pass
+        len_word = get_length_word(no_new_lines, current_font)
+        if no_new_lines in icons_dict:
+            required_size = icons_dict[no_new_lines]["resize"]
+            len_word = required_size[0]
+        if length_of_current_line + len_word > line_length or "\n" in split_text[0]:
+            current_coords = (og_coords[0], current_coords[1] + font_size)
+            length_of_current_line = 0
+        if no_new_lines in icons_dict:
+            special_icon = True
+            initial_extra_offset = icons_dict[no_new_lines]["initial_extra_offset"]
+            x_pos_icon = int(current_coords[0] + initial_extra_offset[0])
+            y_pos_icon = int(current_coords[1] + initial_extra_offset[1])
+            required_size = icons_dict[no_new_lines]["resize"]
+            text_icon_img = Image.open(icons_dict[no_new_lines]["src"], 'r').convert("RGBA")
+            text_icon_img = text_icon_img.resize(required_size)
+            input_image.paste(text_icon_img, (x_pos_icon, y_pos_icon), text_icon_img)
+            len_word = required_size[0]
+        length_of_current_line = length_of_current_line + len_word + spacing
+        if not special_icon:
+            drawn_image.text(current_coords, no_new_lines, fill=color, font=current_font)
+        current_coords = (current_coords[0] + len_word + spacing, current_coords[1])
+        del split_text[0]
+    return input_image
 
 
 def add_text_to_image(input_image, text, coords, font_src=text_font,
@@ -101,19 +171,15 @@ def add_text_to_image(input_image, text, coords, font_src=text_font,
     if deepstrike:
         color = (255, 0, 0)
     drawn_image = ImageDraw.Draw(input_image)
-    text_font = ImageFont.truetype(font_src, font_size)
-    text = get_wrapped_text_nlfix(text, text_font, line_length)
+    font_text = ImageFont.truetype(font_src, font_size)
+    text = get_wrapped_text_nlfix(text, font_text, line_length)
     og_split_text = text.split(sep="\n")
     for item in special_text_dict:
         for i in range(len(og_split_text)):
             while item in og_split_text[i]:
                 current_x_pos_text = og_split_text[i].find(item)
                 shortened_text = og_split_text[i][:current_x_pos_text]
-                for any_icon in icons_dict:
-                    shortened_text = shortened_text.replace(any_icon, icons_dict[any_icon]["spacing"])
-                for any_icon in special_text_dict:
-                    shortened_text = shortened_text.replace(any_icon, special_text_dict[any_icon]["spacing"])
-                x_offset = int(text_font.getlength(shortened_text))
+                x_offset = int(font_text.getlength(shortened_text))
                 x_pos_icon = coords[0] + x_offset + special_text_dict[item]["initial_extra_offset"][0]
                 y_pos_icon = coords[1] + special_text_dict[item]["initial_extra_offset"][1] + (font_size) * i
                 if special_text_dict[item]["type"] == "Bold":
@@ -128,19 +194,13 @@ def add_text_to_image(input_image, text, coords, font_src=text_font,
                     d_bold = ImageDraw.Draw(txt_italics)
                     d_bold.text((0, 0), special_text_dict[item]["text"], font=f_italics, fill="black")
                     input_image.paste(txt_italics, (x_pos_icon, y_pos_icon), txt_italics)
-                og_split_text[i] = og_split_text[i].replace(item, special_text_dict[item]["spacing"], 1)
-        text = text.replace(item, special_text_dict[item]["spacing"])
     og_split_text = text.split(sep="\n")
     for icon in icons_dict:
         for i in range(len(og_split_text)):
             while icon in og_split_text[i]:
                 current_x_pos_text = og_split_text[i].find(icon)
                 shortened_text = og_split_text[i][:current_x_pos_text]
-                for any_icon in icons_dict:
-                    shortened_text = shortened_text.replace(any_icon, icons_dict[any_icon]["spacing"])
-                for any_icon in special_text_dict:
-                    shortened_text = shortened_text.replace(any_icon, special_text_dict[any_icon]["spacing"])
-                x_offset = int(text_font.getlength(shortened_text))
+                x_offset = int(font_text.getlength(shortened_text))
                 initial_extra_offset = icons_dict[icon]["initial_extra_offset"]
                 extra_vertical_offset = icons_dict[icon]["extra_vertical_line_offset"]
                 x_pos_icon = coords[0] + x_offset + initial_extra_offset[0]
@@ -149,65 +209,81 @@ def add_text_to_image(input_image, text, coords, font_src=text_font,
                 text_icon_img = Image.open(icons_dict[icon]["src"], 'r').convert("RGBA")
                 text_icon_img = text_icon_img.resize(required_size)
                 input_image.paste(text_icon_img, (x_pos_icon, y_pos_icon), text_icon_img)
-                og_split_text[i] = og_split_text[i].replace(icon, icons_dict[icon]["spacing"], 1)
-        text = text.replace(icon, icons_dict[icon]["spacing"])
     split_text = text.split(sep="\n")
     current_coords = coords
     for i in range(len(split_text)):
-        drawn_image.text(current_coords, split_text[i], fill=color, font=text_font)
+        drawn_image.text(current_coords, split_text[i], fill=color, font=font_text)
         current_coords = (current_coords[0], current_coords[1] + (font_size))
     return input_image
 
 
 def add_text_to_planet_image(input_image, text, font_src=text_font,
                              font_size=84, line_length=1080,
-                             font_bold=text_bold_font):
-    text_font = ImageFont.truetype(font_src, font_size)
-    text = get_wrapped_text_nlfix(text, text_font, line_length)
-    og_split_text = text.split(sep="\n")
-    replacement_icons = ["[SPACE MARINES]", "[ASTRA MILITARUM]", "[ORKS]", "[CHAOS]", "[DARK ELDAR]",
-                         "[ELDAR]", "[TAU]", "[TYRANIDS]", "[NECRONS]", "[RESOURCE]",
-                         "[TECHNOLOGY]", "[MATERIAL]", "[STRONGPOINT]"]
+                             font_bold=text_bold_font, font_italics=text_italics_font):
+    text = text.replace("[DARK ELDAR]", "[DARK_ELDAR]")
+    text = text.replace("[SPACE MARINES]", "[SPACE_MARINES]")
+    text = text.replace("[ASTRA MILITARUM]", "[ASTRA_MILITARUM]")
+    text = text.replace("[DEPLOY ACTION]", "[DEPLOY_ACTION]")
+    text = text.replace("[COMMAND ACTION]", "[COMMAND_ACTION]")
+    text = text.replace("[COMBAT ACTION]", "[COMBAT_ACTION]")
+    text = text.replace("[HEADQUARTERS ACTION]", "[HEADQUARTERS_ACTION]")
+    text = text.replace("[GOES FASTA]", "[GOES_FASTA]")
+    text = text.replace("[HIVE MIND]", "[HIVE_MIND]")
+    drawn_image = ImageDraw.Draw(input_image)
+    text = text.replace("\n", " \n")
+    split_text = text.split(sep=" ")
     coords = (30, 400)
-    for icon in replacement_icons:
-        for i in range(len(og_split_text)):
-            if icon in og_split_text[i]:
-                current_x_pos_text = og_split_text[i].find(icon)
-                shortened_text = og_split_text[i][:current_x_pos_text]
-                x_offset = int(text_font.getlength(shortened_text))
-                initial_extra_offset = icons_dict[icon]["initial_extra_offset"]
-                extra_vertical_offset = icons_dict[icon]["extra_vertical_line_offset"]
-                x_pos_icon = coords[0] + 240 + initial_extra_offset[0] - (font_size + extra_vertical_offset) * i
-                y_pos_icon = coords[1] + x_offset + initial_extra_offset[1]
-                required_size = icons_dict[icon]["resize"]
-                text_icon_img = Image.open(icons_dict[icon]["src"], 'r').convert("RGBA")
-                text_icon_img = text_icon_img.resize(required_size)
-                text_icon_img = text_icon_img.rotate(270)
-                input_image.paste(text_icon_img, (x_pos_icon, y_pos_icon), text_icon_img)
-                "A Non-[TAU] Unit."
-        text = text.replace(icon, icons_dict[icon]["spacing"])
-    for item in special_text_dict:
-        for i in range(len(og_split_text)):
-            if item in og_split_text[i]:
-                current_x_pos_text = og_split_text[i].find(item)
-                shortened_text = og_split_text[i][:current_x_pos_text]
-                x_offset = int(text_font.getlength(shortened_text))
-                x_offset = x_offset + special_text_dict[item]["initial_extra_offset"][0] + 400
-                y_offset = special_text_dict[item]["initial_extra_offset"][1] - (font_size + 0) * i + 30
-                f_bold = ImageFont.truetype(font_bold, font_size)
-                txt_bold = Image.new('RGBA', (line_length, 330))
-                d_bold = ImageDraw.Draw(txt_bold)
-                d_bold.text((0, 0), special_text_dict[item]["text"], font=f_bold, fill="black")
-                w_bold = txt_bold.rotate(270, expand=1)
-                input_image.paste(w_bold, (y_offset, x_offset), w_bold)
-        text = text.replace(item, special_text_dict[item]["spacing"])
-    f = ImageFont.truetype(font_src, font_size)
-    txt = Image.new('RGBA', (line_length, 330))
-    d = ImageDraw.Draw(txt)
-    d.text((0, 0), text, font=f, fill="black")
-    w = txt.rotate(270, expand=1)
-    x_offset = 400
-    input_image.paste(w, (30, x_offset), w)
+    default_spacing = 15
+    current_coords = coords
+    color = (0, 0, 0)
+    og_coords = coords
+    font_text = ImageFont.truetype(font_src, font_size)
+    word_bold_font = ImageFont.truetype(font_bold, font_size)
+    word_italics_font = ImageFont.truetype(font_italics, font_size * 0.8)
+    length_of_current_line = 0
+    while split_text:
+        no_new_lines = split_text[0].replace("\n", "")
+        current_font = font_text
+        len_word = 0
+        spacing = default_spacing
+        special_icon = False
+        if no_new_lines in special_text_dict:
+            if special_text_dict[no_new_lines]["type"] == "Bold":
+                current_font = word_bold_font
+                no_new_lines = special_text_dict[no_new_lines]["text"]
+                try:
+                    spacing = int(special_text_dict[no_new_lines]["spacing"])
+                except:
+                    pass
+            elif special_text_dict[no_new_lines]["type"] == "Italics":
+                current_font = word_italics_font
+                no_new_lines = special_text_dict[no_new_lines]["text"]
+                try:
+                    spacing = int(special_text_dict[no_new_lines]["spacing"])
+                except:
+                    pass
+        len_word = get_length_word(no_new_lines, current_font)
+        if no_new_lines in icons_dict:
+            required_size = icons_dict[no_new_lines]["resize"]
+            len_word = required_size[0]
+        if length_of_current_line + len_word > line_length or "\n" in split_text[0]:
+            current_coords = (og_coords[0], current_coords[1] + font_size)
+            length_of_current_line = 0
+        if no_new_lines in icons_dict:
+            special_icon = True
+            initial_extra_offset = icons_dict[no_new_lines]["initial_extra_offset"]
+            x_pos_icon = int(current_coords[0] + initial_extra_offset[0])
+            y_pos_icon = int(current_coords[1] + initial_extra_offset[1])
+            required_size = icons_dict[no_new_lines]["resize"]
+            text_icon_img = Image.open(icons_dict[no_new_lines]["src"], 'r').convert("RGBA")
+            text_icon_img = text_icon_img.resize(required_size)
+            input_image.paste(text_icon_img, (x_pos_icon, y_pos_icon), text_icon_img)
+            len_word = required_size[0]
+        length_of_current_line = length_of_current_line + len_word + spacing
+        if not special_icon:
+            drawn_image.text(current_coords, no_new_lines, fill=color, font=current_font)
+        current_coords = (current_coords[0] + len_word + spacing, current_coords[1])
+        del split_text[0]
     return input_image
 
 
@@ -362,7 +438,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     resulting_img.paste(expansion_icon_img, get_position_text(card_type, faction, "Expansion Icon"), expansion_icon_img)
     add_name_to_card(card_type, name, resulting_img)
     add_traits_to_card(card_type, traits, resulting_img, faction=faction)
-    add_text_to_image(resulting_img, text, get_position_text(card_type, faction, "Text"),
+    draw_textbox_text(resulting_img, text, get_position_text(card_type, faction, "Text"),
                       line_length=required_line_length)
     deepstrike = False
     if "Deep Strike (" in text:

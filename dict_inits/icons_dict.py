@@ -101,301 +101,301 @@ icons_dict = {
 
 special_text_dict = {
     "[BATTLE:]": {
-        "spacing": "             ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Battle:",
         "type": "Bold"
     },
     "[DEPLOY_ACTION:]": {
-        "spacing": "                               ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Deploy Action:",
         "type": "Bold"
     },
     "[COMMAND_ACTION:]": {
-        "spacing": "                                      ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Command Action:",
         "type": "Bold"
     },
     "[COMBAT_ACTION:]": {
-        "spacing": "                           ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Combat Action:",
         "type": "Bold"
     },
     "[HEADQUARTERS_ACTION:]": {
-        "spacing": "                                    ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Headquarters Action:",
         "type": "Bold"
     },
     "[FORCED_REACTION:]": {
-        "spacing": "                             ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
-        "text": "Forced Reaction: ",
+        "text": "Forced Reaction:",
         "type": "Bold"
     },
     "[REACTION:]": {
-        "spacing": "                ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
-        "text": "Reaction: ",
+        "text": "Reaction:",
         "type": "Bold"
     },
     "[ACTION:]": {
-        "spacing": "            ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Action:",
         "type": "Bold"
     },
     "[FORCED_INTERRUPT:]": {
-        "spacing": "                                 ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
-        "text": "Forced Interrupt: ",
+        "text": "Forced Interrupt:",
         "type": "Bold"
     },
     "[INTERRUPT:]": {
-        "spacing": "                    ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Interrupt:",
         "type": "Bold"
     },
     "[WARGEAR]": {
-        "spacing": "               ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Wargear",
         "type": "Bold"
     },
     "[UNSTOPPABLE]": {
-        "spacing": "                               ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Unstoppable — ",
         "type": "Italics"
     },
     "[BLOODTHIRST]": {
-        "spacing": "                            ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Bloodthirst — ",
         "type": "Italics"
     },
     "[GOES_FASTA]": {
-        "spacing": "                            ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Goes Fasta! — ",
         "type": "Italics"
     },
     "[HIVE_MIND]": {
-        "spacing": "                         ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Hive Mind — ",
         "type": "Italics"
     },
     "[DARK_ANGELS]": {
-        "spacing": "                         ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Dark Angels",
         "type": "Bold"
     },
     "[SOLDIER]": {
-        "spacing": "            ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Soldier",
         "type": "Bold"
     },
     "[VEHICLE]": {
-        "spacing": "            ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Vehicle",
         "type": "Bold"
     },
     "[TECH_PRIEST]": {
-        "spacing": "                   ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Tech-Priest",
         "type": "Bold"
     },
     "[HARDPOINT]": {
-        "spacing": "                     ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Hardpoint",
         "type": "Bold"
     },
     "[TRANSPORT]": {
-        "spacing": "                  ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Transport",
         "type": "Bold"
     },
     "[ARTILLERY]": {
-        "spacing": "               ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Artillery",
         "type": "Bold"
     },
     "[SQUIG]": {
-        "spacing": "          ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Squig",
         "type": "Bold"
     },
     "[RUNT]": {
-        "spacing": "          ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Runt",
         "type": "Bold"
     },
     "[RED]": {
-        "spacing": "        ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Red",
         "type": "Bold"
     },
     "[TRAITS]": {
-        "spacing": "           ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Traits",
         "type": "Bold"
     },
     "[CULTIST]": {
-        "spacing": "              ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Cultist",
         "type": "Bold"
     },
     "[RITUALIST]": {
-        "spacing": "                  ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Ritualist",
         "type": "Bold"
     },
     "[TZEENTCH]": {
-        "spacing": "                   ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Tzeentch",
         "type": "Bold"
     },
     "[NURGLE]": {
-        "spacing": "              ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Nurgle",
         "type": "Bold"
     },
     "[KHORNE]": {
-        "spacing": "               ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Khorne",
         "type": "Bold"
     },
     "[SLAANESH]": {
-        "spacing": "                   ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Slaanesh",
         "type": "Bold"
     },
     "[BLESSING]": {
-        "spacing": "                  ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Blessing",
         "type": "Bold"
     },
     "[CURSE]": {
-        "spacing": "            ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Curse",
         "type": "Bold"
     },
     "[DAEMON]": {
-        "spacing": "                  ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Daemon",
         "type": "Bold"
     },
     "[PSYKER]": {
-        "spacing": "              ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Psyker",
         "type": "Bold"
     },
     "[ELITE]": {
-        "spacing": "          ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Elite",
         "type": "Bold"
     },
     "[KABALITE]": {
-        "spacing": "                 ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Kabalite",
         "type": "Bold"
     },
     "[TORTURE]": {
-        "spacing": "                ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Torture",
         "type": "Bold"
     },
     "[HAEMONCULUS]": {
-        "spacing": "                             ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Haemonculus",
         "type": "Bold"
     },
     "[BEASTMASTER]": {
-        "spacing": "                          ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Beastmaster",
         "type": "Bold"
     },
     "[CREATURE]": {
-        "spacing": "                  ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Creature",
         "type": "Bold"
     },
     "[WARRIOR]": {
-        "spacing": "                ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Warrior",
         "type": "Bold"
     },
     "[SPIRIT]": {
-        "spacing": "            ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Spirit",
         "type": "Bold"
     },
     "[ETHEREAL]": {
-        "spacing": "                  ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Ethereal",
         "type": "Bold"
     },
     "[SCOUT]": {
-        "spacing": "            ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Scout",
         "type": "Bold"
     },
     "[DRONE]": {
-        "spacing": "           ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Drone",
         "type": "Bold"
     },
     "[PILOT]": {
-        "spacing": "          ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Pilot",
         "type": "Bold"
     },
     "[KROOT]": {
-        "spacing": "            ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Kroot",
         "type": "Bold"
     },
     "[SHAS'LA]": {
-        "spacing": "               ",
+        "spacing": 15,
         "initial_extra_offset": (0, 0),
         "text": "Shas'la",
         "type": "Bold"
