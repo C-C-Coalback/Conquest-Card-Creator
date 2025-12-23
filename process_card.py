@@ -116,6 +116,22 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
     length_of_current_line = 0
     while split_text:
         no_new_lines = split_text[0].replace("\n", "")
+        comma_present = False
+        period_present = False
+        semi_present = False
+        para_present = False
+        if "," in no_new_lines:
+            comma_present = True
+        if "." in no_new_lines:
+            period_present = True
+        if ";" in no_new_lines:
+            semi_present = True
+        if ")" in no_new_lines:
+            para_present = True
+        no_new_lines = no_new_lines.replace(",", "")
+        no_new_lines = no_new_lines.replace(".", "")
+        no_new_lines = no_new_lines.replace(";", "")
+        no_new_lines = no_new_lines.replace(")", "")
         current_font = font_text
         len_word = 0
         spacing = default_spacing
@@ -155,6 +171,23 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         length_of_current_line = length_of_current_line + len_word + spacing
         if not special_icon:
             drawn_image.text(current_coords, no_new_lines, fill=color, font=current_font)
+        extra_coords = (current_coords[0] + len_word, current_coords[1])
+        if comma_present:
+            new_len_word = get_length_word(",", current_font)
+            drawn_image.text(extra_coords, ",", fill=color, font=font_text)
+            spacing = spacing + new_len_word
+        if period_present:
+            new_len_word = get_length_word(".", current_font)
+            drawn_image.text(extra_coords, ".", fill=color, font=font_text)
+            spacing = spacing + new_len_word
+        if semi_present:
+            new_len_word = get_length_word(";", current_font)
+            drawn_image.text(extra_coords, ";", fill=color, font=font_text)
+            spacing = spacing + new_len_word
+        if para_present:
+            new_len_word = get_length_word(")", current_font)
+            drawn_image.text(extra_coords, ")", fill=color, font=font_text)
+            spacing = spacing + new_len_word
         current_coords = (current_coords[0] + len_word + spacing, current_coords[1])
         del split_text[0]
     return input_image
@@ -377,7 +410,8 @@ def add_command_icons(command, first_command_src, extra_command_src, command_end
 def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
-                           loyalty="Common", shield_value="0", bloodied=False, automated=False, auto_card_art_src=""):
+                           loyalty="Common", shield_value="0", bloodied=False, automated=False, auto_card_art_src="",
+                           unique=False):
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
     if bloodied and card_type == "Warlord":
         text_src = "card_srcs/" + faction + "/Warlord_Bloodied/Text.png"
@@ -426,7 +460,10 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     resulting_img.paste(text_img, get_position_text(card_type, faction, "Text Box"), text_img)
     expansion_icon_img = Image.open(expansion_icon_src, 'r').convert("RGBA").resize((55, 55))
     resulting_img.paste(expansion_icon_img, get_position_text(card_type, faction, "Expansion Icon"), expansion_icon_img)
-    add_name_to_card(card_type, name, resulting_img)
+    name_header = name
+    if unique:
+        name_header = ". " + name
+    add_name_to_card(card_type, name_header, resulting_img)
     add_traits_to_card(card_type, traits, resulting_img, faction=faction)
     draw_textbox_text(resulting_img, text, get_position_text(card_type, faction, "Text"),
                       line_length=required_line_length)

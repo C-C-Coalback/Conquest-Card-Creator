@@ -33,11 +33,20 @@ replacement_icons = [("Resources", "[RESOURCE]"), ("Resource", "[RESOURCE]"),
                      ("faith tokens", "[FAITH]"), ("faith token", "[FAITH]"),
                      ("faith Tokens", "[FAITH]"), ("faith Token", "[FAITH]"),
                      ("Faith tokens", "[FAITH]"), ("Faith token", "[FAITH]"),
-                     ("Faith", "[FAITH]"), ("faith", "[FAITH]")]
+                     ("Faith", "[FAITH]"), ("faith", "[FAITH]"),
+                     ("Necrotic", "Necrons"), ("Goes Fasta -", "Goes Fasta! — "),
+                     ("Bloodthirst -", "Bloodthirst — "), ("Goes Fasta! -", "Goes Fasta! — "),
+                     ("Unstoppable -", "Unstoppable — "),
+                     ("1x", ""),
+                     ("2x", ""),
+                     ("3x", ""),
+                     ("4x", "")]
 
 for faction in factions:
     replacement_icons.append((faction, ("[" + faction.upper() + "]").replace(" ", "_")))
 
+
+replacement_icons.append(("Ork", "[ORKS]"))
 
 csv_dir = "csv_blackstone"
 for filename in os.listdir(csv_dir):
@@ -50,7 +59,6 @@ for filename in os.listdir(csv_dir):
     df.dropna(subset=['Card Type'], inplace=True)
     df.drop(df[df['Card Type'] == "Warlord"].index, inplace=True)
     df.drop(index=df.index[0], inplace=True)
-
     for current_pos in range(df.shape[0]):
         current_name = df['Name'].values[current_pos]
         current_faction = df['Faction'].values[current_pos]
@@ -64,7 +72,10 @@ for filename in os.listdir(csv_dir):
         current_shld = str(df['SHLD'].values[current_pos])
         current_loyal = df['Loyal'].values[current_pos]
         current_unique = df['Unique'].values[current_pos]
-
+        if current_unique == "TRUE":
+            current_unique = True
+        else:
+            current_unique = False
         new_text = current_text
         for icon in replacement_icons:
             new_text = new_text.replace(icon[0], icon[1])
@@ -106,5 +117,5 @@ for filename in os.listdir(csv_dir):
                                attack=current_atk, health=current_hp, command=current_cmd, cost=current_cost,
                                starting_cards="7", starting_resources="7",
                                loyalty=current_loyal, shield_value=current_shld, bloodied=False, automated=True,
-                               auto_card_art_src=auto_card_art_src)
+                               auto_card_art_src=auto_card_art_src, unique=current_unique)
 
