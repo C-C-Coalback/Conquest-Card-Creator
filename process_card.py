@@ -115,7 +115,7 @@ def add_text_to_image(input_image, text, coords, font_src=text_font,
                     shortened_text = shortened_text.replace(any_icon, special_text_dict[any_icon]["spacing"])
                 x_offset = int(text_font.getlength(shortened_text))
                 x_pos_icon = coords[0] + x_offset + special_text_dict[item]["initial_extra_offset"][0]
-                y_pos_icon = coords[1] + special_text_dict[item]["initial_extra_offset"][1] + (font_size - 8) * i
+                y_pos_icon = coords[1] + special_text_dict[item]["initial_extra_offset"][1] + (font_size) * i
                 if special_text_dict[item]["type"] == "Bold":
                     f_bold = ImageFont.truetype(font_bold, font_size)
                     txt_bold = Image.new('RGBA', (line_length, 330))
@@ -155,7 +155,7 @@ def add_text_to_image(input_image, text, coords, font_src=text_font,
     current_coords = coords
     for i in range(len(split_text)):
         drawn_image.text(current_coords, split_text[i], fill=color, font=text_font)
-        current_coords = (current_coords[0], current_coords[1] + (font_size - 8))
+        current_coords = (current_coords[0], current_coords[1] + (font_size))
     return input_image
 
 

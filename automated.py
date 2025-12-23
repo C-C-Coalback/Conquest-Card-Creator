@@ -86,8 +86,8 @@ for filename in os.listdir(csv_dir):
             auto_card_art_src = auto_card_art_src + ".png"
         elif os.path.exists(auto_card_art_src + ".jpg"):
             auto_card_art_src = auto_card_art_src + ".jpg"
-        elif os.path.exists(auto_card_art_src + ".jepg"):
-            auto_card_art_src = auto_card_art_src + ".jepg"
+        elif os.path.exists(auto_card_art_src + ".jpeg"):
+            auto_card_art_src = auto_card_art_src + ".jpeg"
         elif os.path.exists(auto_card_art_src + ".webp"):
             auto_card_art_src = auto_card_art_src + ".webp"
         elif os.path.exists(auto_card_art_src + ".gif"):
