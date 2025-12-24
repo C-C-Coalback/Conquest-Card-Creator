@@ -197,6 +197,11 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         if not special_icon:
             drawn_image.text(current_coords, no_new_lines, fill=color, font=current_font)
         extra_coords = (current_coords[0] + len_word, current_coords[1])
+        if para_present:
+            new_len_word = get_length_word(")", current_font)
+            drawn_image.text(extra_coords, ")", fill=color, font=font_text)
+            spacing = spacing + new_len_word
+            extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
         if comma_present:
             new_len_word = get_length_word(",", current_font)
             drawn_image.text(extra_coords, ",", fill=color, font=font_text)
@@ -205,11 +210,6 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         if semi_present:
             new_len_word = get_length_word(";", current_font)
             drawn_image.text(extra_coords, ";", fill=color, font=font_text)
-            spacing = spacing + new_len_word
-            extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
-        if para_present:
-            new_len_word = get_length_word(")", current_font)
-            drawn_image.text(extra_coords, ")", fill=color, font=font_text)
             spacing = spacing + new_len_word
             extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
         if period_present:
@@ -520,11 +520,11 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     if card_type == "Warlord" and not bloodied:
         add_text_to_image(
             resulting_img, starting_cards, get_position_text(card_type, faction, "Cards"),
-            font_size=168, color=(0, 0, 0)
+            font_size=140, color=(0, 0, 0)
         )
         add_text_to_image(
             resulting_img, starting_resources, get_position_text(card_type, faction, "Resources"),
-            font_size=168, color=(243, 139, 18)
+            font_size=140, color=(243, 139, 18)
         )
     if card_type in ["Army", "Support", "Event", "Attachment"]:
         if (loyalty == "Loyal" or loyalty == "Signature") and faction != "Neutral":
