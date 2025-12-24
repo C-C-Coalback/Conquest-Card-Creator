@@ -18,10 +18,10 @@ card_types_dictionary_positions = {
             "Text Box": (0, 0),
             "Traits": (790, 1360),
             "Art": (0, 0),
-            "Text": (264, 1416),
+            "Text": (264, 1426),
             "Cost": (150, 100),
-            "Attack": (120, 1465),
-            "Health": (120, 1735),
+            "Attack": (123, 1457),
+            "Health": (123, 1727),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1350, 1908),
             "Text Length": 1100
@@ -44,10 +44,10 @@ card_types_dictionary_positions = {
             "Text Box": (0, 0),
             "Traits": (790, 1360),
             "Art": (0, 0),
-            "Text": (264, 1416),
+            "Text": (264, 1426),
             "Cost": (140, 110),
-            "Attack": (120, 1465),
-            "Health": (120, 1735),
+            "Attack": (125, 1465),
+            "Health": (125, 1735),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1350, 1903),
             "Text Length": 1100
@@ -305,14 +305,14 @@ card_types_dictionary_positions = {
         "Astra Militarum": {
             "Name": (720, 1210),
             "Text Box": (0, 0),
-            "Traits": (700, 1390),
+            "Traits": (700, 1395),
             "Art": (0, 0),
-            "Text": (64, 1466),
+            "Text": (64, 1471),
             "Cost": (170, 144),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1905),
-            "Text Length": 1230
+            "Text Length": 1190
         },
         "Orks": {
             "Name": (720, 1210),
@@ -329,9 +329,9 @@ card_types_dictionary_positions = {
         "Chaos": {
             "Name": (720, 1220),
             "Text Box": (0, 0),
-            "Traits": (700, 1410),
+            "Traits": (700, 1420),
             "Art": (0, 0),
-            "Text": (64, 1466),
+            "Text": (64, 1486),
             "Cost": (173, 144),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
@@ -341,14 +341,14 @@ card_types_dictionary_positions = {
         "Dark Eldar": {
             "Name": (720, 1220),
             "Text Box": (0, 0),
-            "Traits": (700, 1400),
+            "Traits": (700, 1410),
             "Art": (0, 0),
-            "Text": (64, 1466),
+            "Text": (64, 1481),
             "Cost": (175, 154),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1363, 1915),
-            "Text Length": 1230
+            "Text Length": 1200
         },
         "Eldar": {
             "Name": (720, 1210),
@@ -435,11 +435,11 @@ card_types_dictionary_positions = {
             "Text Length": 1330
         },
         "Astra Militarum": {
-            "Name": (810, 68),
+            "Name": (815, 78),
             "Text Box": (0, 0),
-            "Traits": (740, 1390),
+            "Traits": (740, 1400),
             "Art": (0, 0),
-            "Text": (64, 1466),
+            "Text": (64, 1476),
             "Cost": (150, 106),
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
@@ -473,9 +473,9 @@ card_types_dictionary_positions = {
         "Dark Eldar": {
             "Name": (810, 68),
             "Text Box": (0, 0),
-            "Traits": (740, 1390),
+            "Traits": (740, 1400),
             "Art": (0, 0),
-            "Text": (64, 1466),
+            "Text": (64, 1476),
             "Cost": (154, 116),
             "Loyalty": (1313, 950),
             "Shield": (0, 350),

@@ -146,14 +146,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         len_word = 0
         spacing = default_spacing
         special_icon = False
-        if non_present:
-            new_len_word = get_length_word("non-", current_font)
-            drawn_image.text(current_coords, "non-", fill=color, font=font_text)
-            current_coords = (current_coords[0] + new_len_word, current_coords[1])
-        if quote_start:
-            new_len_word = get_length_word("\"", current_font)
-            drawn_image.text(current_coords, "\"", fill=color, font=font_text)
-            current_coords = (current_coords[0] + new_len_word, current_coords[1])
+        og_no_new_lines = no_new_lines
         if no_new_lines in special_text_dict:
             if special_text_dict[no_new_lines]["type"] == "Bold":
                 current_font = word_bold_font
@@ -170,12 +163,26 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
                 except:
                     pass
         len_word = get_length_word(no_new_lines, current_font)
+        multiplier_spacing = 1.0
         if no_new_lines in icons_dict:
             required_size = icons_dict[no_new_lines]["resize"]
             len_word = required_size[0]
         if length_of_current_line + len_word > line_length or ("\n" in split_text[0] and length_of_current_line > 30):
-            current_coords = (og_coords[0], current_coords[1] + font_size)
+            if "\n" in split_text[0] and length_of_current_line > 30:
+                multiplier_spacing = 1.3
+            current_coords = (og_coords[0], current_coords[1] + int(font_size * multiplier_spacing))
             length_of_current_line = 0
+        if non_present:
+            new_len_word = get_length_word("non-", current_font)
+            drawn_image.text(current_coords, "non-", fill=color, font=font_text)
+            current_coords = (current_coords[0] + new_len_word, current_coords[1])
+        if quote_start:
+            new_len_word = get_length_word("\"", current_font)
+            drawn_image.text(current_coords, "\"", fill=color, font=font_text)
+            if og_no_new_lines in special_text_dict:
+                current_coords = (int(current_coords[0] + new_len_word * 0.7), current_coords[1])
+            else:
+                current_coords = (current_coords[0] + new_len_word, current_coords[1])
         if no_new_lines in icons_dict:
             special_icon = True
             initial_extra_offset = icons_dict[no_new_lines]["initial_extra_offset"]
@@ -462,6 +469,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
         resulting_img.paste(bloodied_img, get_position_text(card_type, faction, "Art"), bloodied_img)
     text_resize_amount = (1440, 2052)
     required_line_length = 1240
+
     if card_type != "Planet":
         required_line_length = card_types_dictionary_positions[card_type][faction]["Text Length"]
     text_img = Image.open(text_src, 'r').convert("RGBA")

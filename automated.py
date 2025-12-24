@@ -86,8 +86,8 @@ for filename in os.listdir(csv_dir):
                                 "[INTERRUPT:]", "[FORCED_INTERRUPT:]"]:
                 extra_space = " "
             if special_text == "[CULTIST]":
-                if "Cultist token" not in new_text:
-                    new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+                new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+                new_text = new_text.replace("[CULTIST] token", "Cultist token")
             elif special_text == "[RED]":
                 if " Red " in new_text:
                     new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
