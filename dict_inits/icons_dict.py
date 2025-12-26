@@ -400,4 +400,10 @@ special_text_dict = {
         "text": "Shas'la",
         "type": "Bold"
     },
+    "[RITUAL]": {
+        "spacing": 15,
+        "initial_extra_offset": (0, 0),
+        "text": "Ritual",
+        "type": "Bold"
+    },
 }

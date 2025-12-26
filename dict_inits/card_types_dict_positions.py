@@ -375,7 +375,7 @@ card_types_dictionary_positions = {
             "Text Length": 1230
         },
         "Tyranids": {
-            "Name": (720, 1215),
+            "Name": (720, 1225),
             "Text Box": (0, 0),
             "Traits": (700, 1390),
             "Art": (0, 0),
@@ -507,7 +507,7 @@ card_types_dictionary_positions = {
             "Text Length": 1330
         },
         "Tyranids": {
-            "Name": (810, 73),
+            "Name": (810, 78),
             "Text Box": (0, 0),
             "Traits": (740, 1405),
             "Art": (0, 0),
@@ -650,7 +650,7 @@ card_types_dictionary_positions = {
             "Text Box": (0, 0),
             "Traits": (760, 251),
             "Art": (0, 0),
-            "Text": (164, 400),
+            "Text": (84, 400),
             "Attack": (130, 1565),
             "Health": (130, 1835),
             "Cards": (585, 1835),
