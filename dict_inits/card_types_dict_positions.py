@@ -92,7 +92,7 @@ card_types_dictionary_positions = {
             "Text Length": 1100
         },
         "Tyranids": {
-            "Name": (810, 98),
+            "Name": (850, 103),
             "Text Box": (0, 0),
             "Traits": (790, 1370),
             "Art": (0, 0),
@@ -144,7 +144,7 @@ card_types_dictionary_positions = {
     },
     "Synapse": {
         "Tyranids": {
-            "Name": (810, 98),
+            "Name": (850, 103),
             "Text Box": (0, 0),
             "Traits": (790, 1365),
             "Art": (0, 0),
@@ -375,7 +375,7 @@ card_types_dictionary_positions = {
             "Text Length": 1230
         },
         "Tyranids": {
-            "Name": (720, 1225),
+            "Name": (720, 1230),
             "Text Box": (0, 0),
             "Traits": (700, 1390),
             "Art": (0, 0),
@@ -504,7 +504,7 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1905),
-            "Text Length": 1330
+            "Text Length": 1210
         },
         "Tyranids": {
             "Name": (810, 78),
