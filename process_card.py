@@ -169,9 +169,6 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         if no_new_lines in icons_dict:
             required_size = icons_dict[no_new_lines]["resize"]
             len_word = required_size[0]
-        print(no_new_lines)
-        print(length_of_current_line + len_word)
-        print(len_word)
         if length_of_current_line + len_word > line_length or ("\n" in split_text[0] and length_of_current_line > 30):
             if "\n" in split_text[0] and length_of_current_line > 30:
                 multiplier_spacing = 1.3
