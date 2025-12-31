@@ -58,9 +58,9 @@ icons_dict = {
     "[NECRONS]": {
         "src": "icons/Necrons_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 5),
+        "initial_extra_offset": (0, 0),
         "extra_vertical_line_offset": 0,
-        "resize": (60, 51)
+        "resize": (50, 57)
     },
     "[RESOURCE]": {
         "src": "icons/Resource_Icon.png",
@@ -406,4 +406,28 @@ special_text_dict = {
         "text": "Ritual",
         "type": "Bold"
     },
+    "[SAUTEKH]": {
+        "spacing": 15,
+        "initial_extra_offset": (0, 0),
+        "text": "Sautekh",
+        "type": "Bold"
+    },
+    "[NOVOKH]": {
+        "spacing": 15,
+        "initial_extra_offset": (0, 0),
+        "text": "Novokh",
+        "type": "Bold"
+    },
+    "[ARMOR]": {
+        "spacing": 15,
+        "initial_extra_offset": (0, 0),
+        "text": "Armor",
+        "type": "Bold"
+    },
+    "[SCHOLAR]": {
+        "spacing": 15,
+        "initial_extra_offset": (0, 0),
+        "text": "Scholar",
+        "type": "Bold"
+    }
 }

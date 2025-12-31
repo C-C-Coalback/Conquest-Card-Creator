@@ -147,6 +147,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         spacing = default_spacing
         special_icon = False
         og_no_new_lines = no_new_lines
+        italics = False
         if no_new_lines in special_text_dict:
             if special_text_dict[no_new_lines]["type"] == "Bold":
                 current_font = word_bold_font
@@ -158,6 +159,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
             elif special_text_dict[no_new_lines]["type"] == "Italics":
                 current_font = word_italics_font
                 no_new_lines = special_text_dict[no_new_lines]["text"]
+                italics = True
                 try:
                     spacing = int(special_text_dict[no_new_lines]["spacing"])
                 except:
@@ -167,6 +169,9 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         if no_new_lines in icons_dict:
             required_size = icons_dict[no_new_lines]["resize"]
             len_word = required_size[0]
+        print(no_new_lines)
+        print(length_of_current_line + len_word)
+        print(len_word)
         if length_of_current_line + len_word > line_length or ("\n" in split_text[0] and length_of_current_line > 30):
             if "\n" in split_text[0] and length_of_current_line > 30:
                 multiplier_spacing = 1.3
@@ -176,13 +181,18 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
             new_len_word = get_length_word("non-", current_font)
             drawn_image.text(current_coords, "non-", fill=color, font=font_text)
             current_coords = (current_coords[0] + new_len_word, current_coords[1])
+            length_of_current_line += new_len_word
         if quote_start:
-            new_len_word = get_length_word("\"", current_font)
-            drawn_image.text(current_coords, "\"", fill=color, font=font_text)
+            quote_start_text = "\""
+            if italics:
+                quote_start_text = "\" "
+            new_len_word = get_length_word(quote_start_text, current_font)
+            drawn_image.text(current_coords, quote_start_text, fill=color, font=font_text)
             if og_no_new_lines in special_text_dict:
                 current_coords = (int(current_coords[0] + new_len_word * 0.7), current_coords[1])
             else:
                 current_coords = (current_coords[0] + new_len_word, current_coords[1])
+            length_of_current_line += new_len_word
         if no_new_lines in icons_dict:
             special_icon = True
             initial_extra_offset = icons_dict[no_new_lines]["initial_extra_offset"]
@@ -361,9 +371,10 @@ def add_name_to_card(card_type, name, resulting_img, faction="Astra Militarum"):
         d = ImageDraw.Draw(txt)
         d.text((0, 0), name, font=f, fill="black")
         w = txt.rotate(90, expand=1)
+        y_pos, x_pos = card_types_dictionary_positions[card_type][faction]["Name"]
         x_offset = int((0.5 * get_pil_text_size(name, name_size,
-                                                name_font)[2]) - 100)
-        resulting_img.paste(w, (100, x_offset), w)
+                                                name_font)[2]) - x_pos)
+        resulting_img.paste(w, (x_pos, x_offset), w)
     elif card_type == "Planet":
         f = ImageFont.truetype(name_font, name_size)
         txt = Image.new('RGBA', (900, 100))
