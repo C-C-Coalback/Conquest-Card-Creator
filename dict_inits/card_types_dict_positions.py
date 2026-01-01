@@ -122,7 +122,7 @@ card_types_dictionary_positions = {
             "Text Box": (0, 0),
             "Traits": (790, 1360),
             "Art": (0, 0),
-            "Text": (264, 1416),
+            "Text": (264, 1436),
             "Cost": (145, 110),
             "Attack": (115, 1465),
             "Health": (115, 1735),
@@ -399,11 +399,11 @@ card_types_dictionary_positions = {
             "Text Length": 1230
         },
         "Neutral": {
-            "Name": (720, 1210),
+            "Name": (720, 1220),
             "Text Box": (0, 0),
-            "Traits": (700, 1390),
+            "Traits": (700, 1400),
             "Art": (0, 0),
-            "Text": (64, 1466),
+            "Text": (64, 1476),
             "Cost": (168, 144),
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
