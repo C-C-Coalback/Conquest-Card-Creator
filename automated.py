@@ -52,8 +52,7 @@ csv_dir = "csv_blackstone"
 for filename in os.listdir(csv_dir):
     df = pd.read_csv(os.path.join(csv_dir, filename), header=None)
     df.columns = ["Faction", "Card Type", "Name", "Traits", "Text", "COST", "CMD", "ATK", "HP", "SHLD", "Loyal",
-                  "Unique", "Current State", "Notes", "State of Image"]
-    df.drop("Current State", axis=1, inplace=True)
+                  "Unique", "Notes", "State of Image"]
     df.drop("Notes", axis=1, inplace=True)
     df.drop("State of Image", axis=1, inplace=True)
     df.dropna(subset=['Card Type'], inplace=True)
@@ -90,6 +89,9 @@ for filename in os.listdir(csv_dir):
                 new_text = new_text.replace("[CULTIST] token", "Cultist token")
             elif special_text == "[RED]":
                 if " Red " in new_text:
+                    new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+            elif special_text == "[ARMOR]":
+                if " Armor " in new_text:
                     new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
             else:
                 new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
