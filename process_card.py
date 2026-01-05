@@ -25,7 +25,6 @@ trait_size = 70
 default_text_size = 62
 numbers_size = 115
 
-
 def get_pil_text_size(text, font_size, font_name):
     font = ImageFont.truetype(font_name, font_size)
     size = font.getbbox(text)
@@ -485,6 +484,11 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     resulting_img.paste(text_img, get_position_text(card_type, faction, "Text Box"), text_img)
     expansion_icon_img = Image.open(expansion_icon_src, 'r').convert("RGBA").resize((55, 55))
     resulting_img.paste(expansion_icon_img, get_position_text(card_type, faction, "Expansion Icon"), expansion_icon_img)
+    add_text_to_image(
+        resulting_img, card_number, get_position_text(card_type, faction, "Card Number"),
+        font_src=numbers_font, font_size=get_position_text(card_type, faction, "Card Number Size"),
+        color=get_position_text(card_type, faction, "Card Number Color")
+    )
     name_header = name
     if unique:
         name_header = ". " + name

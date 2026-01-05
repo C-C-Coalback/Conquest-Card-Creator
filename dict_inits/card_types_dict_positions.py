@@ -11,6 +11,9 @@ card_types_dictionary_positions = {
             "Health": (122, 1715),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1350, 1908),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1100
         },
         "Astra Militarum": {
@@ -24,6 +27,9 @@ card_types_dictionary_positions = {
             "Health": (125, 1707),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1350, 1908),
+            "Card Number": (1270, 1914),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1100
         },
         "Orks": {
@@ -37,6 +43,9 @@ card_types_dictionary_positions = {
             "Health": (120, 1711),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1350, 1908),
+            "Card Number": (1265, 1911),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 44,
             "Text Length": 1100
         },
         "Chaos": {
@@ -50,6 +59,9 @@ card_types_dictionary_positions = {
             "Health": (127, 1710),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1350, 1903),
+            "Card Number": (1243, 1914),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 45,
             "Text Length": 1100
         },
         "Dark Eldar": {
@@ -63,6 +75,9 @@ card_types_dictionary_positions = {
             "Health": (132, 1715),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1355, 1913),
+            "Card Number": (1270, 1926),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1100
         },
         "Eldar": {
@@ -76,6 +91,9 @@ card_types_dictionary_positions = {
             "Health": (132, 1710),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1360, 1913),
+            "Card Number": (1270, 1921),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 38,
             "Text Length": 1100
         },
         "Tau": {
@@ -89,6 +107,9 @@ card_types_dictionary_positions = {
             "Health": (120, 1715),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1350, 1908),
+            "Card Number": (1260, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 44,
             "Text Length": 1100
         },
         "Tyranids": {
@@ -102,6 +123,9 @@ card_types_dictionary_positions = {
             "Health": (122, 1720),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1360, 1918),
+            "Card Number": (1270, 1926),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 44,
             "Text Length": 1100
         },
         "Necrons": {
@@ -115,6 +139,9 @@ card_types_dictionary_positions = {
             "Health": (122, 1715),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1355, 1908),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 44,
             "Text Length": 1100
         },
         "Neutral": {
@@ -128,6 +155,9 @@ card_types_dictionary_positions = {
             "Health": (117, 1715),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1350, 1913),
+            "Card Number": (1265, 1926),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1100
         },
         "Name": (810, 98),
@@ -140,6 +170,9 @@ card_types_dictionary_positions = {
         "Health": (107, 1715),
         "Loyalty": (1313, 950),
         "Expansion Icon": (1350, 1908),
+        "Card Number": (1270, 1916),
+        "Card Number Color": (255, 255, 255),
+        "Card Number Size": 38,
         "Text Length": 1100
     },
     "Synapse": {
@@ -154,6 +187,9 @@ card_types_dictionary_positions = {
             "Health": (117, 1725),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1360, 1918),
+            "Card Number": (1270, 1926),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 44,
             "Text Length": 1100
         },
         "Name": (810, 98),
@@ -166,6 +202,9 @@ card_types_dictionary_positions = {
         "Health": (107, 1715),
         "Loyalty": (1313, 950),
         "Expansion Icon": (1350, 1908),
+        "Card Number": (1270, 1926),
+        "Card Number Color": (255, 255, 255),
+        "Card Number Size": 44,
         "Text Length": 1100
     },
     "Support": {
@@ -178,6 +217,9 @@ card_types_dictionary_positions = {
             "Cost": (160, 87),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1275, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1300
         },
         "Astra Militarum": {
@@ -189,6 +231,9 @@ card_types_dictionary_positions = {
             "Cost": (147, 95),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1358, 1920),
+            "Card Number": (1270, 1925),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1300
         },
         "Orks": {
@@ -200,6 +245,9 @@ card_types_dictionary_positions = {
             "Cost": (140, 80),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1353, 1905),
+            "Card Number": (1260, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 44,
             "Text Length": 1300
         },
         "Chaos": {
@@ -211,6 +259,9 @@ card_types_dictionary_positions = {
             "Cost": (142, 80),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1250, 1918),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 45,
             "Text Length": 1300
         },
         "Dark Eldar": {
@@ -222,6 +273,9 @@ card_types_dictionary_positions = {
             "Cost": (149, 85),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1926),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1300
         },
         "Eldar": {
@@ -233,6 +287,9 @@ card_types_dictionary_positions = {
             "Cost": (155, 85),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 38,
             "Text Length": 1300
         },
         "Tau": {
@@ -244,6 +301,9 @@ card_types_dictionary_positions = {
             "Cost": (150, 80),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1353, 1910),
+            "Card Number": (1260, 1921),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 44,
             "Text Length": 1300
         },
         "Tyranids": {
@@ -255,6 +315,9 @@ card_types_dictionary_positions = {
             "Cost": (145, 80),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1263, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 44,
             "Text Length": 1300
         },
         "Necrons": {
@@ -266,6 +329,9 @@ card_types_dictionary_positions = {
             "Cost": (147, 90),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1363, 1910),
+            "Card Number": (1270, 1926),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 44,
             "Text Length": 1300
         },
         "Neutral": {
@@ -277,6 +343,9 @@ card_types_dictionary_positions = {
             "Cost": (142, 90),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1353, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1300
         },
         "Name": (100, 110),
@@ -287,6 +356,9 @@ card_types_dictionary_positions = {
         "Cost": (142, 90),
         "Loyalty": (1313, 950),
         "Expansion Icon": (1358, 1910),
+        "Card Number": (1270, 1916),
+        "Card Number Color": (255, 255, 255),
+        "Card Number Size": 38,
         "Text Length": 1300
     },
     "Attachment": {
@@ -300,6 +372,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1915),
+            "Card Number": (1270, 1926),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1230
         },
         "Astra Militarum": {
@@ -312,6 +387,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1905),
+            "Card Number": (1270, 1911),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1190
         },
         "Orks": {
@@ -324,6 +402,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1265, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 44,
             "Text Length": 1230
         },
         "Chaos": {
@@ -336,6 +417,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1915),
+            "Card Number": (1255, 1918),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 45,
             "Text Length": 1230
         },
         "Dark Eldar": {
@@ -348,6 +432,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1363, 1915),
+            "Card Number": (1280, 1931),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1200
         },
         "Eldar": {
@@ -360,6 +447,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1915),
+            "Card Number": (1270, 1921),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 38,
             "Text Length": 1230
         },
         "Tau": {
@@ -372,6 +462,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 44,
             "Text Length": 1230
         },
         "Tyranids": {
@@ -384,6 +477,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1915),
+            "Card Number": (1270, 1921),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 44,
             "Text Length": 1230
         },
         "Necrons": {
@@ -396,6 +492,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 370),
             "Expansion Icon": (1358, 1913),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 44,
             "Text Length": 1230
         },
         "Neutral": {
@@ -408,6 +507,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 825),
             "Shield": (0, 350),
             "Expansion Icon": (1353, 1920),
+            "Card Number": (1265, 1931),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1230
         },
         "Name": (720, 1210),
@@ -419,6 +521,9 @@ card_types_dictionary_positions = {
         "Loyalty": (1313, 825),
         "Shield": (0, 350),
         "Expansion Icon": (1358, 1915),
+        "Card Number": (1275, 1916),
+        "Card Number Color": (255, 255, 255),
+        "Card Number Size": 38,
         "Text Length": 1230
     },
     "Event": {
@@ -432,6 +537,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1905),
+            "Card Number": (1275, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1330
         },
         "Astra Militarum": {
@@ -444,6 +552,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1363, 1915),
+            "Card Number": (1275, 1922),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1330
         },
         "Orks": {
@@ -456,6 +567,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1353, 1905),
+            "Card Number": (1260, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 44,
             "Text Length": 1330
         },
         "Chaos": {
@@ -468,6 +582,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1905),
+            "Card Number": (1250, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 45,
             "Text Length": 1330
         },
         "Dark Eldar": {
@@ -480,6 +597,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1915),
+            "Card Number": (1275, 1931),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1330
         },
         "Eldar": {
@@ -492,6 +612,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1905),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 38,
             "Text Length": 1330
         },
         "Tau": {
@@ -504,6 +627,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1905),
+            "Card Number": (1270, 1911),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 44,
             "Text Length": 1210
         },
         "Tyranids": {
@@ -516,6 +642,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1368, 1915),
+            "Card Number": (1270, 1926),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 44,
             "Text Length": 1330
         },
         "Necrons": {
@@ -528,6 +657,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1905),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 44,
             "Text Length": 1330
         },
         "Neutral": {
@@ -540,6 +672,9 @@ card_types_dictionary_positions = {
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1918),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 1330
         },
         "Name": (810, 68),
@@ -551,6 +686,9 @@ card_types_dictionary_positions = {
         "Loyalty": (1313, 950),
         "Shield": (0, 350),
         "Expansion Icon": (1358, 1905),
+        "Card Number": (1270, 1916),
+        "Card Number Color": (255, 255, 255),
+        "Card Number Size": 38,
         "Text Length": 1330
     },
     "Warlord": {
@@ -565,6 +703,9 @@ card_types_dictionary_positions = {
             "Cards": (602, 1825),
             "Resources": (782, 1825),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 720
         },
         "Astra Militarum": {
@@ -578,6 +719,9 @@ card_types_dictionary_positions = {
             "Cards": (602, 1825),
             "Resources": (782, 1825),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 720
         },
         "Orks": {
@@ -591,6 +735,9 @@ card_types_dictionary_positions = {
             "Cards": (602, 1825),
             "Resources": (782, 1825),
             "Expansion Icon": (1355, 1914),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 38,
             "Text Length": 720
         },
         "Chaos": {
@@ -604,6 +751,9 @@ card_types_dictionary_positions = {
             "Cards": (602, 1825),
             "Resources": (782, 1825),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 720
         },
         "Dark Eldar": {
@@ -617,6 +767,9 @@ card_types_dictionary_positions = {
             "Cards": (602, 1825),
             "Resources": (782, 1825),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 720
         },
         "Eldar": {
@@ -630,6 +783,9 @@ card_types_dictionary_positions = {
             "Cards": (602, 1825),
             "Resources": (782, 1825),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 38,
             "Text Length": 720
         },
         "Tau": {
@@ -643,6 +799,9 @@ card_types_dictionary_positions = {
             "Cards": (602, 1825),
             "Resources": (782, 1825),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (0, 0, 0),
+            "Card Number Size": 38,
             "Text Length": 720
         },
         "Tyranids": {
@@ -656,6 +815,9 @@ card_types_dictionary_positions = {
             "Cards": (587, 1835),
             "Resources": (767, 1835),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 720
         },
         "Necrons": {
@@ -669,6 +831,9 @@ card_types_dictionary_positions = {
             "Cards": (602, 1825),
             "Resources": (782, 1825),
             "Expansion Icon": (1358, 1910),
+            "Card Number": (1270, 1916),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 720
         },
         "Text Box": (0, 0),
@@ -680,6 +845,9 @@ card_types_dictionary_positions = {
         "Cards": (602, 1825),
         "Resources": (782, 1825),
         "Expansion Icon": (1358, 1910),
+        "Card Number": (1270, 1916),
+        "Card Number Color": (255, 255, 255),
+        "Card Number Size": 38,
         "Text Length": 720
     },
     "Planet": {
@@ -693,6 +861,9 @@ card_types_dictionary_positions = {
             "First Join": (1213, 33),
             "Join Spacing": 278,
             "Expansion Icon": (10, 1724),
+            "Card Number": (10, 1724),
+            "Card Number Color": (255, 255, 255),
+            "Card Number Size": 38,
             "Text Length": 720
         }
     }

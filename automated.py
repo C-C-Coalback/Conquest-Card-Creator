@@ -49,6 +49,7 @@ for faction in factions:
 replacement_icons.append(("Ork", "[ORKS]"))
 
 csv_dir = "csv_blackstone"
+card_number = 1
 for filename in os.listdir(csv_dir):
     df = pd.read_csv(os.path.join(csv_dir, filename), header=None)
     df.columns = ["Faction", "Card Type", "Name", "Traits", "Text", "COST", "CMD", "ATK", "HP", "SHLD", "Loyal",
@@ -56,7 +57,6 @@ for filename in os.listdir(csv_dir):
     df.drop("Notes", axis=1, inplace=True)
     df.drop("State of Image", axis=1, inplace=True)
     df.dropna(subset=['Card Type'], inplace=True)
-    df.drop(df[df['Card Type'] == "Warlord"].index, inplace=True)
     df.drop(index=df.index[0], inplace=True)
     for current_pos in range(df.shape[0]):
         current_name = df['Name'].values[current_pos]
@@ -71,53 +71,60 @@ for filename in os.listdir(csv_dir):
         current_shld = str(df['SHLD'].values[current_pos])
         current_loyal = df['Loyal'].values[current_pos]
         current_unique = df['Unique'].values[current_pos]
-        if current_unique == "TRUE":
-            current_unique = True
-        else:
-            current_unique = False
-        new_text = current_text
-        for icon in replacement_icons:
-            new_text = new_text.replace(icon[0], icon[1])
-        for special_text in special_text_dict:
-            extra_space = ""
-            if special_text in ["[BATTLE:]", "[DEPLOY_ACTION:]", "[COMMAND_ACTION:]", "[COMBAT_ACTION:]",
-                                "[HEADQUARTERS_ACTION:]", "[REACTION:]", "[FORCED_REACTION:]", "[ACTION:]",
-                                "[INTERRUPT:]", "[FORCED_INTERRUPT:]"]:
-                extra_space = " "
-            if special_text == "[CULTIST]":
-                new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
-                new_text = new_text.replace("[CULTIST] token", "Cultist token")
-            elif special_text == "[RED]":
-                if " Red " in new_text:
-                    new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
-            elif special_text == "[ARMOR]":
-                if " Armor " in new_text:
-                    new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+        current_num = str(card_number)
+        while len(current_num) < 3:
+            current_num = "0" + current_num
+        if current_card_type != "Warlord" and current_name != "Rat Colony":
+            if current_unique == "TRUE":
+                current_unique = True
             else:
-                new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
-        print(current_name)
+                current_unique = False
+            new_text = current_text
+            for icon in replacement_icons:
+                new_text = new_text.replace(icon[0], icon[1])
+            for special_text in special_text_dict:
+                extra_space = ""
+                if special_text in ["[BATTLE:]", "[DEPLOY_ACTION:]", "[COMMAND_ACTION:]", "[COMBAT_ACTION:]",
+                                    "[HEADQUARTERS_ACTION:]", "[REACTION:]", "[FORCED_REACTION:]", "[ACTION:]",
+                                    "[INTERRUPT:]", "[FORCED_INTERRUPT:]"]:
+                    extra_space = " "
+                if special_text == "[CULTIST]":
+                    new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+                    new_text = new_text.replace("[CULTIST] token", "Cultist token")
+                elif special_text == "[RED]":
+                    if " Red " in new_text:
+                        new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+                elif special_text == "[ARMOR]":
+                    if " Armor " in new_text:
+                        new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+                else:
+                    new_text = new_text.replace(special_text_dict[special_text]["text"], special_text + extra_space)
+            print(current_name)
 
-        output_dir = os.getcwd()
-        output_dir = os.path.join(output_dir, "created_cards_blackstone")
-        output_dir = os.path.join(output_dir, current_faction)
-        if not os.path.exists(output_dir):
-            os.mkdir(output_dir)
-        output_dir = os.path.join(output_dir, current_name.replace(" ", "_") + ".png")
-        auto_card_art_src = "images for conquest cards\\" + current_name.replace(" ", "_")
-        if os.path.exists(auto_card_art_src + ".png"):
-            auto_card_art_src = auto_card_art_src + ".png"
-        elif os.path.exists(auto_card_art_src + ".jpg"):
-            auto_card_art_src = auto_card_art_src + ".jpg"
-        elif os.path.exists(auto_card_art_src + ".jpeg"):
-            auto_card_art_src = auto_card_art_src + ".jpeg"
-        elif os.path.exists(auto_card_art_src + ".webp"):
-            auto_card_art_src = auto_card_art_src + ".webp"
-        elif os.path.exists(auto_card_art_src + ".gif"):
-            auto_card_art_src = auto_card_art_src + ".gif"
+            output_dir = os.getcwd()
+            output_dir = os.path.join(output_dir, "created_cards_blackstone")
+            output_dir = os.path.join(output_dir, current_faction)
+            if not os.path.exists(output_dir):
+                os.mkdir(output_dir)
+            output_dir = os.path.join(output_dir, current_name.replace(" ", "_") + ".png")
+            auto_card_art_src = "images for conquest cards\\" + current_name.replace(" ", "_")
+            if os.path.exists(auto_card_art_src + ".png"):
+                auto_card_art_src = auto_card_art_src + ".png"
+            elif os.path.exists(auto_card_art_src + ".jpg"):
+                auto_card_art_src = auto_card_art_src + ".jpg"
+            elif os.path.exists(auto_card_art_src + ".jpeg"):
+                auto_card_art_src = auto_card_art_src + ".jpeg"
+            elif os.path.exists(auto_card_art_src + ".webp"):
+                auto_card_art_src = auto_card_art_src + ".webp"
+            elif os.path.exists(auto_card_art_src + ".gif"):
+                auto_card_art_src = auto_card_art_src + ".gif"
 
-        process_submitted_card(current_name, current_card_type, new_text, current_faction, current_traits, output_dir,
-                               attack=current_atk, health=current_hp, command=current_cmd, cost=current_cost,
-                               starting_cards="7", starting_resources="7",
-                               loyalty=current_loyal, shield_value=current_shld, bloodied=False, automated=True,
-                               auto_card_art_src=auto_card_art_src, unique=current_unique)
+            process_submitted_card(current_name, current_card_type, new_text, current_faction, current_traits, output_dir,
+                                   attack=current_atk, health=current_hp, command=current_cmd, cost=current_cost,
+                                   starting_cards="7", starting_resources="7",
+                                   loyalty=current_loyal, shield_value=current_shld, bloodied=False, automated=True,
+                                   auto_card_art_src=auto_card_art_src, unique=current_unique,
+                                   card_number=current_num)
+        if current_name != "Rat Colony":
+            card_number += 1
 
