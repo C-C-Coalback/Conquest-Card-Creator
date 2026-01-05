@@ -815,9 +815,9 @@ card_types_dictionary_positions = {
             "Cards": (587, 1835),
             "Resources": (767, 1835),
             "Expansion Icon": (1358, 1910),
-            "Card Number": (1270, 1916),
+            "Card Number": (1260, 1921),
             "Card Number Color": (255, 255, 255),
-            "Card Number Size": 38,
+            "Card Number Size": 44,
             "Text Length": 720
         },
         "Necrons": {

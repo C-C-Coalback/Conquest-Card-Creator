@@ -433,7 +433,7 @@ def add_command_icons(command, first_command_src, extra_command_src, command_end
 def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
-                           loyalty="Common", shield_value="0", bloodied=False, automated=True, auto_card_art_src="",
+                           loyalty="Common", shield_value="0", bloodied=False, automated=False, auto_card_art_src="",
                            unique=False, card_number="000"):
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
     if bloodied and card_type == "Warlord":
