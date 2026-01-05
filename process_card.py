@@ -19,11 +19,11 @@ trait_font = "fonts/Ascender Serif/AscenderSerifW01-BdIt-Regular.otf"
 text_font = "fonts/Ascender Serif/Ascender-Serif-W01-Regular.ttf"
 text_bold_font = "fonts/Ascender Serif/Ascender-Serif-W01-Bold.ttf"
 text_italics_font = "fonts/open_sans/OpenSans-Italic.ttf"
-numbers_font = "fonts/numbers/Conquestnumbers-Regular.ttf"
+numbers_font = "fonts/armorhide/Armorhide.otf"
 name_size = 90
 trait_size = 70
 default_text_size = 62
-numbers_size = 105
+numbers_size = 115
 
 
 def get_pil_text_size(text, font_size, font_name):
@@ -434,8 +434,8 @@ def add_command_icons(command, first_command_src, extra_command_src, command_end
 def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
-                           loyalty="Common", shield_value="0", bloodied=False, automated=False, auto_card_art_src="",
-                           unique=False):
+                           loyalty="Common", shield_value="0", bloodied=False, automated=True, auto_card_art_src="",
+                           unique=False, card_number="000"):
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
     if bloodied and card_type == "Warlord":
         text_src = "card_srcs/" + faction + "/Warlord_Bloodied/Text.png"
@@ -528,11 +528,11 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     if card_type == "Warlord" and not bloodied:
         add_text_to_image(
             resulting_img, starting_cards, get_position_text(card_type, faction, "Cards"),
-            font_size=140, color=(0, 0, 0)
+            font_size=140, color=(0, 0, 0), font_src=numbers_font
         )
         add_text_to_image(
             resulting_img, starting_resources, get_position_text(card_type, faction, "Resources"),
-            font_size=140, color=(243, 139, 18)
+            font_size=140, color=(243, 139, 18), font_src=numbers_font
         )
     if card_type in ["Army", "Support", "Event", "Attachment"]:
         if (loyalty == "Loyal" or loyalty == "Signature") and faction != "Neutral":
