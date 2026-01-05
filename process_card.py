@@ -1,7 +1,8 @@
 from PIL import Image, ImageTk, ImageDraw, ImageFont
 from dict_inits.card_types_dict_positions import card_types_dictionary_positions
 from dict_inits.command_dict import command_dictionary
-from dict_inits.loyalty_dict import loyalty_dictionary, resize_loyalty_dictionary
+from dict_inits.loyalty_dict import loyalty_dictionary, resize_loyalty_dictionary, \
+    bar_dictionary, resize_bar_dictionary, text_bar_dictionary
 from dict_inits.icons_dict import icons_dict, special_text_dict
 import os
 import random
@@ -25,6 +26,7 @@ trait_size = 70
 default_text_size = 62
 numbers_size = 115
 
+
 def get_pil_text_size(text, font_size, font_name):
     font = ImageFont.truetype(font_name, font_size)
     size = font.getbbox(text)
@@ -47,6 +49,10 @@ def get_position_command(faction, command_type):
 
 def get_position_loyalty(faction, card_type):
     return loyalty_dictionary[card_type][faction]
+
+
+def get_position_loyalty_bar(faction, card_type):
+    return bar_dictionary[card_type][faction]
 
 
 def get_true_string_for_fonts(text):
@@ -99,10 +105,6 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
     text = text.replace("[HEADQUARTERS ACTION]", "[HEADQUARTERS_ACTION]")
     text = text.replace("[GOES FASTA]", "[GOES_FASTA]")
     text = text.replace("[HIVE MIND]", "[HIVE_MIND]")
-    text = text.replace("(x4)", "")
-    text = text.replace("(x3)", "")
-    text = text.replace("(x2)", "")
-    text = text.replace("(x1)", "")
     drawn_image = ImageDraw.Draw(input_image)
     text = text.replace("\n", " \n")
     split_text = text.split(sep=" ")
@@ -434,7 +436,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
                            loyalty="Common", shield_value="0", bloodied=False, automated=False, auto_card_art_src="",
-                           unique=False, card_number="000"):
+                           unique=False, card_number="000", sig_squad_text="000    0X/09"):
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
     if bloodied and card_type == "Warlord":
         text_src = "card_srcs/" + faction + "/Warlord_Bloodied/Text.png"
@@ -545,6 +547,23 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
             resize_loyalty = resize_loyalty_dictionary[faction]
             loyalty_img = loyalty_img.resize(resize_loyalty)
             resulting_img.paste(loyalty_img, get_position_loyalty(faction, card_type), loyalty_img)
+            if loyalty == "Signature":
+                loyalty_bar_src = "card_srcs/" + faction + "/Loyalty/Signature_Bar.png"
+                if os.path.exists(loyalty_bar_src):
+                    loyalty_bar_img = Image.open(loyalty_bar_src, 'r').convert("RGBA")
+                    resize_loyalty = resize_bar_dictionary[faction]
+                    loyalty_bar_img = loyalty_bar_img.resize(resize_loyalty)
+                    resulting_img.paste(loyalty_bar_img, get_position_loyalty_bar(faction, card_type), loyalty_bar_img)
+                    bar_text_size = 40
+                    f = ImageFont.truetype(numbers_font, bar_text_size)
+                    txt = Image.new('RGBA', (900, 100))
+                    d = ImageDraw.Draw(txt)
+                    d.text((0, 0), sig_squad_text, font=f, fill=(255, 255, 255))
+                    w = txt.rotate(90, expand=1)
+                    y_pos, x_pos = text_bar_dictionary[card_type][faction]
+                    x_offset = int((0.5 * get_pil_text_size(sig_squad_text, bar_text_size,
+                                                            numbers_font)[2]) - y_pos)
+                    resulting_img.paste(w, (x_pos, x_offset), w)
     if card_type in ["Event", "Attachment"]:
         shield_value = int(shield_value)
         if shield_value > 0:

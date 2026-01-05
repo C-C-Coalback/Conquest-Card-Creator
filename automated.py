@@ -37,10 +37,11 @@ replacement_icons = [("Resources", "[RESOURCE]"), ("Resource", "[RESOURCE]"),
                      ("Necrotic", "Necrons"), ("Goes Fasta -", "Goes Fasta! — "),
                      ("Bloodthirst -", "Bloodthirst — "), ("Goes Fasta! -", "Goes Fasta! — "),
                      ("Unstoppable -", "Unstoppable — "), ("Hive Mind -", "Hive Mind — "),
-                     ("(1x)", ""),
-                     ("(2x)", ""),
-                     ("(3x)", ""),
-                     ("(4x)", "")]
+                     ("(1x)", ""), ("(x1)", ""),
+                     ("(2x)", ""), ("(x2)", ""),
+                     ("(3x)", ""), ("(x3)", ""),
+                     ("(4x)", ""), ("(x4)", ""),
+                     ("(5x)", ""), ("(x5)", "")]
 
 for faction in factions:
     replacement_icons.append((faction, ("[" + faction.upper() + "]").replace(" ", "_")))
@@ -50,6 +51,9 @@ replacement_icons.append(("Ork", "[ORKS]"))
 
 csv_dir = "csv_blackstone"
 card_number = 1
+last_warlord_num = 55
+current_sig_num = 1
+current_warlord_num = last_warlord_num + 1
 for filename in os.listdir(csv_dir):
     df = pd.read_csv(os.path.join(csv_dir, filename), header=None)
     df.columns = ["Faction", "Card Type", "Name", "Traits", "Text", "COST", "CMD", "ATK", "HP", "SHLD", "Loyal",
@@ -74,12 +78,27 @@ for filename in os.listdir(csv_dir):
         current_num = str(card_number)
         while len(current_num) < 3:
             current_num = "0" + current_num
+        if current_card_type == "Warlord":
+            current_warlord_num = last_warlord_num + 1
+            current_sig_num = 2
+            last_warlord_num = current_warlord_num
         if current_card_type != "Warlord" and current_name != "Rat Colony":
             if current_unique == "TRUE":
                 current_unique = True
             else:
                 current_unique = False
             new_text = current_text
+            num_copies = 1
+            if "(1x)" in new_text or "(x1)" in new_text:
+                num_copies = 1
+            elif "(2x)" in new_text or "(x2)" in new_text:
+                num_copies = 2
+            elif "(3x)" in new_text or "(x3)" in new_text:
+                num_copies = 3
+            elif "(4x)" in new_text or "(x4)" in new_text:
+                num_copies = 4
+            elif "(5x)" in new_text or "(x5)" in new_text:
+                num_copies = 5
             for icon in replacement_icons:
                 new_text = new_text.replace(icon[0], icon[1])
             for special_text in special_text_dict:
@@ -106,6 +125,7 @@ for filename in os.listdir(csv_dir):
             output_dir = os.path.join(output_dir, current_faction)
             if not os.path.exists(output_dir):
                 os.mkdir(output_dir)
+            stored_output_dir = output_dir
             output_dir = os.path.join(output_dir, current_name.replace(" ", "_") + ".png")
             auto_card_art_src = "images for conquest cards\\" + current_name.replace(" ", "_")
             if os.path.exists(auto_card_art_src + ".png"):
@@ -118,13 +138,33 @@ for filename in os.listdir(csv_dir):
                 auto_card_art_src = auto_card_art_src + ".webp"
             elif os.path.exists(auto_card_art_src + ".gif"):
                 auto_card_art_src = auto_card_art_src + ".gif"
-
-            process_submitted_card(current_name, current_card_type, new_text, current_faction, current_traits, output_dir,
-                                   attack=current_atk, health=current_hp, command=current_cmd, cost=current_cost,
-                                   starting_cards="7", starting_resources="7",
-                                   loyalty=current_loyal, shield_value=current_shld, bloodied=False, automated=True,
-                                   auto_card_art_src=auto_card_art_src, unique=current_unique,
-                                   card_number=current_num)
+            if current_loyal == "Signature":
+                for i in range(num_copies):
+                    warlord_num_text = str(current_warlord_num)
+                    while len(warlord_num_text) < 3:
+                        warlord_num_text = "0" + warlord_num_text
+                    sig_squad_text_number = "0" + str(current_sig_num) + "/09"
+                    sig_squad_text = warlord_num_text + "    " + sig_squad_text_number
+                    current_sig_num += 1
+                    output_dir = os.path.join(stored_output_dir, current_name.replace(" ", "_") + "_"
+                                              + str(i + 1) + ".png")
+                    process_submitted_card(current_name, current_card_type, new_text, current_faction, current_traits,
+                                           output_dir,
+                                           attack=current_atk, health=current_hp, command=current_cmd,
+                                           cost=current_cost,
+                                           starting_cards="7", starting_resources="7",
+                                           loyalty=current_loyal, shield_value=current_shld, bloodied=False,
+                                           automated=True,
+                                           auto_card_art_src=auto_card_art_src, unique=current_unique,
+                                           card_number=current_num, sig_squad_text=sig_squad_text)
+            else:
+                process_submitted_card(current_name, current_card_type, new_text, current_faction, current_traits,
+                                       output_dir,
+                                       attack=current_atk, health=current_hp, command=current_cmd, cost=current_cost,
+                                       starting_cards="7", starting_resources="7",
+                                       loyalty=current_loyal, shield_value=current_shld, bloodied=False, automated=True,
+                                       auto_card_art_src=auto_card_art_src, unique=current_unique,
+                                       card_number=current_num)
         if current_name != "Rat Colony":
             card_number += 1
 
