@@ -209,7 +209,7 @@ card_types_dictionary_positions = {
     },
     "Support": {
         "Space Marines": {
-            "Name": (100, 110),
+            "Name": (110, 110),
             "Text Box": (0, 0),
             "Traits": (740, 1370),
             "Art": (0, 0),
@@ -223,7 +223,7 @@ card_types_dictionary_positions = {
             "Text Length": 1300
         },
         "Astra Militarum": {
-            "Name": (100, 105),
+            "Name": (105, 105),
             "Text Box": (0, 0),
             "Traits": (740, 1390),
             "Art": (0, 0),
@@ -237,7 +237,7 @@ card_types_dictionary_positions = {
             "Text Length": 1300
         },
         "Orks": {
-            "Name": (100, 105),
+            "Name": (105, 105),
             "Text Box": (0, 0),
             "Traits": (740, 1370),
             "Art": (0, 0),
@@ -251,7 +251,7 @@ card_types_dictionary_positions = {
             "Text Length": 1300
         },
         "Chaos": {
-            "Name": (100, 105),
+            "Name": (105, 105),
             "Text Box": (0, 0),
             "Traits": (740, 1385),
             "Art": (0, 0),
@@ -265,7 +265,7 @@ card_types_dictionary_positions = {
             "Text Length": 1300
         },
         "Dark Eldar": {
-            "Name": (100, 108),
+            "Name": (105, 108),
             "Text Box": (0, 0),
             "Traits": (740, 1380),
             "Art": (0, 0),
@@ -279,7 +279,7 @@ card_types_dictionary_positions = {
             "Text Length": 1300
         },
         "Eldar": {
-            "Name": (100, 110),
+            "Name": (110, 110),
             "Text Box": (0, 0),
             "Traits": (740, 1370),
             "Art": (0, 0),
@@ -293,7 +293,7 @@ card_types_dictionary_positions = {
             "Text Length": 1300
         },
         "Tau": {
-            "Name": (100, 110),
+            "Name": (110, 110),
             "Text Box": (0, 0),
             "Traits": (740, 1370),
             "Art": (0, 0),
@@ -307,7 +307,7 @@ card_types_dictionary_positions = {
             "Text Length": 1300
         },
         "Tyranids": {
-            "Name": (100, 110),
+            "Name": (110, 110),
             "Text Box": (0, 0),
             "Traits": (740, 1375),
             "Art": (0, 0),
@@ -321,7 +321,7 @@ card_types_dictionary_positions = {
             "Text Length": 1300
         },
         "Necrons": {
-            "Name": (100, 108),
+            "Name": (108, 108),
             "Text Box": (0, 0),
             "Traits": (740, 1380),
             "Art": (0, 0),
@@ -335,7 +335,7 @@ card_types_dictionary_positions = {
             "Text Length": 1300
         },
         "Neutral": {
-            "Name": (100, 110),
+            "Name": (110, 110),
             "Text Box": (0, 0),
             "Traits": (740, 1370),
             "Art": (0, 0),
@@ -348,7 +348,7 @@ card_types_dictionary_positions = {
             "Card Number Size": 38,
             "Text Length": 1300
         },
-        "Name": (100, 110),
+        "Name": (110, 110),
         "Text Box": (0, 0),
         "Traits": (740, 1370),
         "Art": (0, 0),
@@ -593,11 +593,11 @@ card_types_dictionary_positions = {
             "Traits": (740, 1400),
             "Art": (0, 0),
             "Text": (64, 1476),
-            "Cost": (156, 96),
+            "Cost": (152, 100),
             "Loyalty": (1313, 950),
             "Shield": (0, 350),
             "Expansion Icon": (1358, 1915),
-            "Card Number": (1275, 1931),
+            "Card Number": (1276, 1935),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
             "Text Length": 1330

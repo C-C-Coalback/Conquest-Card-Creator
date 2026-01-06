@@ -371,7 +371,7 @@ def add_name_to_card(card_type, name, resulting_img, faction="Astra Militarum"):
         w = txt.rotate(90, expand=1)
         y_pos, x_pos = card_types_dictionary_positions[card_type][faction]["Name"]
         x_offset = int((0.5 * get_pil_text_size(name, name_size,
-                                                name_font)[2]) - x_pos)
+                                                name_font)[2]) - y_pos)
         resulting_img.paste(w, (x_pos, x_offset), w)
     elif card_type == "Planet":
         f = ImageFont.truetype(name_font, name_size)
@@ -481,6 +481,8 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
 
     if card_type != "Planet":
         required_line_length = card_types_dictionary_positions[card_type][faction]["Text Length"]
+    if loyalty == "Signature":
+        required_line_length = required_line_length - 80
     text_img = Image.open(text_src, 'r').convert("RGBA")
     text_img = text_img.resize(text_resize_amount)
     resulting_img.paste(text_img, get_position_text(card_type, faction, "Text Box"), text_img)
