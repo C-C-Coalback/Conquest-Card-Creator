@@ -58,6 +58,17 @@ resize_loyalty_dictionary = {
 }
 
 bar_dictionary = {
+    "Warlord": {
+        "Space Marines": (1343, 1356),
+        "Astra Militarum": (1346, 1356),
+        "Orks": (1343, 1356),
+        "Chaos": (1343, 1356),
+        "Dark Eldar": (1343, 1356),
+        "Eldar": (1343, 1356),
+        "Tau": (1343, 1356),
+        "Tyranids": (1343, 1356),
+        "Necrons": (1343, 1356),
+    },
     "Army": {
         "Space Marines": (1343, 1356),
         "Astra Militarum": (1346, 1356),
@@ -117,6 +128,17 @@ resize_bar_dictionary = {
 }
 
 text_bar_dictionary = {
+    "Warlord": {
+        "Space Marines": (-710, 1360),
+        "Astra Militarum": (-680, 1363),
+        "Orks": (-710, 1360),
+        "Chaos": (-710, 1360),
+        "Dark Eldar": (-710, 1360),
+        "Eldar": (-710, 1360),
+        "Tau": (-710, 1360),
+        "Tyranids": (-700, 1360),
+        "Necrons": (-710, 1360),
+    },
     "Army": {
         "Space Marines": (-710, 1360),
         "Astra Militarum": (-680, 1363),

@@ -436,7 +436,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
                            loyalty="Common", shield_value="0", bloodied=False, automated=False, auto_card_art_src="",
-                           unique=False, card_number="000", sig_squad_text="000    0X/09"):
+                           unique=False, card_number="000", sig_squad_text="057    01/09"):
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
     if bloodied and card_type == "Warlord":
         text_src = "card_srcs/" + faction + "/Warlord_Bloodied/Text.png"
@@ -536,11 +536,11 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     if card_type == "Warlord" and not bloodied:
         add_text_to_image(
             resulting_img, starting_cards, get_position_text(card_type, faction, "Cards"),
-            font_size=140, color=(0, 0, 0), font_src=numbers_font
+            font_size=110, color=(0, 0, 0), font_src=numbers_font
         )
         add_text_to_image(
             resulting_img, starting_resources, get_position_text(card_type, faction, "Resources"),
-            font_size=140, color=(243, 139, 18), font_src=numbers_font
+            font_size=110, color=(243, 139, 18), font_src=numbers_font
         )
     if card_type in ["Army", "Support", "Event", "Attachment"]:
         if (loyalty == "Loyal" or loyalty == "Signature") and faction != "Neutral":
@@ -566,6 +566,17 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                     x_offset = int((0.5 * get_pil_text_size(sig_squad_text, bar_text_size,
                                                             numbers_font)[2]) - y_pos)
                     resulting_img.paste(w, (x_pos, x_offset), w)
+    if card_type == "Warlord":
+        bar_text_size = 40
+        f = ImageFont.truetype(numbers_font, bar_text_size)
+        txt = Image.new('RGBA', (900, 100))
+        d = ImageDraw.Draw(txt)
+        d.text((0, 0), sig_squad_text, font=f, fill=(255, 255, 255))
+        w = txt.rotate(90, expand=1)
+        y_pos, x_pos = text_bar_dictionary[card_type][faction]
+        x_offset = int((0.5 * get_pil_text_size(sig_squad_text, bar_text_size,
+                                                numbers_font)[2]) - y_pos)
+        resulting_img.paste(w, (x_pos, x_offset), w)
     if card_type in ["Event", "Attachment"]:
         shield_value = int(shield_value)
         if shield_value > 0:
