@@ -57,9 +57,10 @@ current_warlord_num = last_warlord_num + 1
 for filename in os.listdir(csv_dir):
     df = pd.read_csv(os.path.join(csv_dir, filename), header=None)
     df.columns = ["Faction", "Card Type", "Name", "Traits", "Text", "COST", "CMD", "ATK", "HP", "SHLD", "Loyal",
-                  "Unique", "Notes", "State of Image"]
+                  "Unique", "Notes", "State of Image", "Iridial Status"]
     df.drop("Notes", axis=1, inplace=True)
     df.drop("State of Image", axis=1, inplace=True)
+    df.drop("Iridial Status", axis=1, inplace=True)
     df.dropna(subset=['Card Type'], inplace=True)
     df.drop(index=df.index[0], inplace=True)
     for current_pos in range(df.shape[0]):
