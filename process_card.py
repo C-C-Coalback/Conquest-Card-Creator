@@ -6,6 +6,7 @@ from dict_inits.loyalty_dict import loyalty_dictionary, resize_loyalty_dictionar
 from dict_inits.icons_dict import icons_dict, special_text_dict
 import os
 import random
+import numpy as np
 import pandas as pd
 
 
@@ -538,6 +539,37 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
             resulting_img, starting_cards, get_position_text(card_type, faction, "Cards"),
             font_size=110, color=(0, 0, 0), font_src=numbers_font
         )
+        black_underneath_og = get_position_text(card_type, faction, "Resources")
+        for i in range(-2, 3):
+            print(i)
+            for j in range(-2, 3):
+                black_underneath = tuple(np.add(np.array(black_underneath_og), np.array((i, j))).tolist())
+                add_text_to_image(
+                    resulting_img, starting_resources, black_underneath,
+                    font_size=110, color=(0, 0, 0), font_src=numbers_font
+                )
+        """
+        black_underneath = tuple(np.add(np.array(black_underneath_og), np.array((-1, -2))).tolist())
+        add_text_to_image(
+            resulting_img, starting_resources, black_underneath,
+            font_size=112, color=(0, 0, 0), font_src=numbers_font
+        )
+        black_underneath = tuple(np.add(np.array(black_underneath_og), np.array((-1, 0))).tolist())
+        add_text_to_image(
+            resulting_img, starting_resources, black_underneath,
+            font_size=111, color=(0, 0, 0), font_src=numbers_font
+        )
+        black_underneath = tuple(np.add(np.array(black_underneath_og), np.array((1, -2))).tolist())
+        add_text_to_image(
+            resulting_img, starting_resources, black_underneath,
+            font_size=112, color=(0, 0, 0), font_src=numbers_font
+        )
+        black_underneath = tuple(np.add(np.array(black_underneath_og), np.array((1, 0))).tolist())
+        add_text_to_image(
+            resulting_img, starting_resources, black_underneath,
+            font_size=111, color=(0, 0, 0), font_src=numbers_font
+        )
+        """
         add_text_to_image(
             resulting_img, starting_resources, get_position_text(card_type, faction, "Resources"),
             font_size=110, color=(243, 139, 18), font_src=numbers_font
