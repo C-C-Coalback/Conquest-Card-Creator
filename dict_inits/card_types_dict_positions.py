@@ -14,7 +14,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Astra Militarum": {
             "Name": (810, 98),
@@ -30,7 +33,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1914),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Orks": {
             "Name": (810, 98),
@@ -46,7 +52,10 @@ card_types_dictionary_positions = {
             "Card Number": (1265, 1911),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 44,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Chaos": {
             "Name": (810, 98),
@@ -62,7 +71,10 @@ card_types_dictionary_positions = {
             "Card Number": (1243, 1914),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 45,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Dark Eldar": {
             "Name": (810, 103),
@@ -78,7 +90,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1926),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 2000),
+            "Disclaimer_2": (100, 2000)
         },
         "Eldar": {
             "Name": (810, 98),
@@ -94,10 +109,13 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1921),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 38,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Tau": {
-            "Name": (810, 98),
+            "Name": (810, 101),
             "Text Box": (0, 0),
             "Traits": (790, 1380),
             "Art": (0, 0),
@@ -110,7 +128,10 @@ card_types_dictionary_positions = {
             "Card Number": (1260, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 44,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1995),
+            "Disclaimer_2": (100, 1995)
         },
         "Tyranids": {
             "Name": (850, 103),
@@ -126,7 +147,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1926),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 2002),
+            "Disclaimer_2": (100, 2002)
         },
         "Necrons": {
             "Name": (810, 98),
@@ -142,7 +166,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Neutral": {
             "Name": (810, 98),
@@ -158,7 +185,10 @@ card_types_dictionary_positions = {
             "Card Number": (1265, 1926),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1995),
+            "Disclaimer_2": (100, 1995)
         },
         "Name": (810, 98),
         "Text Box": (0, 0),
@@ -173,7 +203,10 @@ card_types_dictionary_positions = {
         "Card Number": (1270, 1916),
         "Card Number Color": (255, 255, 255),
         "Card Number Size": 38,
-        "Text Length": 1100
+        "Text Length": 1100,
+        "Disclaimer Color": (255, 255, 255),
+        "Disclaimer_1": (870, 2010),
+        "Disclaimer_2": (100, 2010)
     },
     "Synapse": {
         "Tyranids": {
@@ -190,7 +223,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1926),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 1100
+            "Text Length": 1100,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Name": (810, 98),
         "Text Box": (0, 0),
@@ -205,11 +241,14 @@ card_types_dictionary_positions = {
         "Card Number": (1270, 1926),
         "Card Number Color": (255, 255, 255),
         "Card Number Size": 44,
-        "Text Length": 1100
+        "Text Length": 1100,
+        "Disclaimer Color": (255, 255, 255),
+        "Disclaimer_1": (870, 1990),
+        "Disclaimer_2": (100, 1990)
     },
     "Support": {
         "Space Marines": {
-            "Name": (110, 110),
+            "Name": (110, 115),
             "Text Box": (0, 0),
             "Traits": (740, 1370),
             "Art": (0, 0),
@@ -220,10 +259,13 @@ card_types_dictionary_positions = {
             "Card Number": (1275, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Astra Militarum": {
-            "Name": (105, 105),
+            "Name": (105, 100),
             "Text Box": (0, 0),
             "Traits": (740, 1390),
             "Art": (0, 0),
@@ -234,7 +276,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1925),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 2000),
+            "Disclaimer_2": (100, 2000)
         },
         "Orks": {
             "Name": (105, 105),
@@ -248,7 +293,10 @@ card_types_dictionary_positions = {
             "Card Number": (1260, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 44,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Chaos": {
             "Name": (105, 105),
@@ -262,7 +310,10 @@ card_types_dictionary_positions = {
             "Card Number": (1250, 1918),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 45,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Dark Eldar": {
             "Name": (105, 108),
@@ -276,7 +327,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1926),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 2000),
+            "Disclaimer_2": (100, 2000)
         },
         "Eldar": {
             "Name": (110, 110),
@@ -290,24 +344,30 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 38,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Tau": {
-            "Name": (110, 110),
+            "Name": (110, 105),
             "Text Box": (0, 0),
-            "Traits": (740, 1370),
+            "Traits": (740, 1380),
             "Art": (0, 0),
-            "Text": (64, 1466),
+            "Text": (64, 1476),
             "Cost": (150, 80),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1353, 1910),
             "Card Number": (1260, 1921),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 44,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1995),
+            "Disclaimer_2": (100, 1995)
         },
         "Tyranids": {
-            "Name": (110, 110),
+            "Name": (110, 107),
             "Text Box": (0, 0),
             "Traits": (740, 1375),
             "Art": (0, 0),
@@ -318,7 +378,10 @@ card_types_dictionary_positions = {
             "Card Number": (1263, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Necrons": {
             "Name": (108, 108),
@@ -332,7 +395,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1926),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Neutral": {
             "Name": (110, 110),
@@ -346,7 +412,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1300
+            "Text Length": 1300,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Name": (110, 110),
         "Text Box": (0, 0),
@@ -359,7 +428,10 @@ card_types_dictionary_positions = {
         "Card Number": (1270, 1916),
         "Card Number Color": (255, 255, 255),
         "Card Number Size": 38,
-        "Text Length": 1300
+        "Text Length": 1300,
+        "Disclaimer Color": (255, 255, 255),
+        "Disclaimer_1": (870, 1990),
+        "Disclaimer_2": (100, 1990)
     },
     "Attachment": {
         "Space Marines": {
@@ -375,7 +447,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1926),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1230
+            "Text Length": 1230,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 2000),
+            "Disclaimer_2": (100, 2000)
         },
         "Astra Militarum": {
             "Name": (720, 1210),
@@ -390,7 +465,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1911),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1190
+            "Text Length": 1190,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Orks": {
             "Name": (720, 1210),
@@ -405,7 +483,10 @@ card_types_dictionary_positions = {
             "Card Number": (1265, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 44,
-            "Text Length": 1230
+            "Text Length": 1230,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Chaos": {
             "Name": (720, 1220),
@@ -420,7 +501,10 @@ card_types_dictionary_positions = {
             "Card Number": (1255, 1918),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 45,
-            "Text Length": 1230
+            "Text Length": 1230,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 2000),
+            "Disclaimer_2": (100, 2000)
         },
         "Dark Eldar": {
             "Name": (720, 1230),
@@ -435,7 +519,10 @@ card_types_dictionary_positions = {
             "Card Number": (1280, 1931),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1200
+            "Text Length": 1200,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 2000),
+            "Disclaimer_2": (100, 2000)
         },
         "Eldar": {
             "Name": (720, 1210),
@@ -450,10 +537,13 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1921),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 38,
-            "Text Length": 1230
+            "Text Length": 1230,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Tau": {
-            "Name": (720, 1210),
+            "Name": (720, 1220),
             "Text Box": (0, 0),
             "Traits": (700, 1390),
             "Art": (0, 0),
@@ -465,7 +555,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 44,
-            "Text Length": 1230
+            "Text Length": 1230,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Tyranids": {
             "Name": (720, 1230),
@@ -480,7 +573,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1921),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 1230
+            "Text Length": 1230,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Necrons": {
             "Name": (720, 1210),
@@ -495,7 +591,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 1230
+            "Text Length": 1230,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Neutral": {
             "Name": (720, 1220),
@@ -510,7 +609,10 @@ card_types_dictionary_positions = {
             "Card Number": (1265, 1931),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1230
+            "Text Length": 1230,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1995),
+            "Disclaimer_2": (100, 1995)
         },
         "Name": (720, 1210),
         "Text Box": (0, 0),
@@ -524,7 +626,10 @@ card_types_dictionary_positions = {
         "Card Number": (1275, 1916),
         "Card Number Color": (255, 255, 255),
         "Card Number Size": 38,
-        "Text Length": 1230
+        "Text Length": 1230,
+        "Disclaimer Color": (255, 255, 255),
+        "Disclaimer_1": (870, 1990),
+        "Disclaimer_2": (100, 1990)
     },
     "Event": {
         "Space Marines": {
@@ -540,7 +645,10 @@ card_types_dictionary_positions = {
             "Card Number": (1275, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1330
+            "Text Length": 1330,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Astra Militarum": {
             "Name": (815, 78),
@@ -555,7 +663,10 @@ card_types_dictionary_positions = {
             "Card Number": (1275, 1922),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1330
+            "Text Length": 1330,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 2000),
+            "Disclaimer_2": (100, 2000)
         },
         "Orks": {
             "Name": (810, 68),
@@ -570,7 +681,10 @@ card_types_dictionary_positions = {
             "Card Number": (1260, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 44,
-            "Text Length": 1330
+            "Text Length": 1330,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Chaos": {
             "Name": (810, 68),
@@ -585,7 +699,10 @@ card_types_dictionary_positions = {
             "Card Number": (1250, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 45,
-            "Text Length": 1330
+            "Text Length": 1330,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Dark Eldar": {
             "Name": (810, 78),
@@ -600,7 +717,10 @@ card_types_dictionary_positions = {
             "Card Number": (1276, 1935),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1330
+            "Text Length": 1330,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 2000),
+            "Disclaimer_2": (100, 2000)
         },
         "Eldar": {
             "Name": (810, 68),
@@ -615,7 +735,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 38,
-            "Text Length": 1330
+            "Text Length": 1330,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Tau": {
             "Name": (810, 68),
@@ -630,7 +753,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1911),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 44,
-            "Text Length": 1210
+            "Text Length": 1210,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Tyranids": {
             "Name": (810, 78),
@@ -645,7 +771,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1926),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 1330
+            "Text Length": 1330,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Necrons": {
             "Name": (810, 68),
@@ -660,7 +789,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 1330
+            "Text Length": 1330,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Neutral": {
             "Name": (810, 68),
@@ -675,7 +807,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1918),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 1330
+            "Text Length": 1330,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Name": (810, 68),
         "Text Box": (0, 0),
@@ -689,7 +824,10 @@ card_types_dictionary_positions = {
         "Card Number": (1270, 1916),
         "Card Number Color": (255, 255, 255),
         "Card Number Size": 38,
-        "Text Length": 1330
+        "Text Length": 1330,
+        "Disclaimer Color": (255, 255, 255),
+        "Disclaimer_1": (870, 1990),
+        "Disclaimer_2": (100, 1990)
     },
     "Warlord": {
         "Space Marines": {
@@ -706,7 +844,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Astra Militarum": {
             "Name": (720, 95),
@@ -722,7 +863,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1921),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Orks": {
             "Name": (750, 84),
@@ -738,7 +882,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 38,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Chaos": {
             "Name": (750, 84),
@@ -754,7 +901,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Dark Eldar": {
             "Name": (750, 84),
@@ -770,7 +920,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Eldar": {
             "Name": (750, 84),
@@ -786,7 +939,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 38,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Tau": {
             "Name": (750, 84),
@@ -802,7 +958,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (0, 0, 0),
             "Card Number Size": 38,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (0, 0, 0),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Tyranids": {
             "Name": (750, 100),
@@ -819,7 +978,10 @@ card_types_dictionary_positions = {
             "Card Number": (1260, 1921),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Necrons": {
             "Name": (750, 84),
@@ -835,7 +997,10 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1916),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         },
         "Text Box": (0, 0),
         "Traits": (760, 240),
@@ -849,7 +1014,10 @@ card_types_dictionary_positions = {
         "Card Number": (1270, 1916),
         "Card Number Color": (255, 255, 255),
         "Card Number Size": 38,
-        "Text Length": 720
+        "Text Length": 720,
+        "Disclaimer Color": (255, 255, 255),
+        "Disclaimer_1": (870, 1990),
+        "Disclaimer_2": (100, 1990)
     },
     "Planet": {
         "Planet": {
@@ -865,7 +1033,10 @@ card_types_dictionary_positions = {
             "Card Number": (10, 1724),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 38,
-            "Text Length": 720
+            "Text Length": 720,
+            "Disclaimer Color": (255, 255, 255),
+            "Disclaimer_1": (870, 1990),
+            "Disclaimer_2": (100, 1990)
         }
     }
 }
