@@ -24,7 +24,7 @@ text_italics_font = "fonts/open_sans/OpenSans-Italic.ttf"
 numbers_font = "fonts/armorhide/Armorhide.otf"
 name_size = 90
 trait_size = 70
-default_text_size = 62
+default_text_size = 68
 numbers_size = 115
 
 
