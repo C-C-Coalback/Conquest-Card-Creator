@@ -335,7 +335,7 @@ card_types_dictionary_positions = {
         "Eldar": {
             "Name": (110, 110),
             "Text Box": (0, 0),
-            "Traits": (740, 1370),
+            "Traits": (740, 1390),
             "Art": (0, 0),
             "Text": (64, 1466),
             "Cost": (155, 85),
