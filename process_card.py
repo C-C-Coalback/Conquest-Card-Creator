@@ -87,6 +87,33 @@ def get_length_word(word: str, font: ImageFont.ImageFont):
     return font.getlength(word)
 
 
+def get_true_approx_length_word(word: str, font: ImageFont.ImageFont, bold_font: ImageFont.ImageFont,
+                                italics_font: ImageFont.ImageFont):
+    current_font = font
+    if word in special_text_dict:
+        if special_text_dict[word]["type"] == "Bold":
+            current_font = bold_font
+            word = special_text_dict[word]["text"]
+            try:
+                spacing = int(special_text_dict[word]["spacing"])
+            except:
+                pass
+        elif special_text_dict[word]["type"] == "Italics":
+            current_font = italics_font
+            word = special_text_dict[word]["text"]
+            italics = True
+            try:
+                spacing = int(special_text_dict[word]["spacing"])
+            except:
+                pass
+    len_word = get_length_word(word, current_font)
+    multiplier_spacing = 1.0
+    if word in icons_dict:
+        required_size = icons_dict[word]["resize"]
+        len_word = required_size[0]
+    return len_word
+
+
 def get_wrapped_text_nlfix(text: str, font: ImageFont.ImageFont, line_length: int):
     return "\n".join([get_wrapped_text(line, font, line_length) for line in text.splitlines()])
 
@@ -116,8 +143,39 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
     word_bold_font = ImageFont.truetype(font_bold, font_size)
     word_italics_font = ImageFont.truetype(font_italics, font_size * 0.8)
     length_of_current_line = 0
+    may_prevent_widow = True
+    previous_spacing = 0
     while split_text:
         no_new_lines = split_text[0].replace("\n", "")
+        prevent_widow = False
+        if may_prevent_widow:
+            total_length_words = 0
+            if len(split_text) < 4:
+                for i in range(len(split_text)):
+                    total_length_words += get_true_approx_length_word(split_text[i], font_text, word_bold_font,
+                                                                      word_italics_font)
+                    if i != len(split_text) - 1:
+                        total_length_words += 15
+            else:
+                new_line_present = False
+                stop_counting = False
+                for i in range(len(split_text)):
+                    if i < 3:
+                        if "\n" in split_text[i] and i != 0:
+                            new_line_present = True
+                            stop_counting = True
+                        if not stop_counting:
+                            total_length_words += get_true_approx_length_word(split_text[i], font_text, word_bold_font,
+                                                                              word_italics_font)
+                            if i != 2:
+                                total_length_words += 15
+                if not new_line_present:
+                    total_length_words = 0
+            if total_length_words + length_of_current_line - previous_spacing > line_length and \
+                    length_of_current_line < line_length:
+                print("preventing widow")
+                print(split_text)
+                prevent_widow = True
         comma_present = False
         period_present = False
         semi_present = False
@@ -171,9 +229,14 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         if no_new_lines in icons_dict:
             required_size = icons_dict[no_new_lines]["resize"]
             len_word = required_size[0]
-        if length_of_current_line + len_word > line_length or ("\n" in split_text[0] and length_of_current_line > 30):
+        if length_of_current_line + len_word > line_length or \
+                ("\n" in split_text[0] and length_of_current_line > 30) or prevent_widow:
+            may_prevent_widow = True
             if "\n" in split_text[0] and length_of_current_line > 30:
                 multiplier_spacing = 1.3
+            elif prevent_widow:
+                multiplier_spacing = 1.0
+                may_prevent_widow = False
             current_coords = (og_coords[0], current_coords[1] + int(font_size * multiplier_spacing))
             length_of_current_line = 0
         if non_present:
@@ -227,6 +290,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
             spacing = spacing + new_len_word
             extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
         current_coords = (current_coords[0] + len_word + spacing, current_coords[1])
+        previous_spacing = spacing
         del split_text[0]
     return input_image
 
