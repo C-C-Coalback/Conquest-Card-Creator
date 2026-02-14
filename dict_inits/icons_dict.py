@@ -79,7 +79,7 @@ icons_dict = {
     "[TECHNOLOGY]": {
         "src": "icons/Technology_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 5),
+        "initial_extra_offset": (0, 15),
         "extra_vertical_line_offset": 0,
         "resize": (60, 51)
     },
