@@ -1,7 +1,7 @@
 card_types_dictionary_positions = {
     "Army": {
         "Space Marines": {
-            "Name": (810, 98),
+            "Name": (810, 102),
             "Text Box": (0, 0),
             "Traits": (790, 1360),
             "Art": (0, 0),
@@ -60,7 +60,7 @@ card_types_dictionary_positions = {
         "Chaos": {
             "Name": (810, 98),
             "Text Box": (0, 0),
-            "Traits": (790, 1370),
+            "Traits": (790, 1368),
             "Art": (0, 0),
             "Text": (264, 1441),
             "Cost": (140, 80),
@@ -250,9 +250,9 @@ card_types_dictionary_positions = {
         "Space Marines": {
             "Name": (110, 115),
             "Text Box": (0, 0),
-            "Traits": (740, 1370),
+            "Traits": (740, 1380),
             "Art": (0, 0),
-            "Text": (64, 1466),
+            "Text": (64, 1472),
             "Cost": (160, 87),
             "Loyalty": (1313, 950),
             "Expansion Icon": (1358, 1910),
