@@ -16,9 +16,9 @@ icons_dict = {
     "[ORKS]": {
         "src": "icons/Orks_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 5),
+        "initial_extra_offset": (0, 10),
         "extra_vertical_line_offset": 0,
-        "resize": (65, 57)
+        "resize": (65, 62)
     },
     "[CHAOS]": {
         "src": "icons/Chaos_Icon.png",
