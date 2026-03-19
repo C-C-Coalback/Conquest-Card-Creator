@@ -21,6 +21,7 @@ trait_font = "fonts/Ascender Serif/AscenderSerifW01-BdIt-Regular.otf"
 text_font = "fonts/Ascender Serif/Ascender-Serif-W01-Regular.ttf"
 text_bold_font = "fonts/Ascender Serif/Ascender-Serif-W01-Bold.ttf"
 text_italics_font = "fonts/open_sans/OpenSans-Italic.ttf"
+text_italics_bold_font = "fonts/Ascender Serif/ASCENDERSERIFW01-BDIT.TTF"
 numbers_font = "fonts/armorhide/Armorhide.otf"
 name_size = 90
 trait_size = 70
@@ -123,7 +124,8 @@ def clicked():
 
 
 def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=default_text_size, color=(0, 0, 0),
-                      line_length=1080, font_bold=text_bold_font, font_italics=text_italics_font, default_spacing=15):
+                      line_length=1080, font_bold=text_bold_font, font_italics=text_italics_font, default_spacing=15,
+                      font_bold_italics=text_italics_bold_font):
     text = text.replace("[DARK ELDAR]", "[DARK_ELDAR]")
     text = text.replace("[SPACE MARINES]", "[SPACE_MARINES]")
     text = text.replace("[ASTRA MILITARUM]", "[ASTRA_MILITARUM]")
@@ -142,6 +144,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
     font_text = ImageFont.truetype(font_src, font_size)
     word_bold_font = ImageFont.truetype(font_bold, font_size)
     word_italics_font = ImageFont.truetype(font_italics, font_size * 0.8)
+    word_italics_bold_font = ImageFont.truetype(font_bold_italics, font_size)
     length_of_current_line = 0
     may_prevent_widow = True
     previous_spacing = 0
@@ -218,6 +221,14 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
                     pass
             elif special_text_dict[no_new_lines]["type"] == "Italics":
                 current_font = word_italics_font
+                no_new_lines = special_text_dict[no_new_lines]["text"]
+                italics = True
+                try:
+                    spacing = int(special_text_dict[no_new_lines]["spacing"])
+                except:
+                    pass
+            elif special_text_dict[no_new_lines]["type"] == "Bold Italics":
+                current_font = word_italics_bold_font
                 no_new_lines = special_text_dict[no_new_lines]["text"]
                 italics = True
                 try:

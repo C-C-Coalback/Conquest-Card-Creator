@@ -20,6 +20,7 @@ trait_font = "fonts/Ascender Serif/AscenderSerifW01-BdIt-Regular.otf"
 text_font = "fonts/Ascender Serif/Ascender-Serif-W01-Regular.ttf"
 text_bold_font = "fonts/Ascender Serif/Ascender-Serif-W01-Bold.ttf"
 text_italics_font = "fonts/open_sans/OpenSans-Italic.ttf"
+text_italics_bold_font = "fonts/Ascender Serif/ASCENDERSERIFW01-BDIT.TTF"
 numbers_font = "fonts/numbers/Conquestnumbers-Regular.ttf"
 name_size = 90
 trait_size = 70
