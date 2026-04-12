@@ -267,7 +267,7 @@ card_types_dictionary_positions = {
         "Astra Militarum": {
             "Name": (105, 100),
             "Text Box": (0, 0),
-            "Traits": (740, 1390),
+            "Traits": (740, 1405),
             "Art": (0, 0),
             "Text": (64, 1486),
             "Cost": (147, 95),
