@@ -138,7 +138,6 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
     drawn_image = ImageDraw.Draw(input_image)
     text = text.replace("\n", " \n")
     split_text = text.split(sep=" ")
-    split_text = [s for s in split_text if s]
     current_coords = coords
     og_coords = coords
     font_text = ImageFont.truetype(font_src, font_size)
@@ -633,28 +632,6 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                     resulting_img, starting_resources, black_underneath,
                     font_size=110, color=(0, 0, 0), font_src=numbers_font
                 )
-        """
-        black_underneath = tuple(np.add(np.array(black_underneath_og), np.array((-1, -2))).tolist())
-        add_text_to_image(
-            resulting_img, starting_resources, black_underneath,
-            font_size=112, color=(0, 0, 0), font_src=numbers_font
-        )
-        black_underneath = tuple(np.add(np.array(black_underneath_og), np.array((-1, 0))).tolist())
-        add_text_to_image(
-            resulting_img, starting_resources, black_underneath,
-            font_size=111, color=(0, 0, 0), font_src=numbers_font
-        )
-        black_underneath = tuple(np.add(np.array(black_underneath_og), np.array((1, -2))).tolist())
-        add_text_to_image(
-            resulting_img, starting_resources, black_underneath,
-            font_size=112, color=(0, 0, 0), font_src=numbers_font
-        )
-        black_underneath = tuple(np.add(np.array(black_underneath_og), np.array((1, 0))).tolist())
-        add_text_to_image(
-            resulting_img, starting_resources, black_underneath,
-            font_size=111, color=(0, 0, 0), font_src=numbers_font
-        )
-        """
         add_text_to_image(
             resulting_img, starting_resources, get_position_text(card_type, faction, "Resources"),
             font_size=110, color=(243, 139, 18), font_src=numbers_font
