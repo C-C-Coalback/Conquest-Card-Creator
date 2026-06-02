@@ -190,6 +190,12 @@ special_text_dict = {
         "text": "Hive Mind — ",
         "type": "Italics"
     },
+    "[ENTRENCHED]": {
+        "spacing": 15,
+        "initial_extra_offset": (0, -5),
+        "text": "Entrenched — ",
+        "type": "Italics"
+    },
     "[DARK_ANGELS]": {
         "spacing": 15,
         "initial_extra_offset": (0, 0),

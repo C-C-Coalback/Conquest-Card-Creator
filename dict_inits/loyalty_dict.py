@@ -137,7 +137,7 @@ text_bar_dictionary = {
         "Eldar": (-710, 1360),
         "Tau": (-710, 1360),
         "Tyranids": (-700, 1360),
-        "Necrons": (-710, 1360),
+        "Necrons": (-690, 1370),
     },
     "Army": {
         "Space Marines": (-710, 1360),

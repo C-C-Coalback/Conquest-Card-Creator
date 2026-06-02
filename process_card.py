@@ -142,7 +142,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
     og_coords = coords
     font_text = ImageFont.truetype(font_src, font_size)
     word_bold_font = ImageFont.truetype(font_bold, font_size)
-    word_italics_font = ImageFont.truetype(font_italics, font_size * 0.8)
+    word_italics_font = ImageFont.truetype(font_italics, font_size * 0.9)
     word_italics_bold_font = ImageFont.truetype(font_bold_italics, font_size)
     length_of_current_line = 0
     may_prevent_widow = True
@@ -206,6 +206,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
             no_new_lines = no_new_lines.replace("\"", "", 1)
         current_font = font_text
         len_word = 0
+        vertical_offset = 0
         spacing = default_spacing
         special_icon = False
         og_no_new_lines = no_new_lines
@@ -220,6 +221,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
                     pass
             elif special_text_dict[no_new_lines]["type"] == "Italics":
                 current_font = word_italics_font
+                vertical_offset = special_text_dict[no_new_lines]["initial_extra_offset"][1]
                 no_new_lines = special_text_dict[no_new_lines]["text"]
                 italics = True
                 try:
@@ -277,7 +279,8 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
             len_word = required_size[0]
         length_of_current_line = length_of_current_line + len_word + spacing
         if not special_icon:
-            drawn_image.text(current_coords, no_new_lines, fill=color, font=current_font)
+            adjusted_coords = (current_coords[0], current_coords[1] + vertical_offset)
+            drawn_image.text(adjusted_coords, no_new_lines, fill=color, font=current_font)
         extra_coords = (current_coords[0] + len_word, current_coords[1])
         if para_present:
             new_len_word = get_length_word(")", current_font)
@@ -511,7 +514,9 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
                            loyalty="Common", shield_value="0", bloodied=False, automated=False, auto_card_art_src="",
-                           unique=False, card_number="000", sig_squad_text="057    01/09"):
+                           unique=False, card_number="001", sig_squad_text="056    01/09"):
+    if os.path.exists("created_cards_blackstone"):
+        automated = True
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
     if bloodied and card_type == "Warlord":
         text_src = "card_srcs/" + faction + "/Warlord_Bloodied/Text.png"
