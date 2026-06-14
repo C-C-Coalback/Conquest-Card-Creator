@@ -58,7 +58,7 @@ icons_dict = {
     "[NECRONS]": {
         "src": "icons/Necrons_Icon.png",
         "spacing": "     ",
-        "initial_extra_offset": (0, 0),
+        "initial_extra_offset": (0, 10),
         "extra_vertical_line_offset": 0,
         "resize": (50, 57)
     },

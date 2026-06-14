@@ -158,7 +158,7 @@ card_types_dictionary_positions = {
             "Traits": (790, 1360),
             "Art": (0, 0),
             "Text": (264, 1431),
-            "Cost": (147, 90),
+            "Cost": (147, 80),
             "Attack": (122, 1445),
             "Health": (122, 1715),
             "Loyalty": (1313, 950),
@@ -335,7 +335,7 @@ card_types_dictionary_positions = {
         "Eldar": {
             "Name": (110, 110),
             "Text Box": (0, 0),
-            "Traits": (740, 1390),
+            "Traits": (740, 1405),
             "Art": (0, 0),
             "Text": (64, 1466),
             "Cost": (155, 85),
@@ -386,7 +386,7 @@ card_types_dictionary_positions = {
         "Necrons": {
             "Name": (108, 108),
             "Text Box": (0, 0),
-            "Traits": (740, 1380),
+            "Traits": (740, 1400),
             "Art": (0, 0),
             "Text": (64, 1476),
             "Cost": (147, 90),
@@ -527,7 +527,7 @@ card_types_dictionary_positions = {
         "Eldar": {
             "Name": (720, 1210),
             "Text Box": (0, 0),
-            "Traits": (700, 1390),
+            "Traits": (700, 1405),
             "Art": (0, 0),
             "Text": (64, 1466),
             "Cost": (172, 124),
@@ -725,7 +725,7 @@ card_types_dictionary_positions = {
         "Eldar": {
             "Name": (810, 68),
             "Text Box": (0, 0),
-            "Traits": (740, 1390),
+            "Traits": (740, 1405),
             "Art": (0, 0),
             "Text": (64, 1466),
             "Cost": (156, 82),
@@ -997,7 +997,7 @@ card_types_dictionary_positions = {
             "Card Number": (1270, 1926),
             "Card Number Color": (255, 255, 255),
             "Card Number Size": 44,
-            "Text Length": 720,
+            "Text Length": 480,
             "Disclaimer Color": (255, 255, 255),
             "Disclaimer_1": (870, 1990),
             "Disclaimer_2": (100, 1990)

@@ -597,6 +597,8 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
         x_offset = int((0.5 * get_pil_text_size(cost, numbers_size, numbers_font)[2]))
         x_pos, y_pos = get_position_text(card_type, faction, "Cost")
         x_pos = x_pos - x_offset
+        if cost == "1" and faction == "Orks" and card_type == "Army":
+            x_pos = x_pos - 7
         add_text_to_image(
             resulting_img, cost, (x_pos, y_pos),
             font_src=numbers_font, font_size=numbers_size, color=(0, 0, 0),
