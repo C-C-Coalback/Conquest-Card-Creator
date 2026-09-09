@@ -6,3 +6,4 @@
 /csv_blackstone/
 /created_cards_blackstone/
 /backups/
+*.pyc
