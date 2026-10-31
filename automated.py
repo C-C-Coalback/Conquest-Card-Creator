@@ -58,7 +58,7 @@ current_warlord_num = last_warlord_num + 1
 for filename in os.listdir(csv_dir):
     df = pd.read_csv(os.path.join(csv_dir, filename), header=None)
     df.columns = ["Faction", "Card Type", "Name", "Traits", "Text", "COST", "CMD", "ATK", "HP", "SHLD", "Loyal",
-                  "Unique", "Notes", "State of Image", "Iridial Status"]
+                  "Unique", "Notes", "State of Image", "Iridial Status", "Flavour Text"]
     df.drop("Notes", axis=1, inplace=True)
     df.drop("State of Image", axis=1, inplace=True)
     df.drop("Iridial Status", axis=1, inplace=True)
@@ -77,6 +77,9 @@ for filename in os.listdir(csv_dir):
         current_shld = str(df['SHLD'].values[current_pos])
         current_loyal = df['Loyal'].values[current_pos]
         current_unique = df['Unique'].values[current_pos]
+        flavour_text = str(df['Flavour Text'].values[current_pos])
+        if flavour_text == "nan":
+            flavour_text = None
         current_num = str(card_number)
         while len(current_num) < 3:
             current_num = "0" + current_num
@@ -158,7 +161,7 @@ for filename in os.listdir(csv_dir):
                                            loyalty=current_loyal, shield_value=current_shld, bloodied=False,
                                            automated=True,
                                            auto_card_art_src=auto_card_art_src, unique=current_unique,
-                                           card_number=current_num, sig_squad_text=sig_squad_text)
+                                           card_number=current_num, sig_squad_text=sig_squad_text, flavour_text=flavour_text)
             else:
                 process_submitted_card(current_name, current_card_type, new_text, current_faction, current_traits,
                                        output_dir,
@@ -166,7 +169,7 @@ for filename in os.listdir(csv_dir):
                                        starting_cards="7", starting_resources="7",
                                        loyalty=current_loyal, shield_value=current_shld, bloodied=False, automated=True,
                                        auto_card_art_src=auto_card_art_src, unique=current_unique,
-                                       card_number=current_num)
+                                       card_number=current_num, flavour_text=flavour_text)
         if current_name != "Rat Colony":
             card_number += 1
 

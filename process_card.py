@@ -126,7 +126,7 @@ def clicked():
 
 def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=default_text_size, color=(0, 0, 0),
                       line_length=1080, font_bold=text_bold_font, font_italics=text_italics_font, default_spacing=15,
-                      font_bold_italics=text_italics_bold_font):
+                      font_bold_italics=text_italics_bold_font, flavour_text=""):
     text = text.replace("[DARK ELDAR]", "[DARK_ELDAR]")
     text = text.replace("[SPACE MARINES]", "[SPACE_MARINES]")
     text = text.replace("[ASTRA MILITARUM]", "[ASTRA_MILITARUM]")
@@ -306,6 +306,180 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         current_coords = (current_coords[0] + len_word + spacing, current_coords[1])
         previous_spacing = spacing
         del split_text[0]
+    if flavour_text:
+        text = flavour_text.replace("\n", " \n")
+        split_text = text.split(sep=" ")
+        if current_coords[0] == og_coords[0]:
+            current_coords = (og_coords[0], current_coords[1] + int(font_size * 0.3))
+        else:
+            current_coords = (og_coords[0], current_coords[1] + int(font_size * 1.3))
+        og_coords = coords
+        font_size = font_size * 0.8
+        font_text = ImageFont.truetype(font_italics, font_size * 0.9)
+        word_bold_font = ImageFont.truetype(font_bold_italics, font_size)
+        word_italics_font = ImageFont.truetype(font_italics, font_size * 0.9)
+        word_italics_bold_font = ImageFont.truetype(font_bold_italics, font_size)
+        length_of_current_line = 0
+        may_prevent_widow = True
+        previous_spacing = 0
+        while split_text:
+            no_new_lines = split_text[0].replace("\n", "")
+            prevent_widow = False
+            if may_prevent_widow:
+                total_length_words = 0
+                if len(split_text) < 4:
+                    for i in range(len(split_text)):
+                        total_length_words += get_true_approx_length_word(split_text[i], font_text, word_bold_font,
+                                                                        word_italics_font)
+                        if i != len(split_text) - 1:
+                            total_length_words += 15
+                else:
+                    new_line_present = False
+                    stop_counting = False
+                    for i in range(len(split_text)):
+                        if i < 3:
+                            if "\n" in split_text[i] and i != 0:
+                                new_line_present = True
+                                stop_counting = True
+                            if not stop_counting:
+                                total_length_words += get_true_approx_length_word(split_text[i], font_text, word_bold_font,
+                                                                                word_italics_font)
+                                if i != 2:
+                                    total_length_words += 15
+                    if not new_line_present:
+                        total_length_words = 0
+                if total_length_words + length_of_current_line - previous_spacing > line_length and \
+                        length_of_current_line < line_length:
+                    print("preventing widow")
+                    print(split_text)
+                    prevent_widow = True
+            comma_present = False
+            period_present = False
+            semi_present = False
+            para_present = False
+            non_present = False
+            quote_start = False
+            if "," in no_new_lines:
+                comma_present = True
+            if "." in no_new_lines:
+                period_present = True
+            if ";" in no_new_lines:
+                semi_present = True
+            if ")" in no_new_lines:
+                para_present = True
+            if "non-" in no_new_lines:
+                non_present = True
+            if len(no_new_lines) > 0:
+                if no_new_lines[0] == "\"":
+                    quote_start = True
+            no_new_lines = no_new_lines.replace(",", "")
+            no_new_lines = no_new_lines.replace(".", "")
+            no_new_lines = no_new_lines.replace(";", "")
+            no_new_lines = no_new_lines.replace(")", "")
+            no_new_lines = no_new_lines.replace("non-", "")
+            if quote_start:
+                no_new_lines = no_new_lines.replace("\"", "", 1)
+            current_font = font_text
+            len_word = 0
+            vertical_offset = 0
+            spacing = default_spacing
+            special_icon = False
+            og_no_new_lines = no_new_lines
+            italics = False
+            if no_new_lines in special_text_dict:
+                if special_text_dict[no_new_lines]["type"] == "Bold":
+                    current_font = word_bold_font
+                    no_new_lines = special_text_dict[no_new_lines]["text"]
+                    try:
+                        spacing = int(special_text_dict[no_new_lines]["spacing"])
+                    except:
+                        pass
+                elif special_text_dict[no_new_lines]["type"] == "Italics":
+                    current_font = word_italics_font
+                    vertical_offset = special_text_dict[no_new_lines]["initial_extra_offset"][1]
+                    no_new_lines = special_text_dict[no_new_lines]["text"]
+                    italics = True
+                    try:
+                        spacing = int(special_text_dict[no_new_lines]["spacing"])
+                    except:
+                        pass
+                elif special_text_dict[no_new_lines]["type"] == "Bold Italics":
+                    current_font = word_italics_bold_font
+                    no_new_lines = special_text_dict[no_new_lines]["text"]
+                    italics = True
+                    try:
+                        spacing = int(special_text_dict[no_new_lines]["spacing"])
+                    except:
+                        pass
+            len_word = get_length_word(no_new_lines, current_font)
+            multiplier_spacing = 1.0
+            if no_new_lines in icons_dict:
+                required_size = icons_dict[no_new_lines]["resize"]
+                len_word = required_size[0]
+            if length_of_current_line + len_word > line_length or \
+                    ("\n" in split_text[0] and length_of_current_line > 30) or prevent_widow:
+                may_prevent_widow = True
+                if "\n" in split_text[0] and length_of_current_line > 30:
+                    multiplier_spacing = 1.3
+                elif prevent_widow:
+                    multiplier_spacing = 1.0
+                    may_prevent_widow = False
+                current_coords = (og_coords[0], current_coords[1] + int(font_size * multiplier_spacing))
+                length_of_current_line = 0
+            if non_present:
+                new_len_word = get_length_word("non-", current_font)
+                drawn_image.text(current_coords, "non-", fill=color, font=font_text)
+                current_coords = (current_coords[0] + new_len_word, current_coords[1])
+                length_of_current_line += new_len_word
+            if quote_start:
+                quote_start_text = "\""
+                if italics:
+                    quote_start_text = "\" "
+                new_len_word = get_length_word(quote_start_text, current_font)
+                drawn_image.text(current_coords, quote_start_text, fill=color, font=font_text)
+                if og_no_new_lines in special_text_dict:
+                    current_coords = (int(current_coords[0] + new_len_word * 0.7), current_coords[1])
+                else:
+                    current_coords = (current_coords[0] + new_len_word, current_coords[1])
+                length_of_current_line += new_len_word
+            if no_new_lines in icons_dict:
+                special_icon = True
+                initial_extra_offset = icons_dict[no_new_lines]["initial_extra_offset"]
+                x_pos_icon = int(current_coords[0] + initial_extra_offset[0])
+                y_pos_icon = int(current_coords[1] + initial_extra_offset[1])
+                required_size = icons_dict[no_new_lines]["resize"]
+                text_icon_img = Image.open(icons_dict[no_new_lines]["src"], 'r').convert("RGBA")
+                text_icon_img = text_icon_img.resize(required_size)
+                input_image.paste(text_icon_img, (x_pos_icon, y_pos_icon), text_icon_img)
+                len_word = required_size[0]
+            length_of_current_line = length_of_current_line + len_word + spacing
+            if not special_icon:
+                adjusted_coords = (current_coords[0], current_coords[1] + vertical_offset)
+                drawn_image.text(adjusted_coords, no_new_lines, fill=color, font=current_font)
+            extra_coords = (current_coords[0] + len_word, current_coords[1])
+            if para_present:
+                new_len_word = get_length_word(")", current_font)
+                drawn_image.text(extra_coords, ")", fill=color, font=font_text)
+                spacing = spacing + new_len_word
+                extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
+            if comma_present:
+                new_len_word = get_length_word(",", current_font)
+                drawn_image.text(extra_coords, ",", fill=color, font=font_text)
+                spacing = spacing + new_len_word
+                extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
+            if semi_present:
+                new_len_word = get_length_word(";", current_font)
+                drawn_image.text(extra_coords, ";", fill=color, font=font_text)
+                spacing = spacing + new_len_word
+                extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
+            if period_present:
+                new_len_word = get_length_word(".", current_font)
+                drawn_image.text(extra_coords, ".", fill=color, font=font_text)
+                spacing = spacing + new_len_word
+                extra_coords = (extra_coords[0] + new_len_word, current_coords[1])
+            current_coords = (current_coords[0] + len_word + spacing, current_coords[1])
+            previous_spacing = spacing
+            del split_text[0]
     return input_image
 
 
@@ -524,7 +698,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
                            attack="0", health="0", command="0", cost="0",
                            starting_cards="7", starting_resources="7",
                            loyalty="Common", shield_value="0", bloodied=False, automated=False, auto_card_art_src="",
-                           unique=False, card_number="001", sig_squad_text="056    01/09"):
+                           unique=False, card_number="001", sig_squad_text="056    01/09", flavour_text=""):
     if os.path.exists("created_cards_blackstone"):
         automated = True
     text_src = "card_srcs/" + faction + "/" + card_type + "/Text.png"
@@ -599,7 +773,7 @@ def process_submitted_card(name, card_type, text, faction, traits, output_dir,
     add_name_to_card(card_type, name_header, resulting_img, faction=faction)
     add_traits_to_card(card_type, traits, resulting_img, faction=faction)
     draw_textbox_text(resulting_img, text, get_position_text(card_type, faction, "Text"),
-                      line_length=required_line_length)
+                      line_length=required_line_length, flavour_text=flavour_text)
     deepstrike = False
     if "Deep Strike (" in text:
         deepstrike = True
