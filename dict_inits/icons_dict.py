@@ -101,61 +101,61 @@ icons_dict = {
 
 special_text_dict = {
     "[BATTLE:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Battle:",
         "type": "Bold"
     },
     "[DEPLOY_ACTION:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Deploy Action:",
         "type": "Bold"
     },
     "[COMMAND_ACTION:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Command Action:",
         "type": "Bold"
     },
     "[COMBAT_ACTION:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Combat Action:",
         "type": "Bold"
     },
     "[HEADQUARTERS_ACTION:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Headquarters Action:",
         "type": "Bold"
     },
     "[FORCED_REACTION:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Forced Reaction:",
         "type": "Bold"
     },
     "[REACTION:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Reaction:",
         "type": "Bold"
     },
     "[ACTION:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Action:",
         "type": "Bold"
     },
     "[FORCED_INTERRUPT:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Forced Interrupt:",
         "type": "Bold"
     },
     "[INTERRUPT:]": {
-        "spacing": 15,
+        "spacing": 10,
         "initial_extra_offset": (0, 0),
         "text": "Interrupt:",
         "type": "Bold"

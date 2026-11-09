@@ -8,26 +8,7 @@ import os
 import random
 import numpy as np
 import pandas as pd
-
-
-card_types = ["Warlord", "Army", "Support", "Event", "Attachment", "Synapse", "Planet"]
-factions = ["Space Marines", "Astra Militarum", "Orks", "Chaos", "Dark Eldar",
-            "Eldar", "Tau", "Necrons", "Tyranids", "Neutral"]
-loyalties = ["Common", "Loyal", "Signature"]
-shields = ["0", "1", "2", "3"]
-# (1440, 2052) card size
-name_font = "fonts/Names/Conquestnames-Regular.ttf"
-trait_font = "fonts/Ascender Serif/AscenderSerifW01-BdIt-Regular.otf"
-text_font = "fonts/Ascender Serif/Ascender-Serif-W01-Regular.ttf"
-text_bold_font = "fonts/Ascender Serif/Ascender-Serif-W01-Bold.ttf"
-text_italics_font = "fonts/open_sans/OpenSans-Italic.ttf"
-text_italics_bold_font = "fonts/Ascender Serif/ASCENDERSERIFW01-BDIT.TTF"
-numbers_font = "fonts/armorhide/Armorhide.otf"
-name_size = 90
-trait_size = 70
-default_text_size = 68
-default_planet_text_size = 68
-numbers_size = 115
+from settings import *
 
 
 def get_pil_text_size(text, font_size, font_name):
@@ -96,20 +77,10 @@ def get_true_approx_length_word(word: str, font: ImageFont.ImageFont, bold_font:
         if special_text_dict[word]["type"] == "Bold":
             current_font = bold_font
             word = special_text_dict[word]["text"]
-            try:
-                spacing = int(special_text_dict[word]["spacing"])
-            except:
-                pass
         elif special_text_dict[word]["type"] == "Italics":
             current_font = italics_font
             word = special_text_dict[word]["text"]
-            italics = True
-            try:
-                spacing = int(special_text_dict[word]["spacing"])
-            except:
-                pass
     len_word = get_length_word(word, current_font)
-    multiplier_spacing = 1.0
     if word in icons_dict:
         required_size = icons_dict[word]["resize"]
         len_word = required_size[0]
@@ -155,8 +126,7 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
             total_length_words = 0
             if len(split_text) < 4:
                 for i in range(len(split_text)):
-                    total_length_words += get_true_approx_length_word(split_text[i], font_text, word_bold_font,
-                                                                      word_italics_font)
+                    total_length_words += get_true_approx_length_word(split_text[i], font_text, word_bold_font, word_italics_font)
                     if i != len(split_text) - 1:
                         total_length_words += 15
             else:
@@ -168,14 +138,12 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
                             new_line_present = True
                             stop_counting = True
                         if not stop_counting:
-                            total_length_words += get_true_approx_length_word(split_text[i], font_text, word_bold_font,
-                                                                              word_italics_font)
+                            total_length_words += get_true_approx_length_word(split_text[i], font_text, word_bold_font, word_italics_font)
                             if i != 2:
                                 total_length_words += 15
                 if not new_line_present:
                     total_length_words = 0
-            if total_length_words + length_of_current_line - previous_spacing > line_length and \
-                    length_of_current_line < line_length:
+            if total_length_words + length_of_current_line - previous_spacing > line_length and length_of_current_line < line_length and total_length_words < 500:
                 print("preventing widow")
                 print(split_text)
                 prevent_widow = True
