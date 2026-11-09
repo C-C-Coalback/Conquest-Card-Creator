@@ -43,9 +43,6 @@ def get_true_string_for_fonts(text):
     for icon in icons_dict:
         if icon in text:
             text = text.replace(icon, icons_dict[icon]["spacing"])
-    for special_text in special_text_dict:
-        if special_text in text:
-            text = text.replace(special_text, special_text_dict[special_text]["spacing"])
     return text
 
 
@@ -73,14 +70,16 @@ def get_length_word(word: str, font: ImageFont.ImageFont):
 def get_true_approx_length_word(word: str, font: ImageFont.ImageFont, bold_font: ImageFont.ImageFont,
                                 italics_font: ImageFont.ImageFont):
     current_font = font
+    spacing = 0
     if word in special_text_dict:
+        spacing = special_text_dict[word]["spacing"]
         if special_text_dict[word]["type"] == "Bold":
             current_font = bold_font
             word = special_text_dict[word]["text"]
         elif special_text_dict[word]["type"] == "Italics":
             current_font = italics_font
             word = special_text_dict[word]["text"]
-    len_word = get_length_word(word, current_font)
+    len_word = get_length_word(word, current_font) + spacing
     if word in icons_dict:
         required_size = icons_dict[word]["resize"]
         len_word = required_size[0]
@@ -177,35 +176,27 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         len_word = 0
         vertical_offset = 0
         spacing = default_spacing
+        temp_spacing = 0
         special_icon = False
         og_no_new_lines = no_new_lines
         italics = False
         if no_new_lines in special_text_dict:
             if special_text_dict[no_new_lines]["type"] == "Bold":
                 current_font = word_bold_font
+                temp_spacing = int(special_text_dict[no_new_lines]["spacing"])
                 no_new_lines = special_text_dict[no_new_lines]["text"]
-                try:
-                    spacing = int(special_text_dict[no_new_lines]["spacing"])
-                except:
-                    pass
             elif special_text_dict[no_new_lines]["type"] == "Italics":
                 current_font = word_italics_font
                 vertical_offset = special_text_dict[no_new_lines]["initial_extra_offset"][1]
+                temp_spacing = int(special_text_dict[no_new_lines]["spacing"])
                 no_new_lines = special_text_dict[no_new_lines]["text"]
                 italics = True
-                try:
-                    spacing = int(special_text_dict[no_new_lines]["spacing"])
-                except:
-                    pass
             elif special_text_dict[no_new_lines]["type"] == "Bold Italics":
                 current_font = word_italics_bold_font
+                temp_spacing = int(special_text_dict[no_new_lines]["spacing"])
                 no_new_lines = special_text_dict[no_new_lines]["text"]
                 italics = True
-                try:
-                    spacing = int(special_text_dict[no_new_lines]["spacing"])
-                except:
-                    pass
-        len_word = get_length_word(no_new_lines, current_font)
+        len_word = get_length_word(no_new_lines, current_font) + temp_spacing
         multiplier_spacing = 1.0
         if no_new_lines in icons_dict:
             required_size = icons_dict[no_new_lines]["resize"]
