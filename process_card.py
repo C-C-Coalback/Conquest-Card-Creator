@@ -273,11 +273,11 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
         else:
             current_coords = (og_coords[0], current_coords[1] + int(font_size * 1.3))
         og_coords = coords
-        font_size = font_size * 0.8
-        font_text = ImageFont.truetype(font_italics, font_size * 0.9)
-        word_bold_font = ImageFont.truetype(font_bold_italics, font_size)
-        word_italics_font = ImageFont.truetype(font_italics, font_size * 0.9)
-        word_italics_bold_font = ImageFont.truetype(font_bold_italics, font_size)
+        font_size = default_flavour_text_size
+        font_text = ImageFont.truetype(flavour_text_font, font_size)
+        word_bold_font = ImageFont.truetype(flavour_text_font, font_size)
+        word_italics_font = ImageFont.truetype(flavour_text_font, font_size)
+        word_italics_bold_font = ImageFont.truetype(flavour_text_font, font_size)
         length_of_current_line = 0
         may_prevent_widow = True
         previous_spacing = 0
@@ -345,36 +345,8 @@ def draw_textbox_text(input_image, text, coords, font_src=text_font, font_size=d
             special_icon = False
             og_no_new_lines = no_new_lines
             italics = False
-            if no_new_lines in special_text_dict:
-                if special_text_dict[no_new_lines]["type"] == "Bold":
-                    current_font = word_bold_font
-                    no_new_lines = special_text_dict[no_new_lines]["text"]
-                    try:
-                        spacing = int(special_text_dict[no_new_lines]["spacing"])
-                    except:
-                        pass
-                elif special_text_dict[no_new_lines]["type"] == "Italics":
-                    current_font = word_italics_font
-                    vertical_offset = special_text_dict[no_new_lines]["initial_extra_offset"][1]
-                    no_new_lines = special_text_dict[no_new_lines]["text"]
-                    italics = True
-                    try:
-                        spacing = int(special_text_dict[no_new_lines]["spacing"])
-                    except:
-                        pass
-                elif special_text_dict[no_new_lines]["type"] == "Bold Italics":
-                    current_font = word_italics_bold_font
-                    no_new_lines = special_text_dict[no_new_lines]["text"]
-                    italics = True
-                    try:
-                        spacing = int(special_text_dict[no_new_lines]["spacing"])
-                    except:
-                        pass
             len_word = get_length_word(no_new_lines, current_font)
             multiplier_spacing = 1.0
-            if no_new_lines in icons_dict:
-                required_size = icons_dict[no_new_lines]["resize"]
-                len_word = required_size[0]
             if length_of_current_line + len_word > line_length or \
                     ("\n" in split_text[0] and length_of_current_line > 30) or prevent_widow:
                 may_prevent_widow = True

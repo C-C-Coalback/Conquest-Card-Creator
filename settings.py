@@ -8,6 +8,7 @@ shields = ["0", "1", "2", "3"]
 name_font = "fonts/Names/Conquestnames-Regular.ttf"
 trait_font = "fonts/Ascender Serif/AscenderSerifW01-BdIt-Regular.otf"
 text_font = "fonts/Ascender Serif/Ascender-Serif-W01-Regular.ttf"
+flavour_text_font = "fonts/Ascender Serif/Ascender-Serif-W01-Italic.ttf"
 text_bold_font = "fonts/Ascender Serif/Ascender-Serif-W01-Bold.ttf"
 text_italics_font = "fonts/open_sans/OpenSans-Italic.ttf"
 text_italics_bold_font = "fonts/Ascender Serif/ASCENDERSERIFW01-BDIT.TTF"
@@ -15,6 +16,7 @@ numbers_font = "fonts/armorhide/Armorhide.otf"
 name_size = 90
 trait_size = 70
 default_text_size = 68
+default_flavour_text_size = 56
 default_planet_text_size = 68
 numbers_size = 115
 
